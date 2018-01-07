@@ -6,6 +6,5 @@
  ## 3.panorama2cubemap 
   convert panorama image to pinhole(cubemap) images
 
-test
-  
+test  1.1 
   
