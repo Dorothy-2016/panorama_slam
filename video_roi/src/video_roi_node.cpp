@@ -33,7 +33,7 @@ return -1;
 imshow("Extracted frame",frame);
 sprintf(filename,"./frames/rgb%d.png",count++);
 imwrite(filename,frame);
-waitKey(0);
+waitKey(10);
 }
 return 0;
 }
