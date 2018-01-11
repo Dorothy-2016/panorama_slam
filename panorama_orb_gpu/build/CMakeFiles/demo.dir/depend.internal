@@ -8,7 +8,7 @@ CMakeFiles/demo.dir/src/ORBextractor.cc.o
  ../include/cuda/Cuda.hpp
  ../include/cuda/Fast.hpp
  ../include/cuda/Orb.hpp
- /home/ustc/panorama_orb_gpu/src/ORBextractor.cc
+ /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.cc
  /usr/local/cuda-8.0/include/builtin_types.h
  /usr/local/cuda-8.0/include/channel_descriptor.h
  /usr/local/cuda-8.0/include/common_functions.h
@@ -210,7 +210,7 @@ CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o
  ../include/cuda/Cuda.hpp
  ../include/cuda/Fast.hpp
  ../include/cuda/Orb.hpp
- /home/ustc/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp
+ /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp
  /usr/local/cuda-8.0/include/builtin_types.h
  /usr/local/cuda-8.0/include/channel_descriptor.h
  /usr/local/cuda-8.0/include/common_functions.h

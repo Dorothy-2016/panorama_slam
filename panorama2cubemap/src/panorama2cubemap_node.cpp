@@ -109,10 +109,10 @@ int main(int argc ,char **argv)
 //        cerr<<"usage rosrun panorama2cubemap panorama2cubemap_node image_name "<<endl;
 //    }
 
-    for (int index = 0;index <549;index++)
+    for (int index = 0;index <2800;index++)
     {
        char filename[100];
-       sprintf(filename,"./frames/rgb%d.jpg",index+1);
+       sprintf(filename,"./frames/rgb%d.png",index+1);
        Mat imgSrc  =  imread(filename);
 //    Mat imgSrc  = imread(argv[1]);
        if(imgSrc.empty())

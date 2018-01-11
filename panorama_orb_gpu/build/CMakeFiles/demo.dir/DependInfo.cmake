@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/ustc/panorama_orb_gpu/src/ORBextractor.cc" "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/ORBextractor.cc.o"
-  "/home/ustc/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp" "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.cc" "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/ORBextractor.cc.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

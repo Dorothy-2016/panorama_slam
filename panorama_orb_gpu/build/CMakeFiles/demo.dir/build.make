@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ustc/panorama_orb_gpu
+CMAKE_SOURCE_DIR = /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ustc/panorama_orb_gpu/build
+CMAKE_BINARY_DIR = /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/demo.dir/depend.make
@@ -390,9 +390,9 @@ CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o: /usr/local/inclu
 CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o: /usr/local/include/opencv2/opencv_modules.hpp
 CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o: CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o.cmake
 CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o: ../src/cuda/Allocator_gpu.cu
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o"
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Allocator_gpu.cu.o -D generated_cubin_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Allocator_gpu.cu.o.cubin.txt -P /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o"
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Allocator_gpu.cu.o -D generated_cubin_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Allocator_gpu.cu.o.cubin.txt -P /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o.cmake
 
 CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o: ../include/cuda/Cuda.hpp
 CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o: ../include/cuda/Fast.hpp
@@ -761,9 +761,9 @@ CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o: /usr/local/include/op
 CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o: /usr/local/include/opencv2/opencv_modules.hpp
 CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o: CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.cmake
 CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o: ../src/cuda/Fast_gpu.cu
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o"
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o -D generated_cubin_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o.cubin.txt -P /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o"
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o -D generated_cubin_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o.cubin.txt -P /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.cmake
 
 CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o: ../include/Utils.hpp
 CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o: ../include/cuda/Cuda.hpp
@@ -1138,9 +1138,9 @@ CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o: /usr/local/include/ope
 CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o: /usr/local/include/opencv2/opencv_modules.hpp
 CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o: CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o.cmake
 CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o: ../src/cuda/Orb_gpu.cu
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o"
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Orb_gpu.cu.o -D generated_cubin_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Orb_gpu.cu.o.cubin.txt -P /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o"
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Orb_gpu.cu.o -D generated_cubin_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Orb_gpu.cu.o.cubin.txt -P /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o.cmake
 
 CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o: ../include/cuda/Cuda.hpp
 CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o: ../src/cuda/Cuda.cu
@@ -1357,22 +1357,22 @@ CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o: /usr/local/cuda-8.0/sampl
 CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o: /usr/local/cuda-8.0/samples/common/inc/helper_string.h
 CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o: CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o.cmake
 CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o: ../src/cuda/Cuda.cu
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o"
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
-	cd /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Cuda.cu.o -D generated_cubin_file:STRING=/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Cuda.cu.o.cubin.txt -P /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building NVCC (Device) object CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o"
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -E make_directory /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING=Release -D generated_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Cuda.cu.o -D generated_cubin_file:STRING=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Cuda.cu.o.cubin.txt -P /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o.cmake
 
 CMakeFiles/demo.dir/src/ORBextractor.cc.o: CMakeFiles/demo.dir/flags.make
 CMakeFiles/demo.dir/src/ORBextractor.cc.o: ../src/ORBextractor.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/demo.dir/src/ORBextractor.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/ORBextractor.cc.o -c /home/ustc/panorama_orb_gpu/src/ORBextractor.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/demo.dir/src/ORBextractor.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/ORBextractor.cc.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.cc
 
 CMakeFiles/demo.dir/src/ORBextractor.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/ORBextractor.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/panorama_orb_gpu/src/ORBextractor.cc > CMakeFiles/demo.dir/src/ORBextractor.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.cc > CMakeFiles/demo.dir/src/ORBextractor.cc.i
 
 CMakeFiles/demo.dir/src/ORBextractor.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/ORBextractor.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/panorama_orb_gpu/src/ORBextractor.cc -o CMakeFiles/demo.dir/src/ORBextractor.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.cc -o CMakeFiles/demo.dir/src/ORBextractor.cc.s
 
 CMakeFiles/demo.dir/src/ORBextractor.cc.o.requires:
 
@@ -1387,16 +1387,16 @@ CMakeFiles/demo.dir/src/ORBextractor.cc.o.provides.build: CMakeFiles/demo.dir/sr
 
 CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o: CMakeFiles/demo.dir/flags.make
 CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o: ../src/panorama_orb_gpu_node.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o -c /home/ustc/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp
 
 CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp > CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp > CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.i
 
 CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp -o CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp -o CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.s
 
 CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o.requires:
 
@@ -1416,10 +1416,10 @@ demo_OBJECTS = \
 
 # External object files for target demo
 demo_EXTERNAL_OBJECTS = \
-"/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o" \
-"/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o" \
-"/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o" \
-"/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o"
+"/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Allocator_gpu.cu.o" \
+"/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o" \
+"/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o" \
+"/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o"
 
 demo: CMakeFiles/demo.dir/src/ORBextractor.cc.o
 demo: CMakeFiles/demo.dir/src/panorama_orb_gpu_node.cpp.o
@@ -1482,7 +1482,7 @@ demo: /usr/lib/x86_64-linux-gnu/libz.so
 demo: /usr/lib/x86_64-linux-gnu/libjpeg.so
 demo: /usr/lib/x86_64-linux-gnu/libtiff.so
 demo: CMakeFiles/demo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ustc/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable demo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -1503,6 +1503,6 @@ CMakeFiles/demo.dir/depend: CMakeFiles/demo.dir/src/cuda/demo_generated_Allocato
 CMakeFiles/demo.dir/depend: CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o
 CMakeFiles/demo.dir/depend: CMakeFiles/demo.dir/src/cuda/demo_generated_Orb_gpu.cu.o
 CMakeFiles/demo.dir/depend: CMakeFiles/demo.dir/src/cuda/demo_generated_Cuda.cu.o
-	cd /home/ustc/panorama_orb_gpu/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ustc/panorama_orb_gpu /home/ustc/panorama_orb_gpu /home/ustc/panorama_orb_gpu/build /home/ustc/panorama_orb_gpu/build /home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/demo.dir/depend
 

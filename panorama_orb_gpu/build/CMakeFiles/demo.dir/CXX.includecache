@@ -60,7 +60,7 @@ cuda_runtime.h
 cuda/Cuda.hpp
 -
 
-/home/ustc/panorama_orb_gpu/src/ORBextractor.cc
+/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.cc
 vector
 -
 opencv2/core.hpp
@@ -90,7 +90,7 @@ cuda/Orb.hpp
 Utils.hpp
 -
 
-/home/ustc/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp
+/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/panorama_orb_gpu_node.cpp
 opencv2/core/core.hpp
 -
 opencv2/highgui/highgui.hpp
@@ -106,7 +106,7 @@ iterator
 iostream
 -
 ORBextractor.h
-/home/ustc/panorama_orb_gpu/src/ORBextractor.h
+/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/ORBextractor.h
 
 /usr/local/cuda-8.0/include/builtin_types.h
 device_types.h

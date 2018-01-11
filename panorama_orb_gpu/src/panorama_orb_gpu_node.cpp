@@ -76,13 +76,13 @@ Mat CreateMask(int Height,int Width)
 
 int main(int argc,char ** argv)
 {
-  if(argc!=2)
+  if(argc!=3)
   {
       cerr<<"arg error  :"<<endl;
 
   }
 
-  int nfeatures =  1000;
+  int nfeatures =  atoi(argv[2]);
   int level = 8;
   cout<<"nfeatures : "<<nfeatures<<endl;
   cout<<"level : "<<level<<endl;

@@ -5,6 +5,7 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
+#include <fstream>
 #include <thread>
 #include "ORBextractor.h"
 #include "Thirdparty/DBoW2/DUtils/Random.h"
@@ -88,9 +89,11 @@ Mat CreateMask(int Height,int Width)
    {
      for (int j = 0;j<Width;j++)
      {
+           if(j<560||j>1360) continue;
            int pixcor = j%(Width/4) -Width/8;
            float fai = PI/4-fabs( float(pixcor)/Width*2*PI);
            float theta =  float(-i+Height/2)/Height*PI;
+
            float x = -cos(theta)*sin(fai);
            float y = -sin(theta);
            float z =  cos(theta)*cos(fai);
@@ -245,6 +248,20 @@ void Normalize(const vector<cv::KeyPoint> &vKeys, vector<cv::Point2f> &vNormaliz
     T.at<float>(1,2) = -meanY*sY;
 }
 
+void Triangulate(const cv::KeyPoint &kp1, const cv::KeyPoint &kp2, const cv::Mat &P1, const cv::Mat &P2, cv::Mat &x3D)
+{
+    cv::Mat A(4,4,CV_32F);
+
+    A.row(0) = kp1.pt.x*P1.row(2)-P1.row(0);
+    A.row(1) = kp1.pt.y*P1.row(2)-P1.row(1);
+    A.row(2) = kp2.pt.x*P2.row(2)-P2.row(0);
+    A.row(3) = kp2.pt.y*P2.row(2)-P2.row(1);
+
+    cv::Mat u,w,vt;
+    cv::SVD::compute(A,w,u,vt,cv::SVD::MODIFY_A| cv::SVD::FULL_UV);
+    x3D = vt.row(3).t();
+    x3D = x3D.rowRange(0,3)/x3D.at<float>(3);
+}
 void DecomposeE(const cv::Mat &E, cv::Mat &R1, cv::Mat &R2, cv::Mat &t)
 {
     cv::Mat u,w,vt;
@@ -361,6 +378,7 @@ float CheckEssential(std::vector<cv::KeyPoint>  vPKeys1,std::vector<cv::KeyPoint
         mkp2.at<float>(2,0) = 1.0f;
 
         Mat res = mkp1*E*mkp2 ;
+//        Mat res = mkp2.t()*E*mkp1.t();
         if(res.at<float>(0,0)>10.0) continue;
         counter++;
         sum += res.at<float>(0,0);
@@ -454,6 +472,150 @@ cv::Mat FindEssential(std::vector<cv::KeyPoint> vPKeys1,std::vector<cv::KeyPoint
 }
 
 
+int CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::KeyPoint> &vPKeys1, const vector<cv::KeyPoint> &vPKeys2,
+                       const vector<cv::DMatch> &vMatches12, vector<cv::Point3f> &vP3D, float th2, vector<bool> &vbGood, float &parallax)
+{
+//    // Calibration parameters
+//    const float fx = K.at<float>(0,0);
+//    const float fy = K.at<float>(1,1);
+//    const float cx = K.at<float>(0,2);
+//    const float cy = K.at<float>(1,2);
+    std::vector<cv::KeyPoint> vKeys1,vKeys2;
+    for (int i = 0 ;i< vPKeys1.size();i++)
+    {
+        float x ,y ;
+        Convert2PinholePoint(vPKeys1[i],x,y);
+        cv::KeyPoint newKp1;
+        newKp1.pt.x = x;newKp1.pt.y = y;
+        vKeys1.push_back(newKp1);
+
+        Convert2PinholePoint(vPKeys2[i],x,y);
+        cv::KeyPoint newKp2;
+        newKp2.pt.x = x;newKp2.pt.y = y;
+        vKeys2.push_back(newKp2);
+
+    }
+
+    vbGood = vector<bool>(vKeys1.size(),false);
+    vP3D.resize(vKeys1.size());
+
+    vector<float> vCosParallax;
+    vCosParallax.reserve(vKeys1.size());
+
+    cv::Mat K  =cv::Mat::eye(3,3,CV_32F);
+    cv::Mat P1(3,4,CV_32F,cv::Scalar(0));
+    K.copyTo(P1.rowRange(0,3).colRange(0,3));
+
+    // 第一个相机的光心在世界坐标系下的坐标
+    cv::Mat O1 = cv::Mat::zeros(3,1,CV_32F);
+
+
+    cv::Mat P2(3,4,CV_32F);
+    R.copyTo(P2.rowRange(0,3).colRange(0,3));
+    t.copyTo(P2.rowRange(0,3).col(3));
+    P2 = K*P2;
+    // 第二个相机的光心在世界坐标系下的坐标
+    cv::Mat O2 = -R.t()*t;
+
+    int nGood=0;
+
+    for(size_t i=0, iend=vMatches12.size();i<iend;i++)
+    {
+               // kp1和kp2是匹配特征点
+        const cv::KeyPoint &kp1 = vKeys1[vMatches12[i].queryIdx];
+        const cv::KeyPoint &kp2 = vKeys2[vMatches12[i].trainIdx];
+        cv::Mat p3dC1;
+
+        // 步骤3：利用三角法恢复三维点p3dC1
+        Triangulate(kp1,kp2,P1,P2,p3dC1);
+
+        if(!isfinite(p3dC1.at<float>(0)) || !isfinite(p3dC1.at<float>(1)) || !isfinite(p3dC1.at<float>(2)))
+        {
+            vbGood[vMatches12[i].queryIdx]=false;
+            continue;
+        }
+
+        // Check parallax
+        // 步骤4：计算视差角余弦值
+        cv::Mat normal1 = p3dC1 - O1;
+        float dist1 = cv::norm(normal1);
+
+        cv::Mat normal2 = p3dC1 - O2;
+        float dist2 = cv::norm(normal2);
+
+        float cosParallax = normal1.dot(normal2)/(dist1*dist2);
+
+        // 步骤5：判断3D点是否在两个摄像头前方
+
+        // Check depth in front of first camera (only if enough parallax, as "infinite" points can easily go to negative depth)
+        // 步骤5.1：3D点深度为负，在第一个摄像头后方，淘汰
+        if(p3dC1.at<float>(2)<=0 && cosParallax<0.99998)
+            continue;
+
+        // Check depth in front of second camera (only if enough parallax, as "infinite" points can easily go to negative depth)
+        // 步骤5.2：3D点深度为负，在第二个摄像头后方，淘汰
+        cv::Mat p3dC2 = R*p3dC1+t;
+
+        if(p3dC2.at<float>(2)<=0 && cosParallax<0.99998)
+            continue;
+
+        // 步骤6：计算重投影误差
+
+        // Check reprojection error in first image
+        // 计算3D点在第一个图像上的投影误差
+        float im1x, im1y;
+        float invZ1 = 1.0/p3dC1.at<float>(2);
+        im1x = p3dC1.at<float>(0)*invZ1;
+        im1y = p3dC1.at<float>(1)*invZ1;
+
+        float squareError1 = (im1x-kp1.pt.x)*(im1x-kp1.pt.x)+(im1y-kp1.pt.y)*(im1y-kp1.pt.y);
+
+        // 步骤6.1：重投影误差太大，跳过淘汰
+        // 一般视差角比较小时重投影误差比较大
+        if(squareError1>th2)
+            continue;
+
+        // Check reprojection error in second image
+        // 计算3D点在第二个图像上的投影误差
+        float im2x, im2y;
+        float invZ2 = 1.0/p3dC2.at<float>(2);
+        im2x = p3dC2.at<float>(0)*invZ2;
+        im2y = p3dC2.at<float>(1)*invZ2;
+
+        float squareError2 = (im2x-kp2.pt.x)*(im2x-kp2.pt.x)+(im2y-kp2.pt.y)*(im2y-kp2.pt.y);
+
+        // 步骤6.2：重投影误差太大，跳过淘汰
+        // 一般视差角比较小时重投影误差比较大
+        if(squareError2>th2)
+            continue;
+
+        // 步骤7：统计经过检验的3D点个数，记录3D点视差角
+        vCosParallax.push_back(cosParallax);
+        vP3D[vMatches12[i].queryIdx] = cv::Point3f(p3dC1.at<float>(0),p3dC1.at<float>(1),p3dC1.at<float>(2));
+        nGood++;
+
+        if(cosParallax<0.99998)
+            vbGood[vMatches12[i].queryIdx]=true;
+    }
+
+    cout<<"vcosparallax size : "<<vCosParallax.size()<<endl;
+    // 步骤8：得到3D点中较大的视差角
+    if(nGood>0)
+    {
+        // 从小到大排序
+        sort(vCosParallax.begin(),vCosParallax.end());
+
+        // trick! 排序后并没有取最大的视差角
+        // 取一个较大的视差角
+        size_t idx = min(20,int(vCosParallax.size()-1));
+        parallax = acos(vCosParallax[idx])*180/CV_PI;
+    }
+    else
+        parallax=0;
+
+    return nGood;
+}
+
 /**
  * @brief main  Code entrance
  * @param argc
@@ -461,22 +623,54 @@ cv::Mat FindEssential(std::vector<cv::KeyPoint> vPKeys1,std::vector<cv::KeyPoint
  * @return
  */
 
+void CreateInitialMap(std::vector<cv::Point3f> p3d,std::vector<bool>vbTriangular)
+{
+   cout<<"p3d size "<< p3d.size()<<endl;
+   cout<<"vbTriangular"<<vbTriangular.size()<<endl;
+   ofstream  fout("mappoint.txt");
+   int count =0;
+   for (int i = 0 ;i<p3d.size();i++)
+   {
+       if(vbTriangular[i])
+       {
+           fout<<p3d[i].x<<" "<<p3d[i].y<<" "<<p3d[i].z<<endl;
+           count ++ ;
+       }
+   }
+   fout.close();
+   if(count<=50)
+   {
+       cout<<"create Initial Map error ,too few Map point"<<endl;
+       cout<<"#############################################"<<endl;
+   }
+   else
+   {
+
+       cout<<"create "<<count<<" map points"<<endl;
+   }
+
+
+}
 int main(int argc,char ** argv)
 {
-  if(argc!=3)
+  if(argc!=2)
   {
       cerr<<"arg error  :"<<endl;
 
   }
 
-      int nfeatures =  1000;
+      int nfeatures =  1500;
       int level = 8;
       cout<<"nfeatures : "<<nfeatures<<endl;
       cout<<"level : "<<level<<endl;
 
-
-  Mat image = imread(argv[1]);
-  Mat image2 = imread(argv[2]);
+  int frameIdx = atoi(argv[1]);
+  char filename[100];
+  sprintf(filename,"frames/rgb%d.png",frameIdx++);
+  frameIdx = frameIdx+4;
+  Mat image = imread(filename);
+  sprintf(filename,"frames/rgb%d.png",frameIdx);
+  Mat image2 = imread(filename);
   if(image.empty()||image2.empty()){
       cerr<<"image empty"<<endl;
       return -1;
@@ -531,7 +725,7 @@ int main(int argc,char ** argv)
       cout<<"最小距离："<<nMinDis<<endl;
       for (size_t i=0;i<matches.size();i++)
       {
-          if (matches[i].distance < nMaxDis * 0.4)   //0.3为参考值，距离是指两个特征向量间的欧式距离，表明两个特征的差异，
+          if (matches[i].distance < nMaxDis * 0.35)   //0.3为参考值，距离是指两个特征向量间的欧式距离，表明两个特征的差异，
                                                       //值越小表明两个特征点越接近 。越小结果越精，但剩下的点少；越大结果
                                                       //越粗，剩下的点多
               goodmatches.push_back(matches[i]);
@@ -545,7 +739,7 @@ int main(int argc,char ** argv)
 
       std::vector<cv::Mat> vE;
       std::vector<float> vres;
-      for (int i = 0;i<10;i++)
+      for (int i = 0;i<200;i++)
       {
       float res =0;
       cv::Mat E = FindEssential(mvKeys,mvKeys2,goodmatches,res);
@@ -565,6 +759,7 @@ int main(int argc,char ** argv)
 
       cv::Mat R1 ,R2,t1;
       DecomposeE(bestE,R1,R2,t1);
+      t1  = t1/cv::norm(t1)*0.01;
       cv::Mat t2 = -t1;
 
       cout<<"R1"<<endl;
@@ -575,6 +770,48 @@ int main(int argc,char ** argv)
       cout<<t1<<endl;
       cout<<"t2"<<endl;
       cout<<t2<<endl;
+
+      vector<cv::Point3f> vP3D1, vP3D2, vP3D3, vP3D4;
+      vector<bool> vbTriangulated1,vbTriangulated2,vbTriangulated3, vbTriangulated4;
+      float parallax1=0.0,parallax2=0.0, parallax3=0.0, parallax4=0.0;
+      int Good1,Good2,Good3,Good4;
+      Good1 = CheckRT(R1,t1,mvKeys,mvKeys2,goodmatches,vP3D1,0.04,vbTriangulated1,parallax1);
+      Good2 = CheckRT(R1,t2,mvKeys,mvKeys2,goodmatches,vP3D2,0.04,vbTriangulated2,parallax2);
+      Good3 = CheckRT(R2,t1,mvKeys,mvKeys2,goodmatches,vP3D3,0.04,vbTriangulated3,parallax3);
+      Good4 = CheckRT(R2,t2,mvKeys,mvKeys2,goodmatches,vP3D4,0.04,vbTriangulated4,parallax4);
+      cout <<"R1 t1 "<<Good1<<endl;
+      cout <<"R1 t2 "<<Good2<<endl;
+      cout <<"R2 t1 "<<Good3<<endl;
+      cout <<"R2 t2 "<<Good4<<endl;
+
+
+      cout<<parallax1<<endl;
+      cout<<parallax2<<endl;
+      cout<<parallax3<<endl;
+      cout<<parallax4<<endl;
+
+
+       int nMaxGood  = 0 ;
+       if(Good1>nMaxGood) nMaxGood = Good1;
+       if(Good2>nMaxGood) nMaxGood = Good2;
+       if(Good3>nMaxGood) nMaxGood = Good3;
+       if(Good4>nMaxGood) nMaxGood = Good4;
+
+       int threshold = static_cast<int>(0.85*goodmatches.size());
+       cout<<"threshold : "<<threshold<<endl;
+       cout<<" nMaxGood "<<nMaxGood<<endl;
+
+       if(nMaxGood<threshold)
+       {
+        cout<<"initial failed"<<endl;
+        cout<<"#############################################"<<endl;
+        return -1;
+       }
+
+        if(Good1==nMaxGood) CreateInitialMap(vP3D1,vbTriangulated1);
+        if(Good2==nMaxGood) CreateInitialMap(vP3D2,vbTriangulated2);
+        if(Good3==nMaxGood) CreateInitialMap(vP3D3,vbTriangulated3);
+        if(Good4==nMaxGood) CreateInitialMap(vP3D4,vbTriangulated4);
 
 
 

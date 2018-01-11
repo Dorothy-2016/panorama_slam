@@ -56,18 +56,18 @@ endif()
 
 # Set these up as variables to make reading the generated file easier
 set(CMAKE_COMMAND "/usr/bin/cmake") # path
-set(source_file "/home/ustc/panorama_orb_gpu/src/cuda/Fast_gpu.cu") # path
-set(NVCC_generated_dependency_file "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.NVCC-depend") # path
-set(cmake_dependency_file "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.depend") # path
+set(source_file "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/src/cuda/Fast_gpu.cu") # path
+set(NVCC_generated_dependency_file "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.NVCC-depend") # path
+set(cmake_dependency_file "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/demo_generated_Fast_gpu.cu.o.depend") # path
 set(CUDA_make2cmake "/usr/share/cmake-3.5/Modules/FindCUDA/make2cmake.cmake") # path
 set(CUDA_parse_cubin "/usr/share/cmake-3.5/Modules/FindCUDA/parse_cubin.cmake") # path
 set(build_cubin OFF) # bool
 set(CUDA_HOST_COMPILER "/usr/bin/g++") # path
 # We won't actually use these variables for now, but we need to set this, in
 # order to force this file to be run again if it changes.
-set(generated_file_path "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.") # path
-set(generated_file_internal "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o") # path
-set(generated_cubin_file_internal "/home/ustc/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o.cubin.txt") # path
+set(generated_file_path "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/.") # path
+set(generated_file_internal "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o") # path
+set(generated_cubin_file_internal "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/build/CMakeFiles/demo.dir/src/cuda/./demo_generated_Fast_gpu.cu.o.cubin.txt") # path
 
 set(CUDA_NVCC_EXECUTABLE "/usr/local/cuda-8.0/bin/nvcc") # path
 set(CUDA_NVCC_FLAGS --compiler-options -fno-strict-aliasing -use_fast_math -std=c++11 ;; ) # list
@@ -77,7 +77,7 @@ set(CUDA_NVCC_FLAGS_DEBUG  ; )
 set(CUDA_NVCC_FLAGS_MINSIZEREL  ; )
 set(CUDA_NVCC_FLAGS_RELWITHDEBINFO  ; )
 set(nvcc_flags -m64;-DCOMPILEDWITHC11) # list
-set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda-8.0/samples/common/inc;-I/usr/local/cuda-8.0/include;-I/home/ustc/panorama_orb_gpu;-I/home/ustc/panorama_orb_gpu/include;-I/usr/include/eigen3;-I/home/ustc/nullmax/Pangolin/include;-I/home/ustc/nullmax/Pangolin/build/src/include;-I/usr/include;-I/usr/local/cuda-8.0/include") # list (needs to be in quotes to handle spaces properly).
+set(CUDA_NVCC_INCLUDE_ARGS "-I/usr/local/cuda-8.0/samples/common/inc;-I/usr/local/cuda-8.0/include;-I/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu;-I/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb_gpu/include;-I/usr/include/eigen3;-I/home/ustc/nullmax/Pangolin/include;-I/home/ustc/nullmax/Pangolin/build/src/include;-I/usr/include;-I/usr/local/cuda-8.0/include") # list (needs to be in quotes to handle spaces properly).
 set(format_flag "-c") # string
 set(cuda_language_flag ) # list
 

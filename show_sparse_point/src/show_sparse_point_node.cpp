@@ -30,7 +30,7 @@ int main(int argc ,char** argv)
         while(!input_file.eof())
         {
                 getline(input_file, s);
-                cout<<s.c_str()<<endl;
+              //  cout<<s.c_str()<<endl;
                 PointT p;
                 float x , y , z;
                 sscanf(s.c_str(),"%f %f %f",&x,&y,&z);
