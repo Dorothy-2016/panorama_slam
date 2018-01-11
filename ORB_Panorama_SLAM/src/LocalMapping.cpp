@@ -105,7 +105,7 @@ void LocalMapping::Run()
             }
 
             // 将当前帧加入到闭环检测队列中
-            mpLoopCloser->InsertKeyFrame(mpCurrentKeyFrame);
+           // mpLoopCloser->InsertKeyFrame(mpCurrentKeyFrame);
         }
         else if(Stop())
         {

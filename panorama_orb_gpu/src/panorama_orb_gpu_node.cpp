@@ -118,6 +118,7 @@ int main(int argc,char ** argv)
    }
 
   DrawORBKeyPoints(image,mvKeys);
+  cout<<mDescriptors<<endl;
 
 
   return -1;

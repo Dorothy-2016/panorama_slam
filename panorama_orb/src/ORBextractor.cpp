@@ -18,7 +18,7 @@ using namespace std;
 const int PATCH_SIZE = 31;
 const int HALF_PATCH_SIZE = 15;
 const int EDGE_THRESHOLD = 19;
-
+cv::Mat ORBextractor::mMask  =imread("mask.png");
 
 static float IC_Angle(const Mat& image, Point2f pt,  const vector<int> & u_max)
 {
@@ -358,6 +358,8 @@ ORBextractor::ORBextractor(int _nfeatures, float _scaleFactor, int _nlevels,
     nfeatures(_nfeatures), scaleFactor(_scaleFactor), nlevels(_nlevels),
     iniThFAST(_iniThFAST), minThFAST(_minThFAST)
 {
+
+//    if(mMask.empty())  std::cout<<"mask is empty "<<std::endl;
     mvScaleFactor.resize(nlevels);
     mvLevelSigma2.resize(nlevels);
     mvScaleFactor[0]=1.0f;
@@ -1013,17 +1015,18 @@ static void computeDescriptors(const Mat& image, vector<KeyPoint>& keypoints, Ma
 
 void ORBextractor::operator()( InputArray _image, InputArray _mask, vector<KeyPoint>& _keypoints,
                       OutputArray _descriptors)
-{ 
+{
+
+
     if(_image.empty())
         return;
-
-    Mat image = _image.getMat();
-    Mat mask = _mask.getMat();
+     Mat image = _image.getMat();
+//    Mat mask = _mask.getMat();
     assert(image.type() == CV_8UC1 );
 
     // Pre-compute the scale pyramid
     // 构建图像金字塔
-    ComputePyramid(image,mask);
+    ComputePyramid(image,mMask);
 
     // 计算每层图像的兴趣点
     vector < vector<KeyPoint> > allKeypoints; // vector<vector<KeyPoint>>

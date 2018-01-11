@@ -89,7 +89,7 @@ Mat CreateMask(int Height,int Width)
    {
      for (int j = 0;j<Width;j++)
      {
-           if(j<560||j>1360) continue;
+           if(j<50||j>650) continue;
            int pixcor = j%(Width/4) -Width/8;
            float fai = PI/4-fabs( float(pixcor)/Width*2*PI);
            float theta =  float(-i+Height/2)/Height*PI;
@@ -100,7 +100,7 @@ Mat CreateMask(int Height,int Width)
            float u = (x/z*fx+cx) ;
            float v = (y/z*fy+cy) ;
 
-
+         // tempMask.at<uchar>(i, j)= 255;
           if(u<0.0||u>600.0||v<0.0||v>600.0)
           {
               tempMask.at<uchar>(i, j)= 0;
@@ -698,8 +698,8 @@ int main(int argc,char ** argv)
       std::vector<cv::KeyPoint> mvKeys2;
       cv::Mat mDescriptors2;
 
-      (*mpORBextractor)(image,Mask,mvKeys,mDescriptors);
-      (*mpORBextractor)(image2,Mask,mvKeys2,mDescriptors2);
+      (*mpORBextractor)(image,cv::Mat(),mvKeys,mDescriptors);
+      (*mpORBextractor)(image2,cv::Mat(),mvKeys2,mDescriptors2);
 
 
       DrawORBKeyPoints(image,mvKeys);

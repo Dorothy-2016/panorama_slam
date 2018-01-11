@@ -99,6 +99,7 @@ protected:
     int nlevels;
     int iniThFAST;
     int minThFAST;
+    static cv::Mat mMask;
 
     std::vector<int> mnFeaturesPerLevel;
 

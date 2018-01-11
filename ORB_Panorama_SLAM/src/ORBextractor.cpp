@@ -74,6 +74,7 @@ namespace ORB_SLAM2
 const int PATCH_SIZE = 31;
 const int HALF_PATCH_SIZE = 15;
 const int EDGE_THRESHOLD = 19;
+cv::Mat ORBextractor::mMask = imread("mask.png");
 
 
 static float IC_Angle(const Mat& image, Point2f pt,  const vector<int> & u_max)
@@ -433,6 +434,8 @@ ORBextractor::ORBextractor(int _nfeatures, float _scaleFactor, int _nlevels,
     }
 
     mvImagePyramid.resize(nlevels);
+    mvMaskPyramid.resize(nlevels);
+
 
     mnFeaturesPerLevel.resize(nlevels);
     float factor = 1.0f / scaleFactor;
@@ -775,6 +778,14 @@ void ORBextractor::ComputeKeyPointsOctTree(vector<vector<KeyPoint> >& allKeypoin
 
     const float W = 30;
 
+    int fastThreshold = 20;
+    int fastAgastType = 2;
+
+//    Ptr<FastFeatureDetector> detector = FastFeatureDetector::create(20);
+
+    Ptr<FastFeatureDetector> fd =
+        FastFeatureDetector::create(fastThreshold, true, fastAgastType);
+
     // 对每一层图像做处理
     for (int level = 0; level < nlevels; ++level)
     {
@@ -815,14 +826,21 @@ void ORBextractor::ComputeKeyPointsOctTree(vector<vector<KeyPoint> >& allKeypoin
 
                 // FAST提取兴趣点, 自适应阈值
                 vector<cv::KeyPoint> vKeysCell;
-                FAST(mvImagePyramid[level].rowRange(iniY,maxY).colRange(iniX,maxX),
-                     vKeysCell,iniThFAST,true);
+//                FAST(mvImagePyramid[level].rowRange(iniY,maxY).colRange(iniX,maxX),
+//                     vKeysCell,iniThFAST,true);
 
-                if(vKeysCell.empty())
-                {
-                    FAST(mvImagePyramid[level].rowRange(iniY,maxY).colRange(iniX,maxX),
-                         vKeysCell,minThFAST,true);
-                }
+
+//                    detector->detect(mvImagePyramid[level].rowRange(iniY, maxY).colRange(iniX, maxX),
+//                    vKeysCell, mvMaskPyramid[level].rowRange(iniY, maxY).colRange(iniX, maxX));
+                      fd->detect(mvImagePyramid[level].rowRange(iniY, maxY).colRange(iniX, maxX),
+                      vKeysCell, mvMaskPyramid[level].rowRange(iniY, maxY).colRange(iniX, maxX));
+
+
+//                if(vKeysCell.empty())
+//                {
+//                    FAST(mvImagePyramid[level].rowRange(iniY,maxY).colRange(iniX,maxX),
+//                         vKeysCell,minThFAST,true);
+//                }
 
                 if(!vKeysCell.empty())
                 {
@@ -1061,8 +1079,7 @@ void ORBextractor::operator()( InputArray _image, InputArray _mask, vector<KeyPo
 
     // Pre-compute the scale pyramid
     // 构建图像金字塔
-    ComputePyramid(image);
-
+    ComputePyramid(image,mMask);
     // 计算每层图像的兴趣点
     vector < vector<KeyPoint> > allKeypoints; // vector<vector<KeyPoint>>
     ComputeKeyPointsOctTree(allKeypoints);
@@ -1120,8 +1137,9 @@ void ORBextractor::operator()( InputArray _image, InputArray _mask, vector<KeyPo
  * 构建图像金字塔
  * @param image 输入图像
  */
-void ORBextractor::ComputePyramid(cv::Mat image)
+void ORBextractor::ComputePyramid(cv::Mat image,cv::Mat Mask)
 {
+
     for (int level = 0; level < nlevels; ++level)
     {
         float scale = mvInvScaleFactor[level];
@@ -1130,20 +1148,39 @@ void ORBextractor::ComputePyramid(cv::Mat image)
         Mat temp(wholeSize, image.type()), masktemp;
         mvImagePyramid[level] = temp(Rect(EDGE_THRESHOLD, EDGE_THRESHOLD, sz.width, sz.height));
 
+
+        if (!Mask.empty())
+        {
+            masktemp = Mat(wholeSize, Mask.type());
+            mvMaskPyramid[level] = masktemp(Rect(EDGE_THRESHOLD, EDGE_THRESHOLD, sz.width, sz.height));
+        }
+
         // Compute the resized image
         if( level != 0 )
         {
             resize(mvImagePyramid[level-1], mvImagePyramid[level], sz, 0, 0, cv::INTER_LINEAR);
 
+            if (!Mask.empty())
+            {
+                resize(mvMaskPyramid[level - 1], mvMaskPyramid[level], sz, 0, 0, INTER_NEAREST);
+            }
             copyMakeBorder(mvImagePyramid[level], temp, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD,
-                           BORDER_REFLECT_101+BORDER_ISOLATED);            
+                           BORDER_REFLECT_101+BORDER_ISOLATED);
+            if (!Mask.empty())
+                copyMakeBorder(mvMaskPyramid[level], masktemp, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD,
+                BORDER_CONSTANT + BORDER_ISOLATED);
         }
         else
         {
             copyMakeBorder(image, temp, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD,
-                           BORDER_REFLECT_101);            
+                           BORDER_REFLECT_101);
+            if (!Mask.empty())
+                copyMakeBorder(Mask, masktemp, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD, EDGE_THRESHOLD,
+                BORDER_CONSTANT + BORDER_ISOLATED);
         }
     }
+
+
 
 }
 
