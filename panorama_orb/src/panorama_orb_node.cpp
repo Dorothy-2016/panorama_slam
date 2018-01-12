@@ -89,7 +89,7 @@ Mat CreateMask(int Height,int Width)
    {
      for (int j = 0;j<Width;j++)
      {
-           if(j<50||j>650) continue;
+           if(j<500||j>1420) continue;
            int pixcor = j%(Width/4) -Width/8;
            float fai = PI/4-fabs( float(pixcor)/Width*2*PI);
            float theta =  float(-i+Height/2)/Height*PI;
@@ -616,18 +616,14 @@ int CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::KeyPoint> &vPKe
     return nGood;
 }
 
-/**
- * @brief main  Code entrance
- * @param argc
- * @param argv
- * @return
- */
 
-void CreateInitialMap(std::vector<cv::Point3f> p3d,std::vector<bool>vbTriangular)
+void CreateInitialMap(std::vector<cv::Point3f> p3d,std::vector<bool>vbTriangular,
+                      std::vector<cv::KeyPoint> mvKeys1 ,std::vector<cv::KeyPoint> mvKeys2,std::vector<cv::DMatch> matches)
 {
    cout<<"p3d size "<< p3d.size()<<endl;
    cout<<"vbTriangular"<<vbTriangular.size()<<endl;
    ofstream  fout("mappoint.txt");
+   ofstream  corfout("keypoints.txt");
    int count =0;
    for (int i = 0 ;i<p3d.size();i++)
    {
@@ -635,9 +631,23 @@ void CreateInitialMap(std::vector<cv::Point3f> p3d,std::vector<bool>vbTriangular
        {
            fout<<p3d[i].x<<" "<<p3d[i].y<<" "<<p3d[i].z<<endl;
            count ++ ;
+           int queryIdx = i ;
+           for (int j = 0 ;j<matches.size();j++)
+           {
+              if(queryIdx == matches[i].queryIdx)
+              {
+              int trainIdx  = matches[i].trainIdx;
+              cv::Point2f kp1 =  mvKeys1[queryIdx].pt;
+              cv::Point2f kp2 =  mvKeys2[trainIdx].pt;
+               corfout<< kp1.x <<" "<<kp1.y<<" "<<kp2.x<<" "<<kp2.y<<endl;
+               break;
+              }
+
+           }
        }
    }
    fout.close();
+   corfout.close();
    if(count<=50)
    {
        cout<<"create Initial Map error ,too few Map point"<<endl;
@@ -651,6 +661,14 @@ void CreateInitialMap(std::vector<cv::Point3f> p3d,std::vector<bool>vbTriangular
 
 
 }
+
+/**
+ * @brief main  Code entrance
+ * @param argc
+ * @param argv
+ * @return
+ */
+
 int main(int argc,char ** argv)
 {
   if(argc!=2)
@@ -666,8 +684,8 @@ int main(int argc,char ** argv)
 
   int frameIdx = atoi(argv[1]);
   char filename[100];
-  sprintf(filename,"frames/rgb%d.png",frameIdx++);
-  frameIdx = frameIdx+4;
+  sprintf(filename,"frames/rgb%d.png",frameIdx);
+  frameIdx = frameIdx+5;
   Mat image = imread(filename);
   sprintf(filename,"frames/rgb%d.png",frameIdx);
   Mat image2 = imread(filename);
@@ -808,10 +826,13 @@ int main(int argc,char ** argv)
         return -1;
        }
 
-        if(Good1==nMaxGood) CreateInitialMap(vP3D1,vbTriangulated1);
-        if(Good2==nMaxGood) CreateInitialMap(vP3D2,vbTriangulated2);
-        if(Good3==nMaxGood) CreateInitialMap(vP3D3,vbTriangulated3);
-        if(Good4==nMaxGood) CreateInitialMap(vP3D4,vbTriangulated4);
+        if(Good1==nMaxGood) CreateInitialMap(vP3D1,vbTriangulated1,mvKeys,mvKeys2,matches);
+        if(Good2==nMaxGood) CreateInitialMap(vP3D2,vbTriangulated2,mvKeys,mvKeys2,matches);
+        if(Good3==nMaxGood) CreateInitialMap(vP3D3,vbTriangulated3,mvKeys,mvKeys2,matches);
+        if(Good4==nMaxGood) CreateInitialMap(vP3D4,vbTriangulated4,mvKeys,mvKeys2,matches);
+
+
+
 
 
 
