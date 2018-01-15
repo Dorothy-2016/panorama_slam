@@ -49,44 +49,44 @@ $$J_2  =  \frac{\partial {p}'}{\partial P}=\frac{\partial [{x}'\space  {y}']}{\p
 \frac{\partial {y}'}{\partial Z}
 \end{bmatrix}$$
 $$\theta = atan(\frac{Z}{X})$$
-$$\phi = -asin(\frac{Y}{\sqrt{X^2+X^2+Z^2}})$$
+$$\phi = asin(\frac{-Y}{\sqrt{X^2+X^2+Z^2}})= -asin(\frac{Y}{\sqrt{X^2+X^2+Z^2}})$$
 $${x}' = [-atan(\frac {Z}{X})+C]coefu$$
-$${y}'=[-asin(\frac{y}{\sqrt{x^2+y^2+z^2}})+D]coefv$$
+$${y}'=[asin(\frac{y}{\sqrt{x^2+y^2+z^2}})+D]coefv$$
 
 求导公式${arctan(x)}'=\frac{1}{1+x^2} $ , 
 ${arcsin(x)}'=\frac{1}{\sqrt{1-x^2}}$
 $$\frac{\partial {x}'}{\partial X}=coefu\frac{Z}{X^2+Z^2}$$
 $$\frac{\partial {x}'}{\partial Y}=0$$
 $$\frac{\partial {x}'}{\partial Z}=-coefu\frac{X}{X^2+Z^2}$$
-$$\frac{\partial {y}'}{\partial X}=coefv\frac{XY}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}$$
-$$\frac{\partial {y}'}{\partial Y}=-coefv\frac{\sqrt{X^2+Z^2}}{X^2+Y^2+Z^2}$$
-$$\frac{\partial {y}'}{\partial Z}=coefv\frac{YZ}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}$$
+$$\frac{\partial {y}'}{\partial X}=-coefv\frac{XY}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}$$
+$$\frac{\partial {y}'}{\partial Y}=coefv\frac{\sqrt{X^2+Z^2}}{X^2+Y^2+Z^2}$$
+$$\frac{\partial {y}'}{\partial Z}=-coefv\frac{YZ}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}$$
 so :
 $$J2 = \begin{bmatrix}
 coefu\frac{Z}{X^2+Z^2} &
 0& 
 -coefu\frac{X}{X^2+Z^2} \\
-coefv\frac{XY}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)} &
--coefv\frac{\sqrt{X^2+Z^2}}{X^2+Y^2+Z^2} &
-coefv\frac{YZ}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}
+-coefv\frac{XY}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)} &
+coefv\frac{\sqrt{X^2+Z^2}}{X^2+Y^2+Z^2} &
+-coefv\frac{YZ}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}
 \end{bmatrix}$$
 
 $$J3= \begin{bmatrix}
-1 &  0 & 0 & 0 & -Z & Y\\
-0 & 1 & 0 & Z & 0 & -X\\
-0 & 0 & 1 & -Y & X & 0 
+1 &  0 & 0 & 0 & Z & -Y\\
+0 & 1 & 0 & -Z & 0 & X\\
+0 & 0 & 1 & Y & -X & 0 
 \end{bmatrix}$$
-综上：
+综上： : )
 $$J = \begin{bmatrix}
 coefu\frac{Z}{X^2+Z^2} &
 0& 
 -coefu\frac{X}{X^2+Z^2} &
-coefu\frac{XY}{X^2+Z^2}&
+-coefu\frac{XY}{X^2+Z^2}&
 -coefu&
-coefu\frac{YZ}{X^2+Z^2}\\
-coefv\frac{XY}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)} &
--coefv\frac{\sqrt{X^2+Z^2}}{X^2+Y^2+Z^2} &
-coefv\frac{YZ}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}&
+-coefu\frac{YZ}{X^2+Z^2}\\
+-coefv\frac{XY}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)} &
+coefv\frac{\sqrt{X^2+Z^2}}{X^2+Y^2+Z^2} &
+-coefv\frac{YZ}{\sqrt{X^2+Z^2}(X^2+Y^2+Z^2)}&
 -coefv\frac{Z}{\sqrt{X^2+Z^2}}&
 0&
 coefv\frac{X}{\sqrt{X^2+Z^2}}
