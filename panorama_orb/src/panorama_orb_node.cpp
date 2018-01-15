@@ -662,6 +662,31 @@ void CreateInitialMap(std::vector<cv::Point3f> p3d,std::vector<bool>vbTriangular
 
 }
 
+void SaveRT(cv::Mat R,cv::Mat t)
+{
+    ofstream fout("pose.txt");
+    cout<<"save R t"<<endl;
+    cout<<"R"<<endl<<R<<endl;
+    cout<<"t"<<endl<<t<<endl;
+    for (int i =  0;i<3;i++)
+    {
+        for (int j = 0;j<3;j++)
+        {
+            fout<< R.at<float>(i,j)<<" ";
+
+        }
+        fout<<endl;
+    }
+
+    for (int i = 0;i<3;i++)
+    {
+        fout<<t.at<float>(i,0)<<" ";
+    }
+
+    fout.close();
+
+}
+
 /**
  * @brief main  Code entrance
  * @param argc
@@ -826,14 +851,26 @@ int main(int argc,char ** argv)
         return -1;
        }
 
-        if(Good1==nMaxGood) CreateInitialMap(vP3D1,vbTriangulated1,mvKeys,mvKeys2,matches);
-        if(Good2==nMaxGood) CreateInitialMap(vP3D2,vbTriangulated2,mvKeys,mvKeys2,matches);
-        if(Good3==nMaxGood) CreateInitialMap(vP3D3,vbTriangulated3,mvKeys,mvKeys2,matches);
-        if(Good4==nMaxGood) CreateInitialMap(vP3D4,vbTriangulated4,mvKeys,mvKeys2,matches);
-
-
-
-
+        if(Good1==nMaxGood)
+        {
+            CreateInitialMap(vP3D1,vbTriangulated1,mvKeys,mvKeys2,matches);
+            SaveRT(R1,t1);
+        }
+        if(Good2==nMaxGood)
+        {
+            CreateInitialMap(vP3D2,vbTriangulated2,mvKeys,mvKeys2,matches);
+            SaveRT(R1,t2);
+        }
+        if(Good3==nMaxGood)
+        {
+            CreateInitialMap(vP3D3,vbTriangulated3,mvKeys,mvKeys2,matches);
+            SaveRT(R2,t1);
+        }
+        if(Good4==nMaxGood)
+        {
+            CreateInitialMap(vP3D4,vbTriangulated4,mvKeys,mvKeys2,matches);
+            SaveRT(R2,t2);
+        }
 
 
 

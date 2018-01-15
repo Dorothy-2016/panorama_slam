@@ -28,6 +28,7 @@
 
 #include "../core/factory.h"
 #include "../stuff/macros.h"
+#include "iostream"
 
 namespace g2o {
 
@@ -115,22 +116,28 @@ void EdgeSE3ProjectXYZ_Panoramic::linearizeOplus() {
   double r2 = x*x + y*y + z*z ;
 
   Matrix<double,2,3> tmp;
-  tmp(0,0) = coefu*x/(x*x+z*z);
+  tmp(0,0) = coefu*z/(x*x+z*z);
   tmp(0,1) = 0;
   tmp(0,2) = -coefu*x/(x*x+z*z);
 
-  tmp(1,0) = coefv*x*y/(sqrt(x*x+z*z)*r2);
-  tmp(1,1) = -coefv*sqrt(x*x+z*z)/r2;
-  tmp(1,2) = coefv*y*z/(sqrt(x*x+z*z)*r2);
+  tmp(1,0) = -coefv*x*y/(sqrt(x*x+z*z)*r2);
+  tmp(1,1) = coefv*sqrt(x*x+z*z)/r2;
+  tmp(1,2) = -coefv*y*z/(sqrt(x*x+z*z)*r2);
 
   // 2*3
-  _jacobianOplusXi = tmp * T.rotation().toRotationMatrix();
+  _jacobianOplusXi = -1.0*tmp * T.rotation().toRotationMatrix();
   Matrix<double,3,6> J3;
-  J3(0,0) =  1 ; J3(0,1) =  0 ; J3(0,2) =  0 ; J3(0,3) =  0 ;  J3(0,4) = -z  ;  J3(0,5) = y;
-  J3(1,0) =  0 ; J3(1,1) =  1 ; J3(1,2) =  0 ; J3(1,3) =  z ;  J3(1,4) =  0  ;  J3(1,5) = -x;
-  J3(2,0) =  0 ; J3(2,1) =  0 ; J3(2,2) =  1 ; J3(2,3) =  -y;  J3(2,4) =  x  ;  J3(2,5) =  0;
+//  J3(0,0) =  1 ; J3(0,1) =  0 ; J3(0,2) =  0 ; J3(0,3) =  0 ;  J3(0,4) = -z  ;  J3(0,5) = y;
+//  J3(1,0) =  0 ; J3(1,1) =  1 ; J3(1,2) =  0 ; J3(1,3) =  z ;  J3(1,4) =  0  ;  J3(1,5) = -x;
+//  J3(2,0) =  0 ; J3(2,1) =  0 ; J3(2,2) =  1 ; J3(2,3) =  -y;  J3(2,4) =  x  ;  J3(2,5) =  0;
 
-   _jacobianOplusXj =  tmp*J3;
+    J3(0,0) = 0 ; J3(0,1)  = z ; J3(0,2) =  -y ; J3(0,3) =  1 ;  J3(0,4) =  0  ;  J3(0,5) =  0;
+    J3(1,0) = -z ; J3(1,1) = 0 ; J3(1,2) = x ; J3(1,3) =  0 ;  J3(1,4) =  1  ;  J3(1,5) =  0;
+    J3(2,0) = y ; J3(2,1)  = -x ; J3(2,2) =  0 ; J3(2,3) =  0 ;  J3(2,4) =  0  ;  J3(2,5) =  1;
+
+
+   _jacobianOplusXj = -1.0*tmp*J3;
+
 //  _jacobianOplusXj(0,0) =  x*y/z_2 *fx;
 //  _jacobianOplusXj(0,1) = -(1+(x*x/z_2)) *fx;
 //  _jacobianOplusXj(0,2) = y/z *fx;
@@ -161,6 +168,176 @@ Vector2d EdgeSE3ProjectXYZ_Panoramic::panoramic_project(const Vector3d & trans_x
     res[0]  =  coefx*(-theta + 3.0*Pi/2.0);
     res[1]  =  coefy*(-phi + Pi/2.0);
     return res;
+
+}
+
+
+
+
+
+
+
+
+EdgeSE3ProjectXYZ_Cubemap::EdgeSE3ProjectXYZ_Cubemap() : BaseBinaryEdge<2, Vector2d, VertexSBAPointXYZ, VertexSE3Expmap>() {
+}
+
+bool EdgeSE3ProjectXYZ_Cubemap::read(std::istream& is){
+  for (int i=0; i<2; i++){
+    is >> _measurement[i];
+  }
+  for (int i=0; i<2; i++)
+    for (int j=i; j<2; j++) {
+      is >> information()(i,j);
+      if (i!=j)
+        information()(j,i)=information()(i,j);
+    }
+  return true;
+}
+
+bool EdgeSE3ProjectXYZ_Cubemap::write(std::ostream& os) const {
+
+  for (int i=0; i<2; i++){
+    os << measurement()[i] << " ";
+  }
+
+  for (int i=0; i<2; i++)
+    for (int j=i; j<2; j++){
+      os << " " <<  information()(i,j);
+    }
+  return os.good();
+}
+
+
+
+void EdgeSE3ProjectXYZ_Cubemap::linearizeOplus() {
+  VertexSE3Expmap * vj = static_cast<VertexSE3Expmap *>(_vertices[1]);
+  SE3Quat T(vj->estimate());
+  VertexSBAPointXYZ* vi = static_cast<VertexSBAPointXYZ*>(_vertices[0]);
+  Vector3d xyz = vi->estimate();
+  Vector3d xyz_trans = T.map(xyz);
+
+  double x = xyz_trans[0];
+  double y = xyz_trans[1];
+  double z = xyz_trans[2];
+  double z_2 = z*z;
+
+  Matrix<double,2,3> tmp;
+  tmp(0,0) = fx;
+  tmp(0,1) = 0;
+  tmp(0,2) = -x/z*fx;
+
+  tmp(1,0) = 0;
+  tmp(1,1) = fy;
+  tmp(1,2) = -y/z*fy;
+
+  // 2*3
+  _jacobianOplusXi =  -1./z * tmp * T.rotation().toRotationMatrix();
+
+  // 2*6 the same as EdgeSE3ProjectXYZOnlyPose::linearizeOplus()
+  _jacobianOplusXj(0,0) =  x*y/z_2 *fx;
+  _jacobianOplusXj(0,1) = -(1+(x*x/z_2)) *fx;
+  _jacobianOplusXj(0,2) = y/z *fx;
+  _jacobianOplusXj(0,3) = -1./z *fx;
+  _jacobianOplusXj(0,4) = 0;
+  _jacobianOplusXj(0,5) = x/z_2 *fx;
+
+  _jacobianOplusXj(1,0) = (1+y*y/z_2) *fy;
+  _jacobianOplusXj(1,1) = -x*y/z_2 *fy;
+  _jacobianOplusXj(1,2) = -x/z *fy;
+  _jacobianOplusXj(1,3) = 0;
+  _jacobianOplusXj(1,4) = -1./z *fy;
+  _jacobianOplusXj(1,5) = y/z_2 *fy;
+}
+
+
+Vector2d  EdgeSE3ProjectXYZ_Cubemap::cubemap_project(const Vector3d &trans_xyz, int &direction) const{
+    double x = trans_xyz[0];
+    double y = trans_xyz[1];
+    double z = trans_xyz[2];
+
+    if(z>fabs(x))
+    {
+       direction = 0;
+       Vector2d proj = project2d(trans_xyz);
+       Vector2d res;
+       res[0] = proj[0]*fx + cx;
+       res[1] = proj[1]*fy + cy;
+       return res;
+    }
+    else if(-x>fabs(z)){
+        direction = 1;
+        Vector2d proj = project2d(Vector3d(z,y,-x));
+        Vector2d res;
+        res[0] = proj[0]*fx + cx;
+        res[1] = proj[1]*fy + cy;
+        return res;
+
+    }
+    else if(-z>fabs(x)){
+        direction = 2;
+        Vector2d proj = project2d(Vector3d(-x,y,-z));
+        Vector2d res;
+        res[0] = proj[0]*fx + cx;
+        res[1] = proj[1]*fy + cy;
+        return res;
+
+    }
+    else if(x>fabs(z)){
+        direction = 3;
+        Vector2d proj = project2d(Vector3d(-z,y,x));
+        Vector2d res;
+        res[0] = proj[0]*fx + cx;
+        res[1] = proj[1]*fy + cy;
+        return res;
+
+    }
+
+}
+
+Vector2d  EdgeSE3ProjectXYZ_Cubemap::panoramic2cubemap(Vector2d obs, int &direction) const{
+   const double Pi = 3.141592657;
+   const double coef =2.0*Pi/1920.0;
+   double u = obs[0];
+   double v = obs[1];
+
+
+   Vector2d res;
+
+   double theta = -u*coef+3.0*Pi/2.0;
+   double phi   = -v*coef+ Pi/2.0;
+   double x = cos(phi)*cos(theta);
+   double z = cos(phi)*sin(theta);
+   double y = -sin(phi);
+
+
+   if(u<240.0||u>1680.0)
+   {
+       direction = 2;
+       res[0] = x/z*fx+cx;
+       res[1] = -y/z*fy+cy;
+       return res;
+   }
+   if(u>=240.0&&u<720.0)
+   {
+       direction = 1;
+       res[0] = -z/x*fx+cx;
+       res[1] = -y/x*fy+cy;
+       return res;
+
+   }
+   if(u>=720.0&&u<1200.0){
+       direction = 0 ;
+       res[0] = x/z*fx+cx;
+       res[1] = y/z*fy+cy;
+       return res;
+   }
+   if(u>=1200.0&&u<=1680.0)
+   {
+       direction = 3;
+       res[0] = -z/x*fx+cx;
+       res[1] = y/x*fy+cy;
+       return res;
+   }
 
 }
 

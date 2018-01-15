@@ -1,4 +1,4 @@
-# Install script for directory: /home/ustc/ricoh_ws/src/panorama_slam/showCorrespondPointImage/Thirdparty/g2o
+# Install script for directory: /home/mj/ricoh_ws/src/showCorrespondPointImage/Thirdparty/g2o
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ustc/ricoh_ws/src/panorama_slam/showCorrespondPointImage/Thirdparty/g2o/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mj/ricoh_ws/src/showCorrespondPointImage/Thirdparty/g2o/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

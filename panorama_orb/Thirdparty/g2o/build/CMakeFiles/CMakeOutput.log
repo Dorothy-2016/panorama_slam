@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/3.5.1/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,33 +23,33 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/3.5.1/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5056a/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5056a.dir/build.make CMakeFiles/cmTC_5056a.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5056a.dir/testCCompiler.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_5056a.dir/testCCompiler.c.o   -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_5056a
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5056a.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_5056a.dir/testCCompiler.c.o  -o cmTC_5056a -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_e2852/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e2852.dir/build.make CMakeFiles/cmTC_e2852.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2852.dir/testCCompiler.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_e2852.dir/testCCompiler.c.o   -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_e2852
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e2852.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_e2852.dir/testCCompiler.c.o  -o cmTC_e2852 -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_71381/fast"
-/usr/bin/make -f CMakeFiles/cmTC_71381.dir/build.make CMakeFiles/cmTC_71381.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_71381
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71381.dir/link.txt --verbose=1
-/usr/bin/cc      -v CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o  -o cmTC_71381 -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_195ce/fast"
+/usr/bin/make -f CMakeFiles/cmTC_195ce.dir/build.make CMakeFiles/cmTC_195ce.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_195ce
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_195ce.dir/link.txt --verbose=1
+/usr/bin/cc      -v CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o  -o cmTC_195ce -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -59,23 +59,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71381' '-rdynamic' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBRA802.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_71381 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_195ce' '-rdynamic' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7cxdV2.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_195ce /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_71381/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_71381.dir/build.make CMakeFiles/cmTC_71381.dir/build]
-  ignore line: [make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_71381]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71381.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o  -o cmTC_71381 -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_195ce/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_195ce.dir/build.make CMakeFiles/cmTC_195ce.dir/build]
+  ignore line: [make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc     -o CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.5/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_195ce]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_195ce.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc      -v CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o  -o cmTC_195ce -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -85,13 +85,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71381' '-rdynamic' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccBRA802.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_71381 /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_195ce' '-rdynamic' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cc7cxdV2.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_195ce /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccBRA802.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cc7cxdV2.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -109,7 +109,7 @@ Parsed C implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_71381] ==> ignore
+    arg [cmTC_195ce] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -121,7 +121,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_71381.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_195ce.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--as-needed] ==> ignore
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -153,17 +153,17 @@ Parsed C implicit link information from above output:
 
 
 Detecting C [-std=c11] compiler features compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_0e1cc/fast"
-/usr/bin/make -f CMakeFiles/cmTC_0e1cc.dir/build.make CMakeFiles/cmTC_0e1cc.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0e1cc.dir/feature_tests.c.o
-/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_0e1cc.dir/feature_tests.c.o   -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_0e1cc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0e1cc.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_0e1cc.dir/feature_tests.c.o  -o cmTC_0e1cc -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_c9c7b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c9c7b.dir/build.make CMakeFiles/cmTC_c9c7b.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9c7b.dir/feature_tests.c.o
+/usr/bin/cc    -std=c11 -o CMakeFiles/cmTC_c9c7b.dir/feature_tests.c.o   -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_c9c7b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9c7b.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_c9c7b.dir/feature_tests.c.o  -o cmTC_c9c7b -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -173,17 +173,17 @@ make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/T
 
 
 Detecting C [-std=c99] compiler features compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_5fd64/fast"
-/usr/bin/make -f CMakeFiles/cmTC_5fd64.dir/build.make CMakeFiles/cmTC_5fd64.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5fd64.dir/feature_tests.c.o
-/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_5fd64.dir/feature_tests.c.o   -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_5fd64
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5fd64.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_5fd64.dir/feature_tests.c.o  -o cmTC_5fd64 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_3adf3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3adf3.dir/build.make CMakeFiles/cmTC_3adf3.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3adf3.dir/feature_tests.c.o
+/usr/bin/cc    -std=c99 -o CMakeFiles/cmTC_3adf3.dir/feature_tests.c.o   -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_3adf3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3adf3.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_3adf3.dir/feature_tests.c.o  -o cmTC_3adf3 -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -193,17 +193,17 @@ make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/T
 
 
 Detecting C [-std=c90] compiler features compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_b1721/fast"
-/usr/bin/make -f CMakeFiles/cmTC_b1721.dir/build.make CMakeFiles/cmTC_b1721.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b1721.dir/feature_tests.c.o
-/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_b1721.dir/feature_tests.c.o   -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_b1721
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b1721.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_b1721.dir/feature_tests.c.o  -o cmTC_b1721 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_4d30c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4d30c.dir/build.make CMakeFiles/cmTC_4d30c.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4d30c.dir/feature_tests.c.o
+/usr/bin/cc    -std=c90 -o CMakeFiles/cmTC_4d30c.dir/feature_tests.c.o   -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4d30c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4d30c.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_4d30c.dir/feature_tests.c.o  -o cmTC_4d30c -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -211,30 +211,30 @@ make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/T
     Feature record: C_FEATURE:0c_static_assert
     Feature record: C_FEATURE:0c_variadic_macros
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7d247/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7d247.dir/build.make CMakeFiles/cmTC_7d247.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_7d247.dir/testCXXCompiler.cxx.o
-/usr/bin/c++      -o CMakeFiles/cmTC_7d247.dir/testCXXCompiler.cxx.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_7d247
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d247.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_7d247.dir/testCXXCompiler.cxx.o  -o cmTC_7d247 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_3bd8d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3bd8d.dir/build.make CMakeFiles/cmTC_3bd8d.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_3bd8d.dir/testCXXCompiler.cxx.o
+/usr/bin/c++      -o CMakeFiles/cmTC_3bd8d.dir/testCXXCompiler.cxx.o -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_3bd8d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3bd8d.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_3bd8d.dir/testCXXCompiler.cxx.o  -o cmTC_3bd8d -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_9519c/fast"
-/usr/bin/make -f CMakeFiles/cmTC_9519c.dir/build.make CMakeFiles/cmTC_9519c.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++      -o CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_9519c
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9519c.dir/link.txt --verbose=1
-/usr/bin/c++       -v CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9519c -rdynamic  
+Run Build Command:"/usr/bin/make" "cmTC_e67ee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e67ee.dir/build.make CMakeFiles/cmTC_e67ee.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++      -o CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_e67ee
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e67ee.dir/link.txt --verbose=1
+/usr/bin/c++       -v CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e67ee -rdynamic  
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper
@@ -244,23 +244,23 @@ Thread model: posix
 gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9519c' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cce1uLOl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_9519c /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e67ee' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgMJO6s.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_e67ee /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_9519c/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_9519c.dir/build.make CMakeFiles/cmTC_9519c.dir/build]
-  ignore line: [make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_9519c]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9519c.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_9519c -rdynamic  ]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_e67ee/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_e67ee.dir/build.make CMakeFiles/cmTC_e67ee.dir/build]
+  ignore line: [make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++      -o CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.5/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_e67ee]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e67ee.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++       -v CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e67ee -rdynamic  ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper]
@@ -270,13 +270,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.5) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/5/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/5/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9519c' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/cce1uLOl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_9519c /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e67ee' '-rdynamic' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/5/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper -plugin-opt=-fresolution=/tmp/ccgMJO6s.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -z relro -o cmTC_e67ee /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o -L/usr/lib/gcc/x86_64-linux-gnu/5 -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/5/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/5/../../.. CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/5/crtend.o /usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/5/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cce1uLOl.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccgMJO6s.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -294,7 +294,7 @@ Parsed CXX implicit link information from above output:
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_9519c] ==> ignore
+    arg [cmTC_e67ee] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/5/crtbegin.o] ==> ignore
@@ -306,7 +306,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/5/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/5/../../..]
-    arg [CMakeFiles/cmTC_9519c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_e67ee.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -336,17 +336,17 @@ Parsed CXX implicit link information from above output:
 
 
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_a322d/fast"
-/usr/bin/make -f CMakeFiles/cmTC_a322d.dir/build.make CMakeFiles/cmTC_a322d.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_a322d.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_a322d.dir/feature_tests.cxx.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_a322d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a322d.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_a322d.dir/feature_tests.cxx.o  -o cmTC_a322d -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_dec99/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dec99.dir/build.make CMakeFiles/cmTC_dec99.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dec99.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++14 -o CMakeFiles/cmTC_dec99.dir/feature_tests.cxx.o -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_dec99
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dec99.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_dec99.dir/feature_tests.cxx.o  -o cmTC_dec99 -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -409,17 +409,17 @@ make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/T
 
 
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3cdb8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3cdb8.dir/build.make CMakeFiles/cmTC_3cdb8.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3cdb8.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_3cdb8.dir/feature_tests.cxx.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_3cdb8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3cdb8.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_3cdb8.dir/feature_tests.cxx.o  -o cmTC_3cdb8 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_89c41/fast"
+/usr/bin/make -f CMakeFiles/cmTC_89c41.dir/build.make CMakeFiles/cmTC_89c41.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_89c41.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++11 -o CMakeFiles/cmTC_89c41.dir/feature_tests.cxx.o -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_89c41
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_89c41.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_89c41.dir/feature_tests.cxx.o  -o cmTC_89c41 -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -482,17 +482,17 @@ make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/T
 
 
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_83316/fast"
-/usr/bin/make -f CMakeFiles/cmTC_83316.dir/build.make CMakeFiles/cmTC_83316.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_83316.dir/feature_tests.cxx.o
-/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_83316.dir/feature_tests.cxx.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_83316
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_83316.dir/link.txt --verbose=1
-/usr/bin/c++        CMakeFiles/cmTC_83316.dir/feature_tests.cxx.o  -o cmTC_83316 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_20d9a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_20d9a.dir/build.make CMakeFiles/cmTC_20d9a.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_20d9a.dir/feature_tests.cxx.o
+/usr/bin/c++     -std=c++98 -o CMakeFiles/cmTC_20d9a.dir/feature_tests.cxx.o -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_20d9a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_20d9a.dir/link.txt --verbose=1
+/usr/bin/c++        CMakeFiles/cmTC_20d9a.dir/feature_tests.cxx.o  -o cmTC_20d9a -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
     Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
@@ -553,45 +553,45 @@ make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/T
     Feature record: CXX_FEATURE:0cxx_variadic_macros
     Feature record: CXX_FEATURE:0cxx_variadic_templates
 Determining if the function sgemm_ exists passed with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3e462/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3e462.dir/build.make CMakeFiles/cmTC_3e462.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_3e462.dir/CheckFunctionExists.c.o
-/usr/bin/cc  -DBLAS_USE_F2C  -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_3e462.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_3e462
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e462.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_3e462.dir/CheckFunctionExists.c.o  -o cmTC_3e462 -rdynamic /usr/lib/libcblas.so /usr/lib/libf77blas.so /usr/lib/libatlas.so 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_cceb9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cceb9.dir/build.make CMakeFiles/cmTC_cceb9.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cceb9.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -DBLAS_USE_F2C  -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_cceb9.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cceb9
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cceb9.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_cceb9.dir/CheckFunctionExists.c.o  -o cmTC_cceb9 -rdynamic /usr/lib/libblas.so 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
 Determining if the function cheev_ exists passed with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_36adb/fast"
-/usr/bin/make -f CMakeFiles/cmTC_36adb.dir/build.make CMakeFiles/cmTC_36adb.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_36adb.dir/CheckFunctionExists.c.o
-/usr/bin/cc  -DLAPACK_USE_F2C  -DCHECK_FUNCTION_EXISTS=cheev_   -o CMakeFiles/cmTC_36adb.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_36adb
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_36adb.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_36adb.dir/CheckFunctionExists.c.o  -o cmTC_36adb -rdynamic /usr/lib/liblapack.so /usr/lib/libcblas.so /usr/lib/libf77blas.so /usr/lib/libatlas.so 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_2baf0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2baf0.dir/build.make CMakeFiles/cmTC_2baf0.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2baf0.dir/CheckFunctionExists.c.o
+/usr/bin/cc  -DLAPACK_USE_F2C  -DCHECK_FUNCTION_EXISTS=cheev_   -o CMakeFiles/cmTC_2baf0.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2baf0
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2baf0.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_2baf0.dir/CheckFunctionExists.c.o  -o cmTC_2baf0 -rdynamic /usr/lib/liblapack.so /usr/lib/libblas.so 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 
 Performing C SOURCE FILE Test OpenMP_FLAG_DETECTED succeeded with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_52ae8/fast"
-/usr/bin/make -f CMakeFiles/cmTC_52ae8.dir/build.make CMakeFiles/cmTC_52ae8.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_52ae8.dir/src.c.o
-/usr/bin/cc  -DLAPACK_USE_F2C  -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_52ae8.dir/src.c.o   -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_52ae8
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_52ae8.dir/link.txt --verbose=1
-/usr/bin/cc   -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTC_52ae8.dir/src.c.o  -o cmTC_52ae8 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_2c599/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2c599.dir/build.make CMakeFiles/cmTC_2c599.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2c599.dir/src.c.o
+/usr/bin/cc  -DLAPACK_USE_F2C  -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_2c599.dir/src.c.o   -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_2c599
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c599.dir/link.txt --verbose=1
+/usr/bin/cc   -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTC_2c599.dir/src.c.o  -o cmTC_2c599 -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 Source file was:
 
@@ -605,17 +605,17 @@ int main() {
 }
 
 Performing C++ SOURCE FILE Test OpenMP_FLAG_DETECTED succeeded with the following output:
-Change Dir: /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
+Change Dir: /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_3d011/fast"
-/usr/bin/make -f CMakeFiles/cmTC_3d011.dir/build.make CMakeFiles/cmTC_3d011.dir/build
-make[1]: Entering directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_3d011.dir/src.cxx.o
-/usr/bin/c++   -DLAPACK_USE_F2C  -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_3d011.dir/src.cxx.o -c /home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_3d011
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d011.dir/link.txt --verbose=1
-/usr/bin/c++    -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTC_3d011.dir/src.cxx.o  -o cmTC_3d011 -rdynamic 
-make[1]: Leaving directory '/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Run Build Command:"/usr/bin/make" "cmTC_24505/fast"
+/usr/bin/make -f CMakeFiles/cmTC_24505.dir/build.make CMakeFiles/cmTC_24505.dir/build
+make[1]: Entering directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_24505.dir/src.cxx.o
+/usr/bin/c++   -DLAPACK_USE_F2C  -DOpenMP_FLAG_DETECTED -fopenmp   -o CMakeFiles/cmTC_24505.dir/src.cxx.o -c /home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_24505
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_24505.dir/link.txt --verbose=1
+/usr/bin/c++    -DOpenMP_FLAG_DETECTED -fopenmp    CMakeFiles/cmTC_24505.dir/src.cxx.o  -o cmTC_24505 -rdynamic 
+make[1]: Leaving directory '/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/build/CMakeFiles/CMakeTmp'
 
 Source file was:
 
