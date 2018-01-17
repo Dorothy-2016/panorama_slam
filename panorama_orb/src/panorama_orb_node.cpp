@@ -334,7 +334,7 @@ void Convert2PinholePoint(cv::KeyPoint kp,float &x ,float &y)
     y = -tan(fai)/sin(theta);
     //z = 1.0;
 }
-float CheckEssential(std::vector<cv::KeyPoint>  vPKeys1,std::vector<cv::KeyPoint>vPKeys2,std::vector<cv::DMatch> matches ,cv::Mat E)
+float CheckEssential(std::vector<cv::KeyPoint>  vPKeys1,std::vector<cv::KeyPoint>vPKeys2,std::vector<cv::DMatch> &matches ,cv::Mat E)
 {
     //compute the 3d
     std::vector<cv::KeyPoint>  keys1 ,keys2;
@@ -378,10 +378,18 @@ float CheckEssential(std::vector<cv::KeyPoint>  vPKeys1,std::vector<cv::KeyPoint
         mkp2.at<float>(2,0) = 1.0f;
 
         Mat res = mkp1*E*mkp2 ;
+
+
+
 //        Mat res = mkp2.t()*E*mkp1.t();
-        if(res.at<float>(0,0)>10.0) continue;
+        if(fabs(res.at<float>(0,0))>0.10)   //the error is too big  remove
+        {
+             matches[i] = matches.back();
+             matches.pop_back();
+             continue;
+        }
         counter++;
-        sum += res.at<float>(0,0);
+        sum += fabs(res.at<float>(0,0));
     }
     cout<<sum/counter<<endl;
     return sum/counter;
@@ -702,7 +710,7 @@ int main(int argc,char ** argv)
 
   }
 
-      int nfeatures =  1500;
+      int nfeatures =  2000;
       int level = 8;
       cout<<"nfeatures : "<<nfeatures<<endl;
       cout<<"level : "<<level<<endl;
@@ -782,21 +790,28 @@ int main(int argc,char ** argv)
 
       std::vector<cv::Mat> vE;
       std::vector<float> vres;
+      std::vector<std::vector<cv::DMatch> > vmatches;
+
       for (int i = 0;i<200;i++)
       {
       float res =0;
-      cv::Mat E = FindEssential(mvKeys,mvKeys2,goodmatches,res);
+      std::vector<DMatch>  currentMatches ;
+      currentMatches  = goodmatches;
+      cv::Mat E = FindEssential(mvKeys,mvKeys2,currentMatches,res);
       vE.push_back(E);
       vres.push_back(res);
+      vmatches.push_back(currentMatches);
       }
       float minRes  = 100.0;
       cv::Mat bestE ;
+      std::vector<DMatch> bestMatches ;
       for (int i = 0;i<vE.size();i++)
       {
           if(vres[i]<minRes)
           {
               minRes = vres[i];
               bestE = vE[i];
+              bestMatches  =  vmatches[i];
           }
       }
 
@@ -818,10 +833,10 @@ int main(int argc,char ** argv)
       vector<bool> vbTriangulated1,vbTriangulated2,vbTriangulated3, vbTriangulated4;
       float parallax1=0.0,parallax2=0.0, parallax3=0.0, parallax4=0.0;
       int Good1,Good2,Good3,Good4;
-      Good1 = CheckRT(R1,t1,mvKeys,mvKeys2,goodmatches,vP3D1,0.04,vbTriangulated1,parallax1);
-      Good2 = CheckRT(R1,t2,mvKeys,mvKeys2,goodmatches,vP3D2,0.04,vbTriangulated2,parallax2);
-      Good3 = CheckRT(R2,t1,mvKeys,mvKeys2,goodmatches,vP3D3,0.04,vbTriangulated3,parallax3);
-      Good4 = CheckRT(R2,t2,mvKeys,mvKeys2,goodmatches,vP3D4,0.04,vbTriangulated4,parallax4);
+      Good1 = CheckRT(R1,t1,mvKeys,mvKeys2,bestMatches,vP3D1,0.04,vbTriangulated1,parallax1);
+      Good2 = CheckRT(R1,t2,mvKeys,mvKeys2,bestMatches,vP3D2,0.04,vbTriangulated2,parallax2);
+      Good3 = CheckRT(R2,t1,mvKeys,mvKeys2,bestMatches,vP3D3,0.04,vbTriangulated3,parallax3);
+      Good4 = CheckRT(R2,t2,mvKeys,mvKeys2,bestMatches,vP3D4,0.04,vbTriangulated4,parallax4);
       cout <<"R1 t1 "<<Good1<<endl;
       cout <<"R1 t2 "<<Good2<<endl;
       cout <<"R2 t1 "<<Good3<<endl;
@@ -840,7 +855,7 @@ int main(int argc,char ** argv)
        if(Good3>nMaxGood) nMaxGood = Good3;
        if(Good4>nMaxGood) nMaxGood = Good4;
 
-       int threshold = static_cast<int>(0.85*goodmatches.size());
+       int threshold = static_cast<int>(0.85*bestMatches.size());
        cout<<"threshold : "<<threshold<<endl;
        cout<<" nMaxGood "<<nMaxGood<<endl;
 

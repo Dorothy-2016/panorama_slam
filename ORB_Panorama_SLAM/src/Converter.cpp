@@ -20,7 +20,7 @@
 
 
 #include "Converter.h"
-
+#define PI 3.1415926
 namespace ORB_SLAM2
 {
 
@@ -147,6 +147,19 @@ std::vector<float> Converter::toQuaternion(const cv::Mat &M)
     v[3] = q.w();
 
     return v;
+}
+
+cv::Point2f Converter::toPinholePoint2f(const cv::Point2f pt)
+{
+    float coef  = 960.0/PI;
+    float x = pt.x ;
+    float y = pt.y ;
+    float theta = -x*coef+3.0/2.0*PI;
+    float fai = -y*coef+PI/2.0;
+    cv::Point2f ppt;
+    ppt.x = 1.0/tan(theta);
+    ppt.y = -tan(fai)/sin(theta);
+    return ppt;
 }
 
 } //namespace ORB_SLAM

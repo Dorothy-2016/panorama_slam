@@ -74,8 +74,9 @@ namespace ORB_SLAM2
 const int PATCH_SIZE = 31;
 const int HALF_PATCH_SIZE = 15;
 const int EDGE_THRESHOLD = 19;
-cv::Mat ORBextractor::mMask = imread("mask.png");
 
+cv::Mat     ORBextractor::mMaskInit = cv::imread("../mask_front.png");
+cv::Mat    ORBextractor::mMask = cv::imread("../mask.png");
 
 static float IC_Angle(const Mat& image, Point2f pt,  const vector<int> & u_max)
 {
@@ -411,10 +412,20 @@ static int bit_pattern_31_[256*4] =
 };
 
 ORBextractor::ORBextractor(int _nfeatures, float _scaleFactor, int _nlevels,
-         int _iniThFAST, int _minThFAST):
+         int _iniThFAST, int _minThFAST,bool bInit):
     nfeatures(_nfeatures), scaleFactor(_scaleFactor), nlevels(_nlevels),
-    iniThFAST(_iniThFAST), minThFAST(_minThFAST)
+    iniThFAST(_iniThFAST), minThFAST(_minThFAST),mbInit(bInit)
 {
+
+
+
+    if(mMask.empty()||mMaskInit.empty())
+    {
+        std::cout<<"Error  : Failed to read Mask image"<<std::endl;
+    }
+
+
+
     mvScaleFactor.resize(nlevels);
     mvLevelSigma2.resize(nlevels);
     mvScaleFactor[0]=1.0f;
@@ -1079,7 +1090,14 @@ void ORBextractor::operator()( InputArray _image, InputArray _mask, vector<KeyPo
 
     // Pre-compute the scale pyramid
     // 构建图像金字塔
-    ComputePyramid(image,mMask);
+
+    if(mbInit) {
+       ComputePyramid(image,mMaskInit);
+    }
+    else{
+       ComputePyramid(image,mMask);
+    }
+
     // 计算每层图像的兴趣点
     vector < vector<KeyPoint> > allKeypoints; // vector<vector<KeyPoint>>
     ComputeKeyPointsOctTree(allKeypoints);

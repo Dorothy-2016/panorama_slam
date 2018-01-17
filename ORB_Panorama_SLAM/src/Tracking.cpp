@@ -58,32 +58,23 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     mpKeyFrameDB(pKFDB), mpInitializer(static_cast<Initializer*>(NULL)), mpSystem(pSys), mpViewer(NULL),
     mpFrameDrawer(pFrameDrawer), mpMapDrawer(pMapDrawer), mpMap(pMap), mnLastRelocFrameId(0)
 {
-    // Load camera parameters from settings file
 
     cv::FileStorage fSettings(strSettingPath, cv::FileStorage::READ);
-    float fx = fSettings["Camera.fx"];
-    float fy = fSettings["Camera.fy"];
-    float cx = fSettings["Camera.cx"];
-    float cy = fSettings["Camera.cy"];
 
-    //     |fx  0   cx|
-    // K = |0   fy  cy|
-    //     |0   0   1 |
+
+
     cv::Mat K = cv::Mat::eye(3,3,CV_32F);
-    K.at<float>(0,0) = fx;
-    K.at<float>(1,1) = fy;
-    K.at<float>(0,2) = cx;
-    K.at<float>(1,2) = cy;
+    K.at<float>(0,0) = 300.0;
+    K.at<float>(1,1) = 300.0;
+    K.at<float>(0,2) = 300.0;
+    K.at<float>(1,2) = 300.0;
     K.copyTo(mK);
-
-    // 图像矫正系数
-    // [k1 k2 p1 p2 k3]
     cv::Mat DistCoef(4,1,CV_32F);
-    DistCoef.at<float>(0) = fSettings["Camera.k1"];
-    DistCoef.at<float>(1) = fSettings["Camera.k2"];
-    DistCoef.at<float>(2) = fSettings["Camera.p1"];
-    DistCoef.at<float>(3) = fSettings["Camera.p2"];
-    const float k3 = fSettings["Camera.k3"];
+    DistCoef.at<float>(0) = 0.0;
+    DistCoef.at<float>(1) = 0.0;
+    DistCoef.at<float>(2) = 0.0;
+    DistCoef.at<float>(3) = 0.0;
+    const float k3 = 0.0;
     if(k3!=0)
     {
         DistCoef.resize(5);
@@ -91,8 +82,8 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     }
     DistCoef.copyTo(mDistCoef);
 
-    // 双目摄像头baseline * fx 50
-    mbf = fSettings["Camera.bf"];
+
+    mbf = 1.0;
 
     float fps = fSettings["Camera.fps"];
     if(fps==0)
@@ -103,10 +94,10 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     mMaxFrames = fps;
 
     cout << endl << "Camera Parameters: " << endl;
-    cout << "- fx: " << fx << endl;
-    cout << "- fy: " << fy << endl;
-    cout << "- cx: " << cx << endl;
-    cout << "- cy: " << cy << endl;
+    cout << "- fx: " << 300 << endl;
+    cout << "- fy: " << 300 << endl;
+    cout << "- cx: " << 300 << endl;
+    cout << "- cy: " << 300 << endl;
     cout << "- k1: " << DistCoef.at<float>(0) << endl;
     cout << "- k2: " << DistCoef.at<float>(1) << endl;
     if(DistCoef.rows==5)
@@ -124,29 +115,18 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     else
         cout << "- color order: BGR (ignored if grayscale)" << endl;
 
-    // Load ORB parameters
 
-    // 每一帧提取的特征点数 1000
     int nFeatures = fSettings["ORBextractor.nFeatures"];
-    // 图像建立金字塔时的变化尺度 1.2
     float fScaleFactor = fSettings["ORBextractor.scaleFactor"];
-    // 尺度金字塔的层数 8
     int nLevels = fSettings["ORBextractor.nLevels"];
-    // 提取fast特征点的默认阈值 20
     int fIniThFAST = fSettings["ORBextractor.iniThFAST"];
-    // 如果默认阈值提取不出足够fast特征点，则使用最小阈值 8
     int fMinThFAST = fSettings["ORBextractor.minThFAST"];
 
-    // tracking过程都会用到mpORBextractorLeft作为特征点提取器
-    mpORBextractorLeft = new ORBextractor(nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST);
 
-    // 如果是双目，tracking过程中还会用用到mpORBextractorRight作为右目特征点提取器
-    if(sensor==System::STEREO)
-        mpORBextractorRight = new ORBextractor(nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST);
-
+    mpORBextractorLeft = new ORBextractor(nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST,false);
     // 在单目初始化的时候，会用mpIniORBextractor来作为特征点提取器
     if(sensor==System::MONOCULAR)
-        mpIniORBextractor = new ORBextractor(2*nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST);
+        mpIniORBextractor = new ORBextractor(2*nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST,true);
 
     cout << endl  << "ORB Extractor Parameters: " << endl;
     cout << "- Number of Features: " << nFeatures << endl;
@@ -154,23 +134,6 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     cout << "- Scale Factor: " << fScaleFactor << endl;
     cout << "- Initial Fast Threshold: " << fIniThFAST << endl;
     cout << "- Minimum Fast Threshold: " << fMinThFAST << endl;
-
-    if(sensor==System::STEREO || sensor==System::RGBD)
-    {
-        // 判断一个3D点远/近的阈值 mbf * 35 / fx
-        mThDepth = mbf*(float)fSettings["ThDepth"]/fx;
-        cout << endl << "Depth Threshold (Close/Far Points): " << mThDepth << endl;
-    }
-
-    if(sensor==System::RGBD)
-    {
-        // 深度相机disparity转化为depth时的因子
-        mDepthMapFactor = fSettings["DepthMapFactor"];
-        if(fabs(mDepthMapFactor)<1e-5)
-            mDepthMapFactor=1;
-        else
-            mDepthMapFactor = 1.0f/mDepthMapFactor;
-    }
 
 }
 
@@ -882,22 +845,6 @@ void Tracking::CreateInitialMapMonocular()
 
     // Bundle Adjustment
     cout << "New Map created with " << mpMap->MapPointsInMap() << " points" << endl;
-
-
-    std::vector<MapPoint*> vallmp = mpMap->GetAllMapPoints();
-    ofstream fout("orb_map.txt");
-    for(int i = 0 ;i< vallmp.size();i++)
-    {   MapPoint* mp = vallmp[i];
-        cv::Mat pos = mp->GetWorldPos();
-        float x =pos.at<float>(0,0);
-        float y =pos.at<float>(1,0);
-        float z =pos.at<float>(2,0);
-        fout<<x<<" "<<y<<" "<<z<<endl;
-    }
-    cout<<"curent frame id : " <<mCurrentFrame.mnId<<endl;
-    fout.close();
-
-
     // 步骤5：BA优化
     Optimizer::GlobalBundleAdjustemnt(mpMap,20);
 

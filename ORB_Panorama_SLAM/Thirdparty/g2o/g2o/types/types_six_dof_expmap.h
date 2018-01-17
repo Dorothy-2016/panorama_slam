@@ -42,6 +42,7 @@
 #include "types_sba.h"
 #include <Eigen/Geometry>
 #include "../core/g2o_core_api.h"
+#include <iostream>
 
 namespace g2o {
 namespace types_six_dof_expmap {
@@ -85,6 +86,119 @@ public:
   }
 };
 
+
+
+
+/**
+ * @brief MinjieLin Modified
+ *
+ */
+class G2O_CORE_API EdgeSE3ProjectXYZ_Panoramic : public  BaseBinaryEdge<2, Vector2d, VertexSBAPointXYZ, VertexSE3Expmap> {
+public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+  EdgeSE3ProjectXYZ_Panoramic();
+  bool read(std::istream& is);
+  bool write(std::ostream& os) const;
+
+  void computeError()  {
+    const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
+    const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
+    Vector2d obs(_measurement);
+    _error = obs-panoramic_project(v1->estimate().map(v2->estimate()));
+  }
+
+  float getEdgeError()
+  {
+      const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
+      const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
+      Vector2d obs(_measurement);
+      Vector2d error = obs-panoramic_project(v1->estimate().map(v2->estimate()));
+      return sqrt(error[0]*error[0]+error[1]*error[1]);
+  }
+
+  bool isDepthPositive() {
+    const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]);
+    const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]);
+    return (v1->estimate().map(v2->estimate()))(2)>0.0;
+  }
+
+  virtual void linearizeOplus();
+  Vector2d panoramic_project(const Vector3d & trans_xyz) const;
+  double fx, fy, cx, cy;
+
+};
+
+
+
+//  Minjie Modified
+
+/**
+ * @brief MinjieLin Modified
+ *
+ */
+class G2O_CORE_API EdgeSE3ProjectXYZ_Cubemap : public  BaseBinaryEdge<2, Vector2d, VertexSBAPointXYZ, VertexSE3Expmap> {
+public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+  EdgeSE3ProjectXYZ_Cubemap();
+  bool read(std::istream& is);
+  bool write(std::ostream& os) const;
+
+  void computeError()  {
+    const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
+    const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
+    Vector2d obs(_measurement);
+    int direction_measurement ,direction_projection;
+
+    Vector2d obsCube ;
+    obsCube = panoramic2cubemap(obs,direction_measurement);
+    Vector2d projection = cubemap_project(v1->estimate().map(v2->estimate()),direction_projection);
+
+    if(direction_measurement==direction_projection)
+    {
+        _error = obsCube - projection;
+    }
+    else
+    {
+
+        _error  = Vector2d(0,0);
+    }
+  }
+
+  Eigen::Vector2d getEdgeError()
+  {
+      const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
+      const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
+      Vector2d obs(_measurement);
+      int direction_measurement ,direction_projection;
+
+      Vector2d obsCube ;
+      obsCube = panoramic2cubemap(obs,direction_measurement);
+      Vector2d projection = cubemap_project(v1->estimate().map(v2->estimate()),direction_projection);
+       Vector2d error;
+      if(direction_measurement==direction_projection)
+      {
+          error = obsCube - projection;
+      }
+      else
+      {
+
+          error  = Vector2d(0,0);
+      }
+      return error;
+  }
+
+  virtual void linearizeOplus();
+  Vector2d cubemap_project(const Vector3d & trans_xyz,int & direction) const;
+  Vector2d panoramic2cubemap(Vector2d obs ,int & direction) const;
+  double fx, fy, cx, cy;
+
+};
+
+
+
+
+
+
 /**
  * @brief NOTE uesd in Optimizer::BundleAdjustment(), Optimizer::LocalBundleAdjustment()
  */
@@ -104,6 +218,8 @@ public:
   void computeError()  {
     const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
     const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
+
+
     Vector2d obs(_measurement);
     _error = obs-cam_project(v1->estimate().map(v2->estimate()));
   }

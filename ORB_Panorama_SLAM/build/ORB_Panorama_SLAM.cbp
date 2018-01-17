@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="ORB_Panorama_SLAM" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\opt\;CMake Files\..\..\..\..\opt\ros\;CMake Files\..\..\..\..\opt\ros\kinetic\;CMake Files\..\..\..\..\opt\ros\kinetic\share\;CMake Files\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.3.1\;CMake Files\..\..\Downloads\;CMake Files\..\..\Downloads\dependence\;CMake Files\..\..\Downloads\dependence\Pangolin\;CMake Files\..\..\Downloads\dependence\Pangolin\build\;CMake Files\..\..\Downloads\dependence\Pangolin\build\src\;CMake Files\cmake_modules\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="bin_vocabulary">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary/bin_vocabulary" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 bin_vocabulary" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="bin_vocabulary/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary/bin_vocabulary" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 bin_vocabulary/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rgbd_tum">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/rgbd_tum" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 rgbd_tum" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rgbd_tum/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/rgbd_tum" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 rgbd_tum/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="stereo_EuRoC">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/stereo_EuRoC" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 stereo_EuRoC" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="stereo_EuRoC/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/stereo_EuRoC" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 stereo_EuRoC/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ORB_Panorama_SLAM">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/lib/libORB_Panorama_SLAM.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 ORB_Panorama_SLAM" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ORB_Panorama_SLAM/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/lib/libORB_Panorama_SLAM.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 ORB_Panorama_SLAM/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_ricoh">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/mono_ricoh" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_ricoh" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_ricoh/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/mono_ricoh" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_ricoh/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="stereo_kitti">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/stereo_kitti" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 stereo_kitti" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="stereo_kitti/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/stereo_kitti" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 stereo_kitti/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_kitti">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/mono_kitti" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_kitti" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_kitti/fast">
+         <Option output="/home/mj/panorama_slam/ORB_Panorama_SLAM/build/mono_kitti" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/build/src/include" />
+            <Add directory="/home/mj/Downloads/dependence/Pangolin/include" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/mj/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1" />
+            <Add directory="/opt/ros/kinetic/include/opencv-3.3.1/opencv" />
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_kitti/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/mj/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_kitti.cc">
+         <Option target="mono_kitti"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_ricoh.cc">
+         <Option target="mono_ricoh"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc">
+         <Option target="rgbd_tum"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Stereo/stereo_EuRoC.cpp">
+         <Option target="stereo_EuRoC"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Stereo/stereo_kitti.cpp">
+         <Option target="stereo_kitti"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary/bin_vocabulary.cpp">
+         <Option target="bin_vocabulary"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/System.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../../../opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.3.1\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../../../opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.3.1\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../../../opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVModules.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.3.1\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../../../opt/ros/kinetic/share/OpenCV-3.3.1/OpenCVModules-none.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\opt\ros\kinetic\share\OpenCV-3.3.1\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../Downloads/dependence/Pangolin/build/src/PangolinConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\Downloads\dependence\Pangolin\build\src\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../Downloads/dependence/Pangolin/build/src/PangolinConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\Downloads\dependence\Pangolin\build\src\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/../../Downloads/dependence/Pangolin/build/src/PangolinTargets.cmake">
+          <Option virtualFolder="CMake Files\..\..\Downloads\dependence\Pangolin\build\src\" />
+      </Unit>
+      <Unit filename="/home/mj/panorama_slam/ORB_Panorama_SLAM/cmake_modules/FindEigen3.cmake">
+          <Option virtualFolder="CMake Files\cmake_modules\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

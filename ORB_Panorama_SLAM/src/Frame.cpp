@@ -206,7 +206,9 @@ Frame::Frame(const cv::Mat &imGray, const double &timeStamp, ORBextractor* extra
         return;
 
     // 调用OpenCV的矫正函数矫正orb提取的特征点
-    UndistortKeyPoints();
+//    UndistortKeyPoints();
+    UndistortKedPointsPanoramic();
+
 
     // Set no stereo information
     mvuRight = vector<float>(N,-1);
@@ -458,6 +460,14 @@ void Frame::ComputeBoW()
     }
 }
 
+
+void Frame::UndistortKedPointsPanoramic()
+{
+        mvKeysUn=mvKeys;
+        return;
+}
+
+
 // 调用OpenCV的矫正函数矫正orb提取的特征点
 void Frame::UndistortKeyPoints()
 {
@@ -497,36 +507,10 @@ void Frame::UndistortKeyPoints()
 
 void Frame::ComputeImageBounds(const cv::Mat &imLeft)
 {
-    if(mDistCoef.at<float>(0)!=0.0)
-    {
-        // 矫正前四个边界点：(0,0) (cols,0) (0,rows) (cols,rows)
-        cv::Mat mat(4,2,CV_32F);
-        mat.at<float>(0,0)=0.0;         //左上
-		mat.at<float>(0,1)=0.0;
-        mat.at<float>(1,0)=imLeft.cols; //右上
-		mat.at<float>(1,1)=0.0;
-		mat.at<float>(2,0)=0.0;         //左下
-		mat.at<float>(2,1)=imLeft.rows;
-        mat.at<float>(3,0)=imLeft.cols; //右下
-		mat.at<float>(3,1)=imLeft.rows;
-
-        // Undistort corners
-        mat=mat.reshape(2);
-        cv::undistortPoints(mat,mat,mK,mDistCoef,cv::Mat(),mK);
-        mat=mat.reshape(1);
-
-        mnMinX = min(mat.at<float>(0,0),mat.at<float>(2,0));//左上和左下横坐标最小的
-        mnMaxX = max(mat.at<float>(1,0),mat.at<float>(3,0));//右上和右下横坐标最大的
-        mnMinY = min(mat.at<float>(0,1),mat.at<float>(1,1));//左上和右上纵坐标最小的
-        mnMaxY = max(mat.at<float>(2,1),mat.at<float>(3,1));//左下和右下纵坐标最小的
-    }
-    else
-    {
         mnMinX = 0.0f;
         mnMaxX = imLeft.cols;
         mnMinY = 0.0f;
         mnMaxY = imLeft.rows;
-    }
 }
 
 /**

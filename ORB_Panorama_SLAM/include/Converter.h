@@ -75,6 +75,13 @@ public:
     static Eigen::Matrix<double,3,3> toMatrix3d(const cv::Mat &cvMat3);
     static std::vector<float> toQuaternion(const cv::Mat &M);
     ///@}
+    ///
+
+   /**
+     *@name toPoint2f
+     */
+     static cv::Point2f  toPinholePoint2f(const cv::Point2f pt);
+
 };
 
 }// namespace ORB_SLAM

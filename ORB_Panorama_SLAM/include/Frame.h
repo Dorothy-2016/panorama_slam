@@ -216,6 +216,8 @@ private:
     // (called in the constructor).
     void UndistortKeyPoints();
 
+    void UndistortKedPointsPanoramic();
+
     // Computes image bounds for the undistorted image (called in the constructor).
     void ComputeImageBounds(const cv::Mat &imLeft);
 

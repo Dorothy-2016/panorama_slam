@@ -24,6 +24,7 @@
 
 #include "Optimizer.h"
 #include "ORBmatcher.h"
+#include  "Converter.h"
 
 #include<thread>
 
@@ -130,26 +131,29 @@ bool Initializer::Initialize(const Frame &CurrentFrame, const vector<int> &vMatc
 
     // ref是引用的功能:http://en.cppreference.com/w/cpp/utility/functional/ref
     // 计算homograpy并打分
-    thread threadH(&Initializer::FindHomography,this,ref(vbMatchesInliersH), ref(SH), ref(H));
+//    thread threadH(&Initializer::FindHomography,this,ref(vbMatchesInliersH), ref(SH), ref(H));
     // 计算fundamental matrix并打分
     thread threadF(&Initializer::FindFundamental,this,ref(vbMatchesInliersF), ref(SF), ref(F));
 
     // Wait until both threads have finished
-    threadH.join();
+//    threadH.join();
     threadF.join();
 
     // Compute ratio of scores
     // 步骤4：计算得分比例，选取某个模型
-    float RH = SH/(SH+SF);
+//    float RH = SH/(SH+SF);
 
     // Try to reconstruct from homography or fundamental depending on the ratio (0.40-0.45)
     // 步骤5：从H矩阵或F矩阵中恢复R,t
-    if(RH>0.40)
-        return ReconstructH(vbMatchesInliersH,H,mK,R21,t21,vP3D,vbTriangulated,1.0,50);
-    else //if(pF_HF>0.6)
-        return ReconstructF(vbMatchesInliersF,F,mK,R21,t21,vP3D,vbTriangulated,1.0,50);
+//    if(RH>0.40)
+//        return ReconstructH(vbMatchesInliersH,H,mK,R21,t21,vP3D,vbTriangulated,1.0,50);
+//    else //if(pF_HF>0.6)
+//        return ReconstructF(vbMatchesInliersF,F,mK,R21,t21,vP3D,vbTriangulated,1.0,50);
 
-    return false;
+//    return false;
+
+    return ReconstructF(vbMatchesInliersF,F,mK,R21,t21,vP3D,vbTriangulated,1.0,50);
+
 }
 
 /**
@@ -250,8 +254,8 @@ void Initializer::FindFundamental(vector<bool> &vbMatchesInliers, float &score, 
         {
             int idx = mvSets[it][j];
 
-            vPn1i[j] = vPn1[mvMatches12[idx].first];
-            vPn2i[j] = vPn2[mvMatches12[idx].second];
+            vPn1i[j] = Converter::toPinholePoint2f(vPn1[mvMatches12[idx].first]);
+            vPn2i[j] = Converter::toPinholePoint2f(vPn2[mvMatches12[idx].second]);
         }
 
         cv::Mat Fn = ComputeF21(vPn1i,vPn2i);
