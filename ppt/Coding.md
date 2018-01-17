@@ -21,4 +21,12 @@
 
 * Initializer  
 ``Initializer(const Frame &ReferenceFrame, float sigma,int iterations)``  
-> sigma 默认使用1 ，MaxIteration默认为200
+> sigma 默认使用1 ，MaxIteration默认为200  
+
+ ``Initialize()``  
+ ``FindFundamental()``  
+ ``CheckFundamental()``  
+ 
+
+* Conventer    
+``toPinholePoint2f ``  
