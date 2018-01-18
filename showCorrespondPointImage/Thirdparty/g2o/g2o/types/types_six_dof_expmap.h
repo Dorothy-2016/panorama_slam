@@ -351,28 +351,88 @@ public:
     return (v1->estimate().map(Xw))(2)>0.0;
   }
 
-  /**
-   * 误差函数对增量[w1 w2 w3 v1 v2 v3]求雅克比矩阵\f$J_{2\times6}\f$
-   * \f$ = \frac{\partial [obs - \Pi(exp(\hat{\xi}) T X_w)]}{\partial \xi} \f$
-   * @note _jacobianOplusXi，雅可比矩阵的正负号没有关系
-   * @see 采用链式法则求解, 参考(注意以下参考的增量定义为[v1 v2 v3 w1 w2 w3])
-   * - jlblanco2010geometry3d_techrep.pdf p56 (A.2) 推荐
-   * - strasdat_thesis_2012.pdf p194 (B.4)
-   */
+
   virtual void linearizeOplus();
 
-  /**
-   * 将Xw投影到cam的图像坐标系 \n
-   * \f$ u = \frac{f_x X}{Z} + c_x \f$ \n
-   * \f$ v = \frac{f_y Y}{Z} + c_v \f$ \n
-   * @param  trans_xyz [X Y Z]
-   * @return           [u v]
-   */
   Vector2d cam_project(const Vector3d & trans_xyz) const;
 
   Vector3d Xw; ///< MapPoint在世界坐标系的位置
   double fx, fy, cx, cy; ///< 内参数
 };
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////
+
+class G2O_CORE_API EdgeSE3ProjectXYZOnlyPose_Panoramic : public  BaseUnaryEdge<2, Vector2d, VertexSE3Expmap> {
+public:
+  EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
+  EdgeSE3ProjectXYZOnlyPose_Panoramic(){}
+
+  bool read(std::istream& is);
+
+  bool write(std::ostream& os) const;
+
+  /**
+   * 重投影误差
+   */
+  void computeError()  {
+    const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[0]);
+    Vector2d obs(_measurement);
+    _error = obs-panoramic_project(v1->estimate().map(Xw));
+  }
+
+  float getEdgeError()
+  {
+      const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[0]);
+      Vector2d obs(_measurement);
+      Vector2d  error = obs-panoramic_project(v1->estimate().map(Xw));
+      return sqrt(error[0]*error[0]+error[1]*error[1]);
+
+  }
+
+  /**
+   * 检验 \f$ TX_w \f$的Z是否大于0
+   * @return true if the depth is Positive
+   */
+  bool isDepthPositive() {
+    const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[0]);
+    return (v1->estimate().map(Xw))(2)>0.0;
+  }
+
+
+  virtual void linearizeOplus();
+
+  Vector2d panoramic_project(const Vector3d & trans_xyz) const;
+
+  Vector3d Xw; ///< MapPoint在世界坐标系的位置
+  double fx, fy, cx, cy; ///< 内参数
+};
+
+/****************************************************************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // BaseUnaryEdge    该边只有一个顶点
 // 3, Vector3d      误差函数结果是Vector3d,自由度为3
