@@ -33,6 +33,7 @@
 #include "Converter.h"
 
 #include<mutex>
+#include <fstream>
 
 namespace ORB_SLAM2
 {
@@ -91,10 +92,7 @@ void Optimizer::BundleAdjustment(const vector<KeyFrame *> &vpKFs, const vector<M
 
     long unsigned int maxKFid = 0;
 
-    // 步骤2：向优化器添加顶点
 
-    // Set KeyFrame vertices
-    // 步骤2.1：向优化器添加关键帧位姿顶点
     for(size_t i=0; i<vpKFs.size(); i++)
     {
         KeyFrame* pKF = vpKFs[i];
@@ -110,10 +108,8 @@ void Optimizer::BundleAdjustment(const vector<KeyFrame *> &vpKFs, const vector<M
     }
 
     const float thHuber2D = sqrt(5.99);
-    const float thHuber3D = sqrt(7.815);
 
-    // Set MapPoint vertices
-    // 步骤2.2：向优化器添加MapPoints顶点
+    vector<g2o::EdgeSE3ProjectXYZ_Panoramic*> edges;
     for(size_t i=0; i<vpMP.size(); i++)
     {
         MapPoint* pMP = vpMP[i];
@@ -142,13 +138,12 @@ void Optimizer::BundleAdjustment(const vector<KeyFrame *> &vpKFs, const vector<M
 
             const cv::KeyPoint &kpUn = pKF->mvKeysUn[mit->second];
 
-            // 单目或RGBD相机
-            if(pKF->mvuRight[mit->second]<0)
-            {
+
                 Eigen::Matrix<double,2,1> obs;
                 obs << kpUn.pt.x, kpUn.pt.y;
 
-                g2o::EdgeSE3ProjectXYZ* e = new g2o::EdgeSE3ProjectXYZ();
+                g2o::EdgeSE3ProjectXYZ_Panoramic* e = new g2o::EdgeSE3ProjectXYZ_Panoramic();
+//                g2o::EdgeSE3ProjectXYZ* e = new g2o::EdgeSE3ProjectXYZ();
 
                 e->setVertex(0, dynamic_cast<g2o::OptimizableGraph::Vertex*>(optimizer.vertex(id)));
                 e->setVertex(1, dynamic_cast<g2o::OptimizableGraph::Vertex*>(optimizer.vertex(pKF->mnId)));
@@ -169,38 +164,9 @@ void Optimizer::BundleAdjustment(const vector<KeyFrame *> &vpKFs, const vector<M
                 e->cy = pKF->cy;
 
                 optimizer.addEdge(e);
-            }
-            else// 双目相机
-            {
-                Eigen::Matrix<double,3,1> obs;
-                const float kp_ur = pKF->mvuRight[mit->second];
-                obs << kpUn.pt.x, kpUn.pt.y, kp_ur;
+                edges.push_back(e);
 
-                g2o::EdgeStereoSE3ProjectXYZ* e = new g2o::EdgeStereoSE3ProjectXYZ();
-
-                e->setVertex(0, dynamic_cast<g2o::OptimizableGraph::Vertex*>(optimizer.vertex(id)));
-                e->setVertex(1, dynamic_cast<g2o::OptimizableGraph::Vertex*>(optimizer.vertex(pKF->mnId)));
-                e->setMeasurement(obs);
-                const float &invSigma2 = pKF->mvInvLevelSigma2[kpUn.octave];
-                Eigen::Matrix3d Info = Eigen::Matrix3d::Identity()*invSigma2;
-                e->setInformation(Info);
-
-                if(bRobust)
-                {
-                    g2o::RobustKernelHuber* rk = new g2o::RobustKernelHuber;
-                    e->setRobustKernel(rk);
-                    rk->setDelta(thHuber3D);
-                }
-
-                e->fx = pKF->fx;
-                e->fy = pKF->fy;
-                e->cx = pKF->cx;
-                e->cy = pKF->cy;
-                e->bf = pKF->mbf;
-
-                optimizer.addEdge(e);
-            }
-        }
+         }
 
         if(nEdges==0)
         {
@@ -213,13 +179,27 @@ void Optimizer::BundleAdjustment(const vector<KeyFrame *> &vpKFs, const vector<M
         }
     }
 
-    // Optimize!
-    // 步骤4：开始优化
+    float errorSum = 0;
+    for (int i = 0;i<edges.size();i++)
+    {
+        errorSum+= edges[i]->getEdgeError();
+    }
+    cout<<"before optimization "<<endl;
+    cout<<"total error "<<endl<<errorSum<<endl;
+
+
     optimizer.initializeOptimization();
     optimizer.optimize(nIterations);
 
-    // Recover optimized data
-    // 步骤5：得到优化的结果
+    float errorSum2 = 0;
+    for (int i = 0;i<edges.size();i++)
+    {
+        errorSum2+= edges[i]->getEdgeError();
+    }
+    cout<<"after optimization"<<endl;
+    cout<<"total error "<<endl<<errorSum2<<endl;
+
+
 
     //Keyframes
     for(size_t i=0; i<vpKFs.size(); i++)

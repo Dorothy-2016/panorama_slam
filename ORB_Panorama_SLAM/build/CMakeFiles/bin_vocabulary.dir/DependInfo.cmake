@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Vocabulary/bin_vocabulary.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/bin_vocabulary.dir/Vocabulary/bin_vocabulary.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Vocabulary/bin_vocabulary.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/bin_vocabulary.dir/Vocabulary/bin_vocabulary.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,10 +18,10 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../"
   "../include"
   "/usr/include/eigen3"
-  "/home/mj/Downloads/dependence/Pangolin/include"
-  "/home/mj/Downloads/dependence/Pangolin/build/src/include"
-  "/opt/ros/kinetic/include/opencv-3.3.1"
-  "/opt/ros/kinetic/include/opencv-3.3.1/opencv"
+  "/home/ustc/nullmax/Pangolin/include"
+  "/home/ustc/nullmax/Pangolin/build/src/include"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv"
   )
 
 # Targets to which this target links.

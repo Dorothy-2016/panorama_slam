@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/g2o/stuff/os_specific.c
+/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/g2o/stuff/os_specific.c
 os_specific.h
-/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/g2o/stuff/os_specific.h
+/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/g2o/stuff/os_specific.h
 
-/home/mj/ricoh_ws/src/panorama_orb/Thirdparty/g2o/g2o/stuff/os_specific.h
+/home/ustc/ricoh_ws/src/panorama_slam/panorama_orb/Thirdparty/g2o/g2o/stuff/os_specific.h
 stdio.h
 -
 stdlib.h

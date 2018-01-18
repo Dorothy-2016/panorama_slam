@@ -65,6 +65,8 @@ private:
     // 被FindFundamental函数调用，具体来算假设使用Fundamental模型的得分
     float CheckFundamental(const cv::Mat &F21, vector<bool> &vbMatchesInliers, float sigma);
 
+    float CheckFundamental_Panoramic(const cv::Mat &F21, vector<bool> &vbMatchesInliers, float th);
+
     // 分解F矩阵，并从分解后的多个解中找出合适的R，t
     bool ReconstructF(vector<bool> &vbMatchesInliers, cv::Mat &F21, cv::Mat &K,
                       cv::Mat &R21, cv::Mat &t21, vector<cv::Point3f> &vP3D, vector<bool> &vbTriangulated, float minParallax, int minTriangulated);
@@ -84,15 +86,21 @@ private:
                        const vector<Match> &vMatches12, vector<bool> &vbInliers,
                        const cv::Mat &K, vector<cv::Point3f> &vP3D, float th2, vector<bool> &vbGood, float &parallax);
 
+    int CheckRT_Panoramic(const cv::Mat &R, const cv::Mat &t, const vector<cv::KeyPoint> &vKeys1, const vector<cv::KeyPoint> &vKeys2,
+                       const vector<Match> &vMatches12, vector<bool> &vbMatchesInliers,
+                       vector<cv::Point3f> &vP3D, float th2, vector<bool> &vbGood, float &parallax);
+
     // F矩阵通过结合内参可以得到Essential矩阵，该函数用于分解E矩阵，将得到4组解
     void DecomposeE(const cv::Mat &E, cv::Mat &R1, cv::Mat &R2, cv::Mat &t);
 
 
     // Keypoints from Reference Frame (Frame 1)
     vector<cv::KeyPoint> mvKeys1; ///< 存储Reference Frame中的特征点
+    vector<cv::KeyPoint> mvKeysCamera1;
 
     // Keypoints from Current Frame (Frame 2)
     vector<cv::KeyPoint> mvKeys2; ///< 存储Current Frame中的特征点
+    vector<cv::KeyPoint> mvKeysCamera2;
 
     // Current Matches from Reference to Current
     // Reference Frame: 1, Current Frame: 2

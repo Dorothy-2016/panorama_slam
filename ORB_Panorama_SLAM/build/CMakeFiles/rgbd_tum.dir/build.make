@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM
+CMAKE_SOURCE_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM/build
+CMAKE_BINARY_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/rgbd_tum.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/rgbd_tum.dir/flags.make
 
 CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o: CMakeFiles/rgbd_tum.dir/flags.make
 CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o: ../Examples/RGB-D/rgbd_tum.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc
 
 CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc > CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc > CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.i
 
 CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc -o CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/RGB-D/rgbd_tum.cc -o CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.s
 
 CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o.requires:
 
@@ -91,52 +91,49 @@ rgbd_tum_EXTERNAL_OBJECTS =
 rgbd_tum: CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o
 rgbd_tum: CMakeFiles/rgbd_tum.dir/build.make
 rgbd_tum: ../lib/libORB_Panorama_SLAM.so
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_superres3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_photo3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_face3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_img_hash3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_reg3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_viz3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_tracking3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_plot3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_text3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_dnn3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_ml3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_shape3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_video3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_flann3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
-rgbd_tum: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
-rgbd_tum: /home/mj/Downloads/dependence/Pangolin/build/src/libpangolin.so
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_superres3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_face3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_plot3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_reg3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_viz3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_text3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_shape3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_video3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_flann3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_ml3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_photo3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
+rgbd_tum: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
+rgbd_tum: /home/ustc/nullmax/Pangolin/build/src/libpangolin.so
 rgbd_tum: /usr/lib/x86_64-linux-gnu/libGLU.so
 rgbd_tum: /usr/lib/x86_64-linux-gnu/libGL.so
 rgbd_tum: /usr/lib/x86_64-linux-gnu/libGLEW.so
@@ -157,7 +154,7 @@ rgbd_tum: /usr/lib/x86_64-linux-gnu/libtiff.so
 rgbd_tum: ../Thirdparty/DBoW2/lib/libDBoW2.so
 rgbd_tum: ../Thirdparty/g2o/lib/libg2o.so
 rgbd_tum: CMakeFiles/rgbd_tum.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable rgbd_tum"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable rgbd_tum"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/rgbd_tum.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -174,6 +171,6 @@ CMakeFiles/rgbd_tum.dir/clean:
 .PHONY : CMakeFiles/rgbd_tum.dir/clean
 
 CMakeFiles/rgbd_tum.dir/depend:
-	cd /home/mj/panorama_slam/ORB_Panorama_SLAM/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mj/panorama_slam/ORB_Panorama_SLAM /home/mj/panorama_slam/ORB_Panorama_SLAM /home/mj/panorama_slam/ORB_Panorama_SLAM/build /home/mj/panorama_slam/ORB_Panorama_SLAM/build /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/rgbd_tum.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/rgbd_tum.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/rgbd_tum.dir/depend
 

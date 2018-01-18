@@ -7,11 +7,11 @@ C_FLAGS =   -Wall -Wno-deprecated-declarations -O3 -DNDEBUG -O3 -march=native -f
 
 C_DEFINES = -DUNIX -Dg2o_EXPORTS
 
-C_INCLUDES = -I/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/core -I/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/types -I/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/stuff -I/usr/include/eigen3 
+C_INCLUDES = -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/core -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/types -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/stuff -I/usr/include/eigen3 
 
 CXX_FLAGS =   -Wall -Wno-deprecated-declarations -O3 -DNDEBUG -O3 -march=native -fPIC  
 
 CXX_DEFINES = -DUNIX -Dg2o_EXPORTS
 
-CXX_INCLUDES = -I/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/core -I/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/types -I/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/stuff -I/usr/include/eigen3 
+CXX_INCLUDES = -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/core -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/types -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/g2o/stuff -I/usr/include/eigen3 
 

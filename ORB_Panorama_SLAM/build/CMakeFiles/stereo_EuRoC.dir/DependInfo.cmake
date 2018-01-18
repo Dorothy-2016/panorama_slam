@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Stereo/stereo_EuRoC.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/stereo_EuRoC.dir/Examples/Stereo/stereo_EuRoC.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Stereo/stereo_EuRoC.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/stereo_EuRoC.dir/Examples/Stereo/stereo_EuRoC.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -18,15 +18,15 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../"
   "../include"
   "/usr/include/eigen3"
-  "/home/mj/Downloads/dependence/Pangolin/include"
-  "/home/mj/Downloads/dependence/Pangolin/build/src/include"
-  "/opt/ros/kinetic/include/opencv-3.3.1"
-  "/opt/ros/kinetic/include/opencv-3.3.1/opencv"
+  "/home/ustc/nullmax/Pangolin/include"
+  "/home/ustc/nullmax/Pangolin/build/src/include"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/ORB_Panorama_SLAM.dir/DependInfo.cmake"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/ORB_Panorama_SLAM.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

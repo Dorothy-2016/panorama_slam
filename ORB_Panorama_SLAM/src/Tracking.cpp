@@ -728,7 +728,7 @@ void Tracking::MonocularInitialization()
         // 步骤3：在mInitialFrame与mCurrentFrame中找匹配的特征点对
         // mvbPrevMatched为前一帧的特征点，存储了mInitialFrame中哪些点将进行接下来的匹配
         // mvIniMatches存储mInitialFrame,mCurrentFrame之间匹配的特征点
-        ORBmatcher matcher(0.9,true);
+        ORBmatcher matcher(0.8,true);
         int nmatches = matcher.SearchForInitialization(mInitialFrame,mCurrentFrame,mvbPrevMatched,mvIniMatches,100);
 
         // Check if there are enough correspondences
@@ -747,6 +747,8 @@ void Tracking::MonocularInitialization()
         // 步骤5：通过H模型或F模型进行单目初始化，得到两帧间相对运动、初始MapPoints
         if(mpInitializer->Initialize(mCurrentFrame, mvIniMatches, Rcw, tcw, mvIniP3D, vbTriangulated))
         {
+
+            cout<<" ############        success initialization ####################"<<endl;
             // 步骤6：删除那些无法进行三角化的匹配点
             for(size_t i=0, iend=mvIniMatches.size(); i<iend;i++)
             {

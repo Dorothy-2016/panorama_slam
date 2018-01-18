@@ -48,24 +48,13 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM
+CMAKE_SOURCE_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM/build
+CMAKE_BINARY_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build
 
 #=============================================================================
 # Targets provided globally by CMake.
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # Special rule for the target rebuild_cache
 rebuild_cache:
@@ -78,11 +67,22 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -124,32 +124,6 @@ bin_vocabulary/fast:
 .PHONY : bin_vocabulary/fast
 
 #=============================================================================
-# Target rules for targets named rgbd_tum
-
-# Build rule for target.
-rgbd_tum: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rgbd_tum
-.PHONY : rgbd_tum
-
-# fast build rule for target.
-rgbd_tum/fast:
-	$(MAKE) -f CMakeFiles/rgbd_tum.dir/build.make CMakeFiles/rgbd_tum.dir/build
-.PHONY : rgbd_tum/fast
-
-#=============================================================================
-# Target rules for targets named stereo_EuRoC
-
-# Build rule for target.
-stereo_EuRoC: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stereo_EuRoC
-.PHONY : stereo_EuRoC
-
-# fast build rule for target.
-stereo_EuRoC/fast:
-	$(MAKE) -f CMakeFiles/stereo_EuRoC.dir/build.make CMakeFiles/stereo_EuRoC.dir/build
-.PHONY : stereo_EuRoC/fast
-
-#=============================================================================
 # Target rules for targets named ORB_Panorama_SLAM
 
 # Build rule for target.
@@ -176,19 +150,6 @@ mono_ricoh/fast:
 .PHONY : mono_ricoh/fast
 
 #=============================================================================
-# Target rules for targets named stereo_kitti
-
-# Build rule for target.
-stereo_kitti: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 stereo_kitti
-.PHONY : stereo_kitti
-
-# fast build rule for target.
-stereo_kitti/fast:
-	$(MAKE) -f CMakeFiles/stereo_kitti.dir/build.make CMakeFiles/stereo_kitti.dir/build
-.PHONY : stereo_kitti/fast
-
-#=============================================================================
 # Target rules for targets named mono_kitti
 
 # Build rule for target.
@@ -200,6 +161,19 @@ mono_kitti: cmake_check_build_system
 mono_kitti/fast:
 	$(MAKE) -f CMakeFiles/mono_kitti.dir/build.make CMakeFiles/mono_kitti.dir/build
 .PHONY : mono_kitti/fast
+
+#=============================================================================
+# Target rules for targets named mono_panorama
+
+# Build rule for target.
+mono_panorama: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mono_panorama
+.PHONY : mono_panorama
+
+# fast build rule for target.
+mono_panorama/fast:
+	$(MAKE) -f CMakeFiles/mono_panorama.dir/build.make CMakeFiles/mono_panorama.dir/build
+.PHONY : mono_panorama/fast
 
 Examples/Monocular/mono_kitti.o: Examples/Monocular/mono_kitti.cc.o
 
@@ -228,6 +202,33 @@ Examples/Monocular/mono_kitti.cc.s:
 	$(MAKE) -f CMakeFiles/mono_kitti.dir/build.make CMakeFiles/mono_kitti.dir/Examples/Monocular/mono_kitti.cc.s
 .PHONY : Examples/Monocular/mono_kitti.cc.s
 
+Examples/Monocular/mono_panorama.o: Examples/Monocular/mono_panorama.cc.o
+
+.PHONY : Examples/Monocular/mono_panorama.o
+
+# target to build an object file
+Examples/Monocular/mono_panorama.cc.o:
+	$(MAKE) -f CMakeFiles/mono_panorama.dir/build.make CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o
+.PHONY : Examples/Monocular/mono_panorama.cc.o
+
+Examples/Monocular/mono_panorama.i: Examples/Monocular/mono_panorama.cc.i
+
+.PHONY : Examples/Monocular/mono_panorama.i
+
+# target to preprocess a source file
+Examples/Monocular/mono_panorama.cc.i:
+	$(MAKE) -f CMakeFiles/mono_panorama.dir/build.make CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.i
+.PHONY : Examples/Monocular/mono_panorama.cc.i
+
+Examples/Monocular/mono_panorama.s: Examples/Monocular/mono_panorama.cc.s
+
+.PHONY : Examples/Monocular/mono_panorama.s
+
+# target to generate assembly for a file
+Examples/Monocular/mono_panorama.cc.s:
+	$(MAKE) -f CMakeFiles/mono_panorama.dir/build.make CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.s
+.PHONY : Examples/Monocular/mono_panorama.cc.s
+
 Examples/Monocular/mono_ricoh.o: Examples/Monocular/mono_ricoh.cc.o
 
 .PHONY : Examples/Monocular/mono_ricoh.o
@@ -254,87 +255,6 @@ Examples/Monocular/mono_ricoh.s: Examples/Monocular/mono_ricoh.cc.s
 Examples/Monocular/mono_ricoh.cc.s:
 	$(MAKE) -f CMakeFiles/mono_ricoh.dir/build.make CMakeFiles/mono_ricoh.dir/Examples/Monocular/mono_ricoh.cc.s
 .PHONY : Examples/Monocular/mono_ricoh.cc.s
-
-Examples/RGB-D/rgbd_tum.o: Examples/RGB-D/rgbd_tum.cc.o
-
-.PHONY : Examples/RGB-D/rgbd_tum.o
-
-# target to build an object file
-Examples/RGB-D/rgbd_tum.cc.o:
-	$(MAKE) -f CMakeFiles/rgbd_tum.dir/build.make CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.o
-.PHONY : Examples/RGB-D/rgbd_tum.cc.o
-
-Examples/RGB-D/rgbd_tum.i: Examples/RGB-D/rgbd_tum.cc.i
-
-.PHONY : Examples/RGB-D/rgbd_tum.i
-
-# target to preprocess a source file
-Examples/RGB-D/rgbd_tum.cc.i:
-	$(MAKE) -f CMakeFiles/rgbd_tum.dir/build.make CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.i
-.PHONY : Examples/RGB-D/rgbd_tum.cc.i
-
-Examples/RGB-D/rgbd_tum.s: Examples/RGB-D/rgbd_tum.cc.s
-
-.PHONY : Examples/RGB-D/rgbd_tum.s
-
-# target to generate assembly for a file
-Examples/RGB-D/rgbd_tum.cc.s:
-	$(MAKE) -f CMakeFiles/rgbd_tum.dir/build.make CMakeFiles/rgbd_tum.dir/Examples/RGB-D/rgbd_tum.cc.s
-.PHONY : Examples/RGB-D/rgbd_tum.cc.s
-
-Examples/Stereo/stereo_EuRoC.o: Examples/Stereo/stereo_EuRoC.cpp.o
-
-.PHONY : Examples/Stereo/stereo_EuRoC.o
-
-# target to build an object file
-Examples/Stereo/stereo_EuRoC.cpp.o:
-	$(MAKE) -f CMakeFiles/stereo_EuRoC.dir/build.make CMakeFiles/stereo_EuRoC.dir/Examples/Stereo/stereo_EuRoC.cpp.o
-.PHONY : Examples/Stereo/stereo_EuRoC.cpp.o
-
-Examples/Stereo/stereo_EuRoC.i: Examples/Stereo/stereo_EuRoC.cpp.i
-
-.PHONY : Examples/Stereo/stereo_EuRoC.i
-
-# target to preprocess a source file
-Examples/Stereo/stereo_EuRoC.cpp.i:
-	$(MAKE) -f CMakeFiles/stereo_EuRoC.dir/build.make CMakeFiles/stereo_EuRoC.dir/Examples/Stereo/stereo_EuRoC.cpp.i
-.PHONY : Examples/Stereo/stereo_EuRoC.cpp.i
-
-Examples/Stereo/stereo_EuRoC.s: Examples/Stereo/stereo_EuRoC.cpp.s
-
-.PHONY : Examples/Stereo/stereo_EuRoC.s
-
-# target to generate assembly for a file
-Examples/Stereo/stereo_EuRoC.cpp.s:
-	$(MAKE) -f CMakeFiles/stereo_EuRoC.dir/build.make CMakeFiles/stereo_EuRoC.dir/Examples/Stereo/stereo_EuRoC.cpp.s
-.PHONY : Examples/Stereo/stereo_EuRoC.cpp.s
-
-Examples/Stereo/stereo_kitti.o: Examples/Stereo/stereo_kitti.cpp.o
-
-.PHONY : Examples/Stereo/stereo_kitti.o
-
-# target to build an object file
-Examples/Stereo/stereo_kitti.cpp.o:
-	$(MAKE) -f CMakeFiles/stereo_kitti.dir/build.make CMakeFiles/stereo_kitti.dir/Examples/Stereo/stereo_kitti.cpp.o
-.PHONY : Examples/Stereo/stereo_kitti.cpp.o
-
-Examples/Stereo/stereo_kitti.i: Examples/Stereo/stereo_kitti.cpp.i
-
-.PHONY : Examples/Stereo/stereo_kitti.i
-
-# target to preprocess a source file
-Examples/Stereo/stereo_kitti.cpp.i:
-	$(MAKE) -f CMakeFiles/stereo_kitti.dir/build.make CMakeFiles/stereo_kitti.dir/Examples/Stereo/stereo_kitti.cpp.i
-.PHONY : Examples/Stereo/stereo_kitti.cpp.i
-
-Examples/Stereo/stereo_kitti.s: Examples/Stereo/stereo_kitti.cpp.s
-
-.PHONY : Examples/Stereo/stereo_kitti.s
-
-# target to generate assembly for a file
-Examples/Stereo/stereo_kitti.cpp.s:
-	$(MAKE) -f CMakeFiles/stereo_kitti.dir/build.make CMakeFiles/stereo_kitti.dir/Examples/Stereo/stereo_kitti.cpp.s
-.PHONY : Examples/Stereo/stereo_kitti.cpp.s
 
 Vocabulary/bin_vocabulary.o: Vocabulary/bin_vocabulary.cpp.o
 
@@ -882,30 +802,22 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... edit_cache"
 	@echo "... bin_vocabulary"
-	@echo "... rgbd_tum"
-	@echo "... stereo_EuRoC"
 	@echo "... ORB_Panorama_SLAM"
 	@echo "... rebuild_cache"
 	@echo "... mono_ricoh"
-	@echo "... stereo_kitti"
 	@echo "... mono_kitti"
+	@echo "... edit_cache"
+	@echo "... mono_panorama"
 	@echo "... Examples/Monocular/mono_kitti.o"
 	@echo "... Examples/Monocular/mono_kitti.i"
 	@echo "... Examples/Monocular/mono_kitti.s"
+	@echo "... Examples/Monocular/mono_panorama.o"
+	@echo "... Examples/Monocular/mono_panorama.i"
+	@echo "... Examples/Monocular/mono_panorama.s"
 	@echo "... Examples/Monocular/mono_ricoh.o"
 	@echo "... Examples/Monocular/mono_ricoh.i"
 	@echo "... Examples/Monocular/mono_ricoh.s"
-	@echo "... Examples/RGB-D/rgbd_tum.o"
-	@echo "... Examples/RGB-D/rgbd_tum.i"
-	@echo "... Examples/RGB-D/rgbd_tum.s"
-	@echo "... Examples/Stereo/stereo_EuRoC.o"
-	@echo "... Examples/Stereo/stereo_EuRoC.i"
-	@echo "... Examples/Stereo/stereo_EuRoC.s"
-	@echo "... Examples/Stereo/stereo_kitti.o"
-	@echo "... Examples/Stereo/stereo_kitti.i"
-	@echo "... Examples/Stereo/stereo_kitti.s"
 	@echo "... Vocabulary/bin_vocabulary.o"
 	@echo "... Vocabulary/bin_vocabulary.i"
 	@echo "... Vocabulary/bin_vocabulary.s"

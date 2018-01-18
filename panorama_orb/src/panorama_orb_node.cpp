@@ -480,6 +480,27 @@ cv::Mat FindEssential(std::vector<cv::KeyPoint> vPKeys1,std::vector<cv::KeyPoint
 }
 
 
+cv::Point2f toPanoramic_Point2f(cv::Point3f point)
+{
+    cv::Point2f measurement ;
+    float Pi  =3.1415926;
+    float x = point.x;
+    float y = point.y;
+    float z = point.z;
+
+    const float coefx = 1920.0/2.0/Pi;
+    const float coefy = 960.0/Pi;
+    float  theta,phi;
+    theta = atan2(z,x);
+    if(theta<-Pi/2) theta = 2*Pi+theta;
+
+    phi = atan(-cos(theta)*y/x);
+
+    measurement.x =  coefx*(-theta + 3.0*Pi/2.0);
+    measurement.y =  coefy*(-phi + Pi/2.0);
+    return measurement;
+}
+
 int CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::KeyPoint> &vPKeys1, const vector<cv::KeyPoint> &vPKeys2,
                        const vector<cv::DMatch> &vMatches12, vector<cv::Point3f> &vP3D, float th2, vector<bool> &vbGood, float &parallax)
 {
@@ -571,31 +592,37 @@ int CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::KeyPoint> &vPKe
 
         // Check reprojection error in first image
         // 计算3D点在第一个图像上的投影误差
-        float im1x, im1y;
-        float invZ1 = 1.0/p3dC1.at<float>(2);
-        im1x = p3dC1.at<float>(0)*invZ1;
-        im1y = p3dC1.at<float>(1)*invZ1;
 
-        float squareError1 = (im1x-kp1.pt.x)*(im1x-kp1.pt.x)+(im1y-kp1.pt.y)*(im1y-kp1.pt.y);
+        cv::Point2f projection1  =  toPanoramic_Point2f(cv::Point3f(p3dC1.at<float>(0),p3dC1.at<float>(1),p3dC1.at<float>(2)));
+        float im1x = projection1.x;
+        float im1y = projection1.y;
+        cv::KeyPoint measurement1 = vPKeys1[vMatches12[i].queryIdx];
+        float squareError1 = (im1x-measurement1.pt.x)*(im1x-measurement1.pt.x)+(im1y-measurement1.pt.y)*(im1y-measurement1.pt.y);
 
-        // 步骤6.1：重投影误差太大，跳过淘汰
-        // 一般视差角比较小时重投影误差比较大
+
         if(squareError1>th2)
-            continue;
+        {
+          cout<<" projection error too big : "<<squareError1<<endl;
+          continue;
+        }
 
-        // Check reprojection error in second image
-        // 计算3D点在第二个图像上的投影误差
-        float im2x, im2y;
-        float invZ2 = 1.0/p3dC2.at<float>(2);
-        im2x = p3dC2.at<float>(0)*invZ2;
-        im2y = p3dC2.at<float>(1)*invZ2;
 
-        float squareError2 = (im2x-kp2.pt.x)*(im2x-kp2.pt.x)+(im2y-kp2.pt.y)*(im2y-kp2.pt.y);
+
+
+        cv::Point2f projection2  =  toPanoramic_Point2f(cv::Point3f(p3dC2.at<float>(0),p3dC2.at<float>(1),p3dC2.at<float>(2)));
+        float im2x = projection2.x;
+        float im2y = projection2.y;
+        cv::KeyPoint measurement2 = vPKeys2[vMatches12[i].trainIdx];
+        float squareError2 = (im2x-measurement2.pt.x)*(im2x-measurement2.pt.x)+(im2y-measurement2.pt.y)*(im2y-measurement2.pt.y);
 
         // 步骤6.2：重投影误差太大，跳过淘汰
         // 一般视差角比较小时重投影误差比较大
         if(squareError2>th2)
+        {
+            cout<<" projection error too big : "<<squareError2<<endl;
             continue;
+        }
+
 
         // 步骤7：统计经过检验的3D点个数，记录3D点视差角
         vCosParallax.push_back(cosParallax);
@@ -817,7 +844,7 @@ int main(int argc,char ** argv)
 
       cv::Mat R1 ,R2,t1;
       DecomposeE(bestE,R1,R2,t1);
-      t1  = t1/cv::norm(t1)*0.01;
+      t1  = t1/cv::norm(t1)*0.1;
       cv::Mat t2 = -t1;
 
       cout<<"R1"<<endl;
@@ -833,10 +860,10 @@ int main(int argc,char ** argv)
       vector<bool> vbTriangulated1,vbTriangulated2,vbTriangulated3, vbTriangulated4;
       float parallax1=0.0,parallax2=0.0, parallax3=0.0, parallax4=0.0;
       int Good1,Good2,Good3,Good4;
-      Good1 = CheckRT(R1,t1,mvKeys,mvKeys2,bestMatches,vP3D1,0.04,vbTriangulated1,parallax1);
-      Good2 = CheckRT(R1,t2,mvKeys,mvKeys2,bestMatches,vP3D2,0.04,vbTriangulated2,parallax2);
-      Good3 = CheckRT(R2,t1,mvKeys,mvKeys2,bestMatches,vP3D3,0.04,vbTriangulated3,parallax3);
-      Good4 = CheckRT(R2,t2,mvKeys,mvKeys2,bestMatches,vP3D4,0.04,vbTriangulated4,parallax4);
+      Good1 = CheckRT(R1,t1,mvKeys,mvKeys2,bestMatches,vP3D1,4,vbTriangulated1,parallax1);
+      Good2 = CheckRT(R1,t2,mvKeys,mvKeys2,bestMatches,vP3D2,4,vbTriangulated2,parallax2);
+      Good3 = CheckRT(R2,t1,mvKeys,mvKeys2,bestMatches,vP3D3,4,vbTriangulated3,parallax3);
+      Good4 = CheckRT(R2,t2,mvKeys,mvKeys2,bestMatches,vP3D4,4,vbTriangulated4,parallax4);
       cout <<"R1 t1 "<<Good1<<endl;
       cout <<"R1 t2 "<<Good2<<endl;
       cout <<"R2 t1 "<<Good3<<endl;

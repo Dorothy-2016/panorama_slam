@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall  -O3 -march=native -fPIC
 
 CXX_DEFINES = -DDBoW2_EXPORTS
 
-CXX_INCLUDES = -isystem /opt/ros/kinetic/include/opencv-3.3.1 -isystem /opt/ros/kinetic/include/opencv-3.3.1/opencv 
+CXX_INCLUDES = -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv 
 

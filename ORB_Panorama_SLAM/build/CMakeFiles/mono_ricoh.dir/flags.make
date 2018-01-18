@@ -6,5 +6,5 @@ CXX_FLAGS =   -Wall -msse3 -std=c++11 -pthread -O3 -march=native -Wno-deprecated
 
 CXX_DEFINES = -DCOMPILEDWITHC11
 
-CXX_INCLUDES = -I/home/mj/panorama_slam/ORB_Panorama_SLAM -I/home/mj/panorama_slam/ORB_Panorama_SLAM/include -I/usr/include/eigen3 -I/home/mj/Downloads/dependence/Pangolin/include -I/home/mj/Downloads/dependence/Pangolin/build/src/include -isystem /opt/ros/kinetic/include/opencv-3.3.1 -isystem /opt/ros/kinetic/include/opencv-3.3.1/opencv 
+CXX_INCLUDES = -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM -I/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include -I/usr/include/eigen3 -I/home/ustc/nullmax/Pangolin/include -I/home/ustc/nullmax/Pangolin/build/src/include -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev -isystem /opt/ros/kinetic/include/opencv-3.2.0-dev/opencv 
 

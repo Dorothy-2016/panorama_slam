@@ -20,7 +20,9 @@
 
 
 #include "Converter.h"
+#include <iostream>
 #define PI 3.1415926
+using namespace std;
 namespace ORB_SLAM2
 {
 
@@ -149,17 +151,51 @@ std::vector<float> Converter::toQuaternion(const cv::Mat &M)
     return v;
 }
 
-cv::Point2f Converter::toPinholePoint2f(const cv::Point2f pt)
+cv::Point2f Converter::toCameraPoint2f(const cv::Point2f pt)
 {
-    float coef  = 960.0/PI;
+    float coef  = PI/960.0;
     float x = pt.x ;
     float y = pt.y ;
-    float theta = -x*coef+3.0/2.0*PI;
-    float fai = -y*coef+PI/2.0;
+    float theta = -x*coef+3.0/2.0*CV_PI;
+    float fai = -y*coef+CV_PI/2.0;
     cv::Point2f ppt;
     ppt.x = 1.0/tan(theta);
     ppt.y = -tan(fai)/sin(theta);
     return ppt;
+}
+
+cv::KeyPoint Converter::toCameraKeyPoint(const cv::KeyPoint kp)
+{
+    float coef  = PI/960.0;
+    float x = kp.pt.x ;
+    float y = kp.pt.y ;
+    float theta = -x*coef+3.0/2.0*PI;
+    float fai = -y*coef+PI/2.0;
+    cv::KeyPoint ppt;
+    ppt.pt.x = 1.0/tan(theta);
+    ppt.pt.y = -tan(fai)/sin(theta);
+    return ppt;
+
+}
+
+cv::Point2f Converter::toPanoramicPoint2f(cv::Point3f point)
+{
+    cv::Point2f projection;
+    float x = point.x;
+    float y = point.y;
+    float z = point.z;
+
+    const float coef = 960.0/PI;
+    float  theta,phi;
+    theta = atan2(z,x);
+    if(theta<-PI/2.0) theta = 2.0*PI+theta;
+
+    phi = atan(-cos(theta)*y/x);
+    projection.x =  coef*(-theta + 3.0*PI/2.0);
+    projection.y =  coef*(-phi + PI/2.0);
+
+
+    return projection;
 }
 
 } //namespace ORB_SLAM

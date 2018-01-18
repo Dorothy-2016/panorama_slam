@@ -45,6 +45,13 @@ Initializer::Initializer(const Frame &ReferenceFrame, float sigma, int iteration
 
     mvKeys1 = ReferenceFrame.mvKeysUn;
 
+    mvKeysCamera1.clear();
+    for (int i = 0;i<mvKeys1.size();i++)
+    {
+        cv::KeyPoint newKp = Converter::toCameraKeyPoint(mvKeys1[i]);
+        mvKeysCamera1.push_back(newKp);
+    }
+
     mSigma = sigma;
     mSigma2 = sigma*sigma;
     mMaxIterations = iterations;
@@ -56,10 +63,20 @@ Initializer::Initializer(const Frame &ReferenceFrame, float sigma, int iteration
 bool Initializer::Initialize(const Frame &CurrentFrame, const vector<int> &vMatches12, cv::Mat &R21, cv::Mat &t21,
                              vector<cv::Point3f> &vP3D, vector<bool> &vbTriangulated)
 {
+
+
     // Fill structures with current keypoints and matches with reference frame
     // Reference Frame: 1, Current Frame: 2
     // Frame2 特征点
     mvKeys2 = CurrentFrame.mvKeysUn;
+
+
+    mvKeysCamera2.clear();
+    for (int i = 0;i<mvKeys2.size();i++)
+    {
+        cv::KeyPoint newKp = Converter::toCameraKeyPoint(mvKeys2[i]);
+        mvKeysCamera2.push_back(newKp);
+    }
 
     // mvMatches12记录匹配上的特征点对
     mvMatches12.clear();
@@ -230,9 +247,15 @@ void Initializer::FindFundamental(vector<bool> &vbMatchesInliers, float &score, 
 
     // Normalize coordinates
     vector<cv::Point2f> vPn1, vPn2;
+
+
+
     cv::Mat T1, T2;
-    Normalize(mvKeys1,vPn1, T1);
-    Normalize(mvKeys2,vPn2, T2);
+//    Normalize(mvKeys1,vPn1, T1);
+//    Normalize(mvKeys2,vPn2, T2);
+
+        Normalize(mvKeysCamera1,vPn1, T1);
+        Normalize(mvKeysCamera2,vPn2, T2);
     cv::Mat T2t = T2.t();
 
     // Best Results variables
@@ -254,8 +277,8 @@ void Initializer::FindFundamental(vector<bool> &vbMatchesInliers, float &score, 
         {
             int idx = mvSets[it][j];
 
-            vPn1i[j] = Converter::toPinholePoint2f(vPn1[mvMatches12[idx].first]);
-            vPn2i[j] = Converter::toPinholePoint2f(vPn2[mvMatches12[idx].second]);
+            vPn1i[j] = vPn1[mvMatches12[idx].first];
+            vPn2i[j] = vPn2[mvMatches12[idx].second];
         }
 
         cv::Mat Fn = ComputeF21(vPn1i,vPn2i);
@@ -263,7 +286,8 @@ void Initializer::FindFundamental(vector<bool> &vbMatchesInliers, float &score, 
         F21i = T2t*Fn*T1;
 
         // 利用重投影误差为当次RANSAC的结果评分
-        currentScore = CheckFundamental(F21i, vbCurrentInliers, mSigma);
+//        currentScore = CheckFundamental(F21i, vbCurrentInliers, mSigma);
+        currentScore = CheckFundamental_Panoramic(F21i,vbMatchesInliers,0.1);
 
         if(currentScore>score)
         {
@@ -372,6 +396,7 @@ cv::Mat Initializer::ComputeF21(const vector<cv::Point2f> &vP1,const vector<cv::
 
     cv::Mat u,w,vt;
 
+
     cv::SVDecomp(A,w,u,vt,cv::SVD::MODIFY_A | cv::SVD::FULL_UV);
 
     cv::Mat Fpre = vt.row(8).reshape(0, 3); // v的最后一列
@@ -379,6 +404,7 @@ cv::Mat Initializer::ComputeF21(const vector<cv::Point2f> &vP1,const vector<cv::
     cv::SVDecomp(Fpre,w,u,vt,cv::SVD::MODIFY_A | cv::SVD::FULL_UV);
 
     w.at<float>(2)=0; // 秩2约束，将第3个奇异值设为0
+
 
     return  u*cv::Mat::diag(w)*vt;
 }
@@ -581,6 +607,50 @@ float Initializer::CheckFundamental(const cv::Mat &F21, vector<bool> &vbMatchesI
 }
 
 
+float Initializer::CheckFundamental_Panoramic(const cv::Mat &F21, vector<bool> &vbMatchesInliers, float th)
+{
+
+    const int N = mvMatches12.size();
+
+    vbMatchesInliers.resize(N);
+    float score = 0;
+    int counter = 0;
+    for(int i=0; i<N; i++)
+    {
+        bool bIn = true;
+        const cv::KeyPoint &kp1 = mvKeysCamera1[mvMatches12[i].first];
+        const cv::KeyPoint &kp2 = mvKeysCamera2[mvMatches12[i].second];
+
+
+        cv::Mat mkp1(1,3 ,CV_32F);
+        cv::Mat mkp2(3,1 ,CV_32F);
+        mkp1.at<float>(0,0) = (float)kp1.pt.x;
+        mkp1.at<float>(0,1) = (float)kp1.pt.y;
+        mkp1.at<float>(0,2) = 1.0f;
+
+        mkp2.at<float>(0,0) = (float)kp2.pt.x;
+        mkp2.at<float>(1,0) = (float)kp2.pt.y;
+        mkp2.at<float>(2,0) = 1.0f;
+
+        cv::Mat res = mkp1*F21*mkp2 ;
+        float thScore = fabs(res.at<float>(0,0));
+
+        if(thScore>th)
+              bIn = false;
+        else{
+              score += thScore ;
+              counter++;
+            }
+        if(bIn)
+            vbMatchesInliers[i]=true;
+        else
+            vbMatchesInliers[i]=false;
+    }
+
+    return score/counter;
+}
+
+
 //                          |0 -1  0|
 // E = U Sigma V'   let W = |1  0  0|
 //                          |0  0  1|
@@ -597,6 +667,8 @@ float Initializer::CheckFundamental(const cv::Mat &F21, vector<bool> &vbMatchesI
  * 
  * @see Multiple View Geometry in Computer Vision - Result 9.19 p259
  */
+
+
 bool Initializer::ReconstructF(vector<bool> &vbMatchesInliers, cv::Mat &F21, cv::Mat &K,
                             cv::Mat &R21, cv::Mat &t21, vector<cv::Point3f> &vP3D, vector<bool> &vbTriangulated, float minParallax, int minTriangulated)
 {
@@ -606,27 +678,33 @@ bool Initializer::ReconstructF(vector<bool> &vbMatchesInliers, cv::Mat &F21, cv:
             N++;
 
     // Compute Essential Matrix from Fundamental Matrix
-    cv::Mat E21 = K.t()*F21*K;
+    cv::Mat E21 = F21;
 
     cv::Mat R1, R2, t;
 
     // Recover the 4 motion hypotheses
     // 虽然这个函数对t有归一化，但并没有决定单目整个SLAM过程的尺度
     // 因为CreateInitialMapMonocular函数对3D点深度会缩放，然后反过来对 t 有改变
-    DecomposeE(E21,R1,R2,t);  
 
-    cv::Mat t1=t;
-    cv::Mat t2=-t;
+    DecomposeE(E21,R1,R2,t);  
+    cv::Mat t1  = t/cv::norm(t)*0.1;
+    cv::Mat t2  = -t1;
+//    cv::Mat t1=t;
+//    cv::Mat t2=-t;
 
     // Reconstruct with the 4 hyphoteses and check
     vector<cv::Point3f> vP3D1, vP3D2, vP3D3, vP3D4;
     vector<bool> vbTriangulated1,vbTriangulated2,vbTriangulated3, vbTriangulated4;
     float parallax1,parallax2, parallax3, parallax4;
+    int nGood1 = CheckRT_Panoramic(R1,t1,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,vP3D1, 4.0*mSigma2, vbTriangulated1, parallax1);
+    int nGood2 = CheckRT_Panoramic(R2,t1,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,vP3D2, 4.0*mSigma2, vbTriangulated2, parallax2);
+    int nGood3 = CheckRT_Panoramic(R1,t2,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,vP3D3, 4.0*mSigma2, vbTriangulated3, parallax3);
+    int nGood4 = CheckRT_Panoramic(R2,t2,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,vP3D4, 4.0*mSigma2, vbTriangulated4, parallax4);
 
-    int nGood1 = CheckRT(R1,t1,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D1, 4.0*mSigma2, vbTriangulated1, parallax1);
-    int nGood2 = CheckRT(R2,t1,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D2, 4.0*mSigma2, vbTriangulated2, parallax2);
-    int nGood3 = CheckRT(R1,t2,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D3, 4.0*mSigma2, vbTriangulated3, parallax3);
-    int nGood4 = CheckRT(R2,t2,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D4, 4.0*mSigma2, vbTriangulated4, parallax4);
+   // int nGood1 = CheckRT(R1,t1,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D1, 4.0*mSigma2, vbTriangulated1, parallax1);
+   // int nGood2 = CheckRT(R2,t1,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D2, 4.0*mSigma2, vbTriangulated2, parallax2);
+   // int nGood3 = CheckRT(R1,t2,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D3, 4.0*mSigma2, vbTriangulated3, parallax3);
+   // int nGood4 = CheckRT(R2,t2,mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K, vP3D4, 4.0*mSigma2, vbTriangulated4, parallax4);
 
     int maxGood = max(nGood1,max(nGood2,max(nGood3,nGood4)));
 
@@ -650,6 +728,7 @@ bool Initializer::ReconstructF(vector<bool> &vbMatchesInliers, cv::Mat &F21, cv:
     // 四个结果中如果没有明显的最优结果，则返回失败
     if(maxGood<nMinGood || nsimilar>1)
     {
+
         return false;
     }
 
@@ -700,6 +779,7 @@ bool Initializer::ReconstructF(vector<bool> &vbMatchesInliers, cv::Mat &F21, cv:
             return true;
         }
     }
+
 
     return false;
 }
@@ -872,7 +952,6 @@ bool Initializer::ReconstructH(vector<bool> &vbMatchesInliers, cv::Mat &H21, cv:
         vector<cv::Point3f> vP3Di;
         vector<bool> vbTriangulatedi;
         int nGood = CheckRT(vR[i],vt[i],mvKeys1,mvKeys2,mvMatches12,vbMatchesInliers,K,vP3Di, 4.0*mSigma2, vbTriangulatedi, parallaxi);
-
         // 保留最优的和次优的
         if(nGood>bestGood)
         {
@@ -938,6 +1017,8 @@ bool Initializer::ReconstructH(vector<bool> &vbMatchesInliers, cv::Mat &H21, cv:
  */
 void Initializer::Triangulate(const cv::KeyPoint &kp1, const cv::KeyPoint &kp2, const cv::Mat &P1, const cv::Mat &P2, cv::Mat &x3D)
 {
+
+
     // 在DecomposeE函数和ReconstructH函数中对t有归一化
     // 这里三角化过程中恢复的3D点深度取决于 t 的尺度，
     // 但是这里恢复的3D点并没有决定单目整个SLAM过程的尺度
@@ -954,6 +1035,8 @@ void Initializer::Triangulate(const cv::KeyPoint &kp1, const cv::KeyPoint &kp2, 
     cv::SVD::compute(A,w,u,vt,cv::SVD::MODIFY_A| cv::SVD::FULL_UV);
     x3D = vt.row(3).t();
     x3D = x3D.rowRange(0,3)/x3D.at<float>(3);
+
+
 }
 
 /**
@@ -1156,6 +1239,138 @@ int Initializer::CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::Ke
     return nGood;
 }
 
+
+int Initializer::CheckRT_Panoramic(const cv::Mat &R, const cv::Mat &t, const vector<cv::KeyPoint> &vKeys1,
+                                   const vector<cv::KeyPoint> &vKeys2, const vector<Match> &vMatches12, vector<bool> &vbMatchesInliers,
+                                   vector<cv::Point3f> &vP3D, float th2, vector<bool> &vbGood, float &parallax)
+{
+
+   // std::vector<cv::KeyPoint> vKeys1,vKeys2;
+
+    vbGood = vector<bool>(vKeys1.size(),false);
+    vP3D.resize(vKeys1.size());
+
+    vector<float> vCosParallax;
+    vCosParallax.reserve(vKeys1.size());
+
+    cv::Mat K  =cv::Mat::eye(3,3,CV_32F);
+    cv::Mat P1(3,4,CV_32F,cv::Scalar(0));
+    K.copyTo(P1.rowRange(0,3).colRange(0,3));
+
+    // 第一个相机的光心在世界坐标系下的坐标
+    cv::Mat O1 = cv::Mat::zeros(3,1,CV_32F);
+
+
+    cv::Mat P2(3,4,CV_32F);
+    R.copyTo(P2.rowRange(0,3).colRange(0,3));
+    t.copyTo(P2.rowRange(0,3).col(3));
+    P2 = K*P2;
+    // 第二个相机的光心在世界坐标系下的坐标
+    cv::Mat O2 = -R.t()*t;
+
+    int nGood=0;
+    int counter = 0 ;
+    for(size_t i=0, iend=vMatches12.size();i<iend;i++)
+    {
+        if(!vbMatchesInliers[i])
+            continue;
+        counter++;
+
+        const int initFrameIndex = vMatches12[i].first;
+        const int currentFrameIndex = vMatches12[i].second;
+//        const cv::KeyPoint &kp1 = vKeys1[vMatches12[i].first];
+//        const cv::KeyPoint &kp2 = vKeys2[vMatches12[i].second];
+
+        cv::KeyPoint kp1 = mvKeysCamera1[initFrameIndex];
+        cv::KeyPoint kp2 = mvKeysCamera2[currentFrameIndex];
+        cv::KeyPoint kpp1 = mvKeys1[initFrameIndex];
+        cv::KeyPoint kpp2 = mvKeys2[currentFrameIndex];
+
+//        kp1.pt = Converter::toCameraPoint2f(kpp1.pt);
+//        kp2.pt = Converter::toCameraPoint2f(kpp2.pt);
+
+        cv::Mat p3dC1;
+        // 步骤3：利用三角法恢复三维点p3dC1
+        Triangulate(kp1,kp2,P1,P2,p3dC1);
+
+        if(!isfinite(p3dC1.at<float>(0)) || !isfinite(p3dC1.at<float>(1)) || !isfinite(p3dC1.at<float>(2)))
+        {
+            vbGood[vMatches12[i].first]=false;
+            continue;
+        }
+
+        // Check parallax
+        // 步骤4：计算视差角余弦值
+        cv::Mat normal1 = p3dC1 - O1;
+        float dist1 = cv::norm(normal1);
+
+        cv::Mat normal2 = p3dC1 - O2;
+        float dist2 = cv::norm(normal2);
+
+        float cosParallax = normal1.dot(normal2)/(dist1*dist2);
+        if(p3dC1.at<float>(2)<=0 && cosParallax<0.99998)
+        {
+              continue;
+        }
+
+        cv::Mat p3dC2 = R*p3dC1+t;
+
+        if(p3dC2.at<float>(2)<=0 && cosParallax<0.99998)
+        {
+           continue;
+        }
+
+
+        cv::Point2f projection1 = Converter::toPanoramicPoint2f(cv::Point3f(p3dC1.at<float>(0),p3dC1.at<float>(1),p3dC1.at<float>(2)));
+
+        float im1x = projection1.x;
+        float im1y = projection1.y;
+
+        float squareError1 = (im1x-kpp1.pt.x)*(im1x-kpp1.pt.x)+(im1y-kpp1.pt.y)*(im1y-kpp1.pt.y);
+        if(squareError1>th2)
+        {
+
+            continue;
+        }
+
+
+        cv::Point2f projection2 = Converter::toPanoramicPoint2f(cv::Point3f(p3dC2.at<float>(0),p3dC2.at<float>(1),p3dC2.at<float>(2)));
+        float im2x = projection2.x;
+        float im2y = projection2.y;
+        float squareError2 = (im2x-kpp2.pt.x)*(im2x-kpp2.pt.x)+(im2y-kpp2.pt.y)*(im2y-kpp2.pt.y);
+
+        if(squareError2>th2)
+        {
+            continue;
+        }
+
+        vCosParallax.push_back(cosParallax);
+        vP3D[vMatches12[i].first] = cv::Point3f(p3dC1.at<float>(0),p3dC1.at<float>(1),p3dC1.at<float>(2));
+        nGood++;
+
+        if(cosParallax<0.99998)
+            vbGood[vMatches12[i].first]=true;
+    }
+
+
+    if(nGood>0)
+    {
+        // 从小到大排序
+        sort(vCosParallax.begin(),vCosParallax.end());
+
+        // trick! 排序后并没有取最大的视差角
+        // 取一个较大的视差角
+        size_t idx = min(20,int(vCosParallax.size()-1));
+        parallax = acos(vCosParallax[idx])*180/CV_PI;
+    }
+    else
+        parallax=0;
+
+
+
+    return nGood;
+}
+
 /**
  * @brief 分解Essential矩阵
  * 
@@ -1169,6 +1384,8 @@ int Initializer::CheckRT(const cv::Mat &R, const cv::Mat &t, const vector<cv::Ke
  */
 void Initializer::DecomposeE(const cv::Mat &E, cv::Mat &R1, cv::Mat &R2, cv::Mat &t)
 {
+
+
     cv::Mat u,w,vt;
     cv::SVD::compute(E,w,u,vt);
 
@@ -1189,6 +1406,8 @@ void Initializer::DecomposeE(const cv::Mat &E, cv::Mat &R1, cv::Mat &R2, cv::Mat
     R2 = u*W.t()*vt;
     if(cv::determinant(R2)<0)
         R2=-R2;
+
+
 }
 
 } //namespace ORB_SLAM

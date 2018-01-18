@@ -80,7 +80,9 @@ public:
    /**
      *@name toPoint2f
      */
-     static cv::Point2f  toPinholePoint2f(const cv::Point2f pt);
+     static cv::Point2f  toCameraPoint2f(const cv::Point2f pt);
+     static cv::Point2f  toPanoramicPoint2f(cv::Point3f point);
+     static cv::KeyPoint toCameraKeyPoint(const cv::KeyPoint kp);
 
 };
 
