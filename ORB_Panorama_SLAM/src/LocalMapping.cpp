@@ -22,6 +22,9 @@
 #include "LoopClosing.h"
 #include "ORBmatcher.h"
 #include "Optimizer.h"
+#include "Converter.h"
+#include <iostream>
+
 
 #include<mutex>
 
@@ -51,6 +54,7 @@ void LocalMapping::Run()
 
     while(1)
     {
+
         // Tracking will see that Local Mapping is busy
         // 告诉Tracking，LocalMapping正处于繁忙状态，
         // LocalMapping线程处理的关键帧都是Tracking线程发过的
@@ -61,6 +65,7 @@ void LocalMapping::Run()
         // 等待处理的关键帧列表不为空
         if(CheckNewKeyFrames())
         {
+//            std::cout<<"new keyFrame LocalMapping dealing "<<std::endl;
             // BoW conversion and insertion in Map
             // VI-A keyframe insertion
             // 计算关键帧特征点的BoW映射，将关键帧插入地图
@@ -81,7 +86,7 @@ void LocalMapping::Run()
             {
                 // Find more matches in neighbor keyframes and fuse point duplications
                 // 检查并融合当前关键帧与相邻帧（两级相邻）重复的MapPoints
-                SearchInNeighbors();
+//                SearchInNeighbors();
             }
 
             mbAbortBA = false;
@@ -101,7 +106,7 @@ void LocalMapping::Run()
                 // Tracking中先把关键帧交给LocalMapping线程
                 // 并且在Tracking中InsertKeyFrame函数的条件比较松，交给LocalMapping线程的关键帧会比较密
                 // 在这里再删除冗余的关键帧
-                KeyFrameCulling();
+               // KeyFrameCulling();
             }
 
             // 将当前帧加入到闭环检测队列中
@@ -304,12 +309,12 @@ void LocalMapping::CreateNewMapPoints()
     // 得到当前关键帧在世界坐标系中的坐标
     cv::Mat Ow1 = mpCurrentKeyFrame->GetCameraCenter();
 
-    const float &fx1 = mpCurrentKeyFrame->fx;
-    const float &fy1 = mpCurrentKeyFrame->fy;
-    const float &cx1 = mpCurrentKeyFrame->cx;
-    const float &cy1 = mpCurrentKeyFrame->cy;
-    const float &invfx1 = mpCurrentKeyFrame->invfx;
-    const float &invfy1 = mpCurrentKeyFrame->invfy;
+//    const float &fx1 = mpCurrentKeyFrame->fx;
+//    const float &fy1 = mpCurrentKeyFrame->fy;
+//    const float &cx1 = mpCurrentKeyFrame->cx;
+//    const float &cy1 = mpCurrentKeyFrame->cy;
+//    const float &invfx1 = mpCurrentKeyFrame->invfx;
+//    const float &invfy1 = mpCurrentKeyFrame->invfy;
 
     const float ratioFactor = 1.5f*mpCurrentKeyFrame->mfScaleFactor;
 
@@ -366,12 +371,12 @@ void LocalMapping::CreateNewMapPoints()
         Rcw2.copyTo(Tcw2.colRange(0,3));
         tcw2.copyTo(Tcw2.col(3));
 
-        const float &fx2 = pKF2->fx;
-        const float &fy2 = pKF2->fy;
-        const float &cx2 = pKF2->cx;
-        const float &cy2 = pKF2->cy;
-        const float &invfx2 = pKF2->invfx;
-        const float &invfy2 = pKF2->invfy;
+//        const float &fx2 = pKF2->fx;
+//        const float &fy2 = pKF2->fy;
+//        const float &cx2 = pKF2->cx;
+//        const float &cy2 = pKF2->cy;
+//        const float &invfx2 = pKF2->invfx;
+//        const float &invfy2 = pKF2->invfy;
 
         // Triangulate each match
         // 步骤6：对每对匹配通过三角化生成3D点,he Triangulate函数差不多
@@ -401,8 +406,15 @@ void LocalMapping::CreateNewMapPoints()
             // Check parallax between rays
             // 步骤6.2：利用匹配点反投影得到视差角
             // 特征点反投影
-            cv::Mat xn1 = (cv::Mat_<float>(3,1) << (kp1.pt.x-cx1)*invfx1, (kp1.pt.y-cy1)*invfy1, 1.0);
-            cv::Mat xn2 = (cv::Mat_<float>(3,1) << (kp2.pt.x-cx2)*invfx2, (kp2.pt.y-cy2)*invfy2, 1.0);
+
+            cv::KeyPoint kpcam1 = Converter::toCameraKeyPoint(kp1);
+            cv::KeyPoint kpcam2 = Converter::toCameraKeyPoint(kp2);
+
+            cv::Mat xn1 = (cv::Mat_<float>(3,1) << kpcam1.pt.x,kpcam1.pt.y, 1.0);
+            cv::Mat xn2 = (cv::Mat_<float>(3,1) << kpcam2.pt.x,kpcam2.pt.y, 1.0);
+
+//            cv::Mat xn1 = (cv::Mat_<float>(3,1) << (kp1.pt.x-cx1)*invfx1, (kp1.pt.y-cy1)*invfy1, 1.0);
+//            cv::Mat xn2 = (cv::Mat_<float>(3,1) << (kp2.pt.x-cx2)*invfx2, (kp2.pt.y-cy2)*invfy2, 1.0);
 
             // 由相机坐标系转到世界坐标系，得到视差角余弦值
             cv::Mat ray1 = Rwc1*xn1;
@@ -465,69 +477,76 @@ void LocalMapping::CreateNewMapPoints()
             //Check triangulation in front of cameras
             // 步骤6.5：检测生成的3D点是否在相机前方
             float z1 = Rcw1.row(2).dot(x3Dt)+tcw1.at<float>(2);
-            if(z1<=0)
-                continue;
+//            if(z1<=0)  //the mappoint may behind the camera
+//                continue;
 
             float z2 = Rcw2.row(2).dot(x3Dt)+tcw2.at<float>(2);
-            if(z2<=0)
-                continue;
+//            if(z2<=0)  //the mappoint may bebind the camera
+//                continue;
 
             //Check reprojection error in first keyframe
             // 步骤6.6：计算3D点在当前关键帧下的重投影误差
             const float &sigmaSquare1 = mpCurrentKeyFrame->mvLevelSigma2[kp1.octave];
             const float x1 = Rcw1.row(0).dot(x3Dt)+tcw1.at<float>(0);
             const float y1 = Rcw1.row(1).dot(x3Dt)+tcw1.at<float>(1);
-            const float invz1 = 1.0/z1;
+//            const float invz1 = 1.0/z1;
 
             if(!bStereo1)
             {
-                float u1 = fx1*x1*invz1+cx1;
-                float v1 = fy1*y1*invz1+cy1;
+                cv::Point2f imagePoint1 = Converter::toPanoramicPoint2f(cv::Point3f(x1,y1,z1));
+                float u1 = imagePoint1.x;
+                float v1 = imagePoint1.y;
+//                float u1 = fx1*x1*invz1+cx1;
+//                float v1 = fy1*y1*invz1+cy1;
                 float errX1 = u1 - kp1.pt.x;
                 float errY1 = v1 - kp1.pt.y;
                 // 基于卡方检验计算出的阈值（假设测量有一个像素的偏差）
                 if((errX1*errX1+errY1*errY1)>5.991*sigmaSquare1)
                     continue;
             }
-            else
-            {
-                float u1 = fx1*x1*invz1+cx1;
-                float u1_r = u1 - mpCurrentKeyFrame->mbf*invz1;
-                float v1 = fy1*y1*invz1+cy1;
-                float errX1 = u1 - kp1.pt.x;
-                float errY1 = v1 - kp1.pt.y;
-                float errX1_r = u1_r - kp1_ur;
-                if((errX1*errX1+errY1*errY1+errX1_r*errX1_r)>7.8*sigmaSquare1)
-                    continue;
-            }
+//            else  //use when stereo or depth
+//            {
+//                float u1 = fx1*x1*invz1+cx1;
+//                float u1_r = u1 - mpCurrentKeyFrame->mbf*invz1;
+//                float v1 = fy1*y1*invz1+cy1;
+//                float errX1 = u1 - kp1.pt.x;
+//                float errY1 = v1 - kp1.pt.y;
+//                float errX1_r = u1_r - kp1_ur;
+//                if((errX1*errX1+errY1*errY1+errX1_r*errX1_r)>7.8*sigmaSquare1)
+//                    continue;
+//            }
 
             //Check reprojection error in second keyframe
             // 计算3D点在另一个关键帧下的重投影误差
             const float sigmaSquare2 = pKF2->mvLevelSigma2[kp2.octave];
             const float x2 = Rcw2.row(0).dot(x3Dt)+tcw2.at<float>(0);
             const float y2 = Rcw2.row(1).dot(x3Dt)+tcw2.at<float>(1);
-            const float invz2 = 1.0/z2;
+//            const float invz2 = 1.0/z2;
             if(!bStereo2)
             {
-                float u2 = fx2*x2*invz2+cx2;
-                float v2 = fy2*y2*invz2+cy2;
+
+                cv::Point2f imagePoint2 = Converter::toPanoramicPoint2f(cv::Point3f(x2,y2,z2));
+                float u2 = imagePoint2.x;
+                float v2 = imagePoint2.y;
+//                float u2 = fx2*x2*invz2+cx2;
+//                float v2 = fy2*y2*invz2+cy2;
                 float errX2 = u2 - kp2.pt.x;
                 float errY2 = v2 - kp2.pt.y;
                 if((errX2*errX2+errY2*errY2)>5.991*sigmaSquare2)
                     continue;
             }
-            else
-            {
-                float u2 = fx2*x2*invz2+cx2;
-                float u2_r = u2 - mpCurrentKeyFrame->mbf*invz2;
-                float v2 = fy2*y2*invz2+cy2;
-                float errX2 = u2 - kp2.pt.x;
-                float errY2 = v2 - kp2.pt.y;
-                float errX2_r = u2_r - kp2_ur;
-                // 基于卡方检验计算出的阈值（假设测量有一个一个像素的偏差）
-                if((errX2*errX2+errY2*errY2+errX2_r*errX2_r)>7.8*sigmaSquare2)
-                    continue;
-            }
+//            else   //use when stereo or depth
+//            {
+//                float u2 = fx2*x2*invz2+cx2;
+//                float u2_r = u2 - mpCurrentKeyFrame->mbf*invz2;
+//                float v2 = fy2*y2*invz2+cy2;
+//                float errX2 = u2 - kp2.pt.x;
+//                float errY2 = v2 - kp2.pt.y;
+//                float errX2_r = u2_r - kp2_ur;
+//                // 基于卡方检验计算出的阈值（假设测量有一个一个像素的偏差）
+//                if((errX2*errX2+errY2*errY2+errX2_r*errX2_r)>7.8*sigmaSquare2)
+//                    continue;
+//            }
 
             //Check scale consistency
             // 步骤6.7：检查尺度连续性
@@ -709,8 +728,11 @@ cv::Mat LocalMapping::ComputeF12(KeyFrame *&pKF1, KeyFrame *&pKF2)
 
     cv::Mat t12x = SkewSymmetricMatrix(t12);
 
-    const cv::Mat &K1 = pKF1->mK;
-    const cv::Mat &K2 = pKF2->mK;
+//    const cv::Mat &K1 = pKF1->mK;
+//    const cv::Mat &K2 = pKF2->mK;
+
+    const cv::Mat &K1 = cv::Mat::eye(3,3,CV_32F);
+    const cv::Mat &K2 = cv::Mat::eye(3,3,CV_32F);
 
 
     return K1.t().inv()*t12x*R12*K2.inv();

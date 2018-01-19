@@ -26,7 +26,7 @@
 #include<opencv2/features2d/features2d.hpp>
 
 #include "Thirdparty/DBoW2/DBoW2/FeatureVector.h"
-
+#include "Converter.h"
 #include<stdint.h>
 
 using namespace std;
@@ -160,6 +160,29 @@ float ORBmatcher::RadiusByViewingCos(const float &viewCos)
         return 2.5;
     else
         return 4.0;
+}
+
+bool ORBmatcher::CheckFundemental(const cv::KeyPoint &kp1, const cv::KeyPoint &kp2, const cv::Mat &F12, const KeyFrame *pKF)
+{
+
+    cv::KeyPoint kpcam1 = Converter::toCameraKeyPoint(kp1);
+    cv::KeyPoint kpcam2 = Converter::toCameraKeyPoint(kp2);
+    cv::Mat mkp1(3,1 ,CV_32F);
+    cv::Mat mkp2(1,3 ,CV_32F);
+
+    mkp1.at<float>(0,0) = (float)kpcam1.pt.x;
+    mkp1.at<float>(1,0) = (float)kpcam1.pt.y;
+    mkp1.at<float>(2,0) = 1.0f;
+
+    mkp2.at<float>(0,0) = (float)kpcam2.pt.x;
+    mkp2.at<float>(0,1) = (float)kpcam2.pt.y;
+    mkp2.at<float>(0,2) = 1.0f;
+
+    cv::Mat res = mkp2*F12*mkp1 ;
+    float thScore = fabs(res.at<float>(0,0));
+    if(thScore<0.01*pKF->mvLevelSigma2[kp2.octave]) return true;
+    else return false;
+
 }
 
 
@@ -389,8 +412,8 @@ int ORBmatcher::SearchByProjection(KeyFrame* pKF, cv::Mat Scw, const vector<MapP
         cv::Mat p3Dc = Rcw*p3Dw+tcw;
 
         // Depth must be positive
-        if(p3Dc.at<float>(2)<0.0)
-            continue;
+//        if(p3Dc.at<float>(2)<0.0)
+//            continue;
 
         // Project into Image
         const float invz = 1/p3Dc.at<float>(2);
@@ -764,10 +787,20 @@ int ORBmatcher::SearchForTriangulation(KeyFrame *pKF1, KeyFrame *pKF2, cv::Mat F
     cv::Mat R2w = pKF2->GetRotation();    // Rc2w
     cv::Mat t2w = pKF2->GetTranslation(); // tc2w
     cv::Mat C2 = R2w*Cw+t2w; // tc2c1 KF1的相机中心在KF2坐标系的表示
-    const float invz = 1.0f/C2.at<float>(2);
-    // 步骤0：得到KF1的相机光心在KF2中的坐标（极点坐标）
-    const float ex =pKF2->fx*C2.at<float>(0)*invz+pKF2->cx;
-    const float ey =pKF2->fy*C2.at<float>(1)*invz+pKF2->cy;
+//    const float invz = 1.0f/C2.at<float>(2);
+//    // 步骤0：得到KF1的相机光心在KF2中的坐标（极点坐标）
+//    const float ex =pKF2->fx*C2.at<float>(0)*invz+pKF2->cx;
+//    const float ey =pKF2->fy*C2.at<float>(1)*invz+pKF2->cy;
+
+
+    const float xc2 = C2.at<float>(0);
+    const float yc2 = C2.at<float>(1);
+    const float zc2 = C2.at<float>(2);
+
+    cv::Point2f imagePoint = Converter::toPanoramicPoint2f(cv::Point3f(xc2,yc2,zc2));
+    const float ex =  imagePoint.x;
+    const float ey =  imagePoint.y;
+
 
     // Find matches between not tracked keypoints
     // Matching speed-up by ORB Vocabulary
@@ -871,7 +904,8 @@ int ORBmatcher::SearchForTriangulation(KeyFrame *pKF1, KeyFrame *pKF2, cv::Mat F
                     }
 
                     // 步骤4：计算特征点kp2到kp1极线（kp1对应pKF2的一条极线）的距离是否小于阈值
-                    if(CheckDistEpipolarLine(kp1,kp2,F12,pKF2))
+//                    if(CheckDistEpipolarLine(kp1,kp2,F12,pKF2))
+                    if(CheckFundemental(kp1,kp2,F12,pKF2))
                     {
                         bestIdx2 = idx2;
                         bestDist = dist;
@@ -991,8 +1025,8 @@ int ORBmatcher::Fuse(KeyFrame *pKF, const vector<MapPoint *> &vpMapPoints, const
         cv::Mat p3Dc = Rcw*p3Dw + tcw;
 
         // Depth must be positive
-        if(p3Dc.at<float>(2)<0.0f)
-            continue;
+//        if(p3Dc.at<float>(2)<0.0f)
+//            continue;
 
         const float invz = 1/p3Dc.at<float>(2);
         const float x = p3Dc.at<float>(0)*invz;
@@ -1156,8 +1190,8 @@ int ORBmatcher::Fuse(KeyFrame *pKF, cv::Mat Scw, const vector<MapPoint *> &vpPoi
         cv::Mat p3Dc = Rcw*p3Dw+tcw;
 
         // Depth must be positive
-        if(p3Dc.at<float>(2)<0.0f)
-            continue;
+//        if(p3Dc.at<float>(2)<0.0f)
+//            continue;
 
         // Project into Image
         const float invz = 1.0/p3Dc.at<float>(2);
@@ -1317,8 +1351,8 @@ int ORBmatcher::SearchBySim3(KeyFrame *pKF1, KeyFrame *pKF2, vector<MapPoint*> &
         cv::Mat p3Dc2 = sR21*p3Dc1 + t21;// 再通过Sim3将该MapPoint从camera1变换到camera2坐标系
 
         // Depth must be positive
-        if(p3Dc2.at<float>(2)<0.0)
-            continue;
+//        if(p3Dc2.at<float>(2)<0.0)
+//            continue;
 
         // 投影到camera2图像平面
         const float invz = 1.0/p3Dc2.at<float>(2);
@@ -1405,8 +1439,8 @@ int ORBmatcher::SearchBySim3(KeyFrame *pKF1, KeyFrame *pKF2, vector<MapPoint*> &
         cv::Mat p3Dc1 = sR12*p3Dc2 + t12;
 
         // Depth must be positive
-        if(p3Dc1.at<float>(2)<0.0)
-            continue;
+//        if(p3Dc1.at<float>(2)<0.0)
+//            continue;
 
         const float invz = 1.0/p3Dc1.at<float>(2);
         const float x = p3Dc1.at<float>(0)*invz;
@@ -1543,13 +1577,21 @@ int ORBmatcher::SearchByProjection(Frame &CurrentFrame, const Frame &LastFrame, 
 
                 const float xc = x3Dc.at<float>(0);
                 const float yc = x3Dc.at<float>(1);
-                const float invzc = 1.0/x3Dc.at<float>(2);
+                const float zc = x3Dc.at<float>(2);
 
-                if(invzc<0)
-                    continue;
+//                if(zc<0)
+//                   continue;
 
-                float u = CurrentFrame.fx*xc*invzc+CurrentFrame.cx;
-                float v = CurrentFrame.fy*yc*invzc+CurrentFrame.cy;
+//                const float invzc = 1.0/x3Dc.at<float>(2);
+//                if(invzc<0)
+//                    continue;
+
+                cv::Point2f imagePoint = Converter::toPanoramicPoint2f(cv::Point3f(xc,yc,zc));
+                const float u =  imagePoint.x;
+                const float v =  imagePoint.y;
+
+//                float u = CurrentFrame.fx*xc*invzc+CurrentFrame.cx; //
+//                float v = CurrentFrame.fy*yc*invzc+CurrentFrame.cy; //
 
                 if(u<CurrentFrame.mnMinX || u>CurrentFrame.mnMaxX)
                     continue;
@@ -1591,14 +1633,14 @@ int ORBmatcher::SearchByProjection(Frame &CurrentFrame, const Frame &LastFrame, 
                         if(CurrentFrame.mvpMapPoints[i2]->Observations()>0)
                             continue;
 
-                    if(CurrentFrame.mvuRight[i2]>0)
-                    {
-                        // 双目和rgbd的情况，需要保证右图的点也在搜索半径以内
-                        const float ur = u - CurrentFrame.mbf*invzc;
-                        const float er = fabs(ur - CurrentFrame.mvuRight[i2]);
-                        if(er>radius)
-                            continue;
-                    }
+//                    if(CurrentFrame.mvuRight[i2]>0)
+//                    {
+//                        // 双目和rgbd的情况，需要保证右图的点也在搜索半径以内
+//                        const float ur = u - CurrentFrame.mbf*invzc;
+//                        const float er = fabs(ur - CurrentFrame.mvuRight[i2]);
+//                        if(er>radius)
+//                            continue;
+//                    }
 
                     const cv::Mat &d = CurrentFrame.mDescriptors.row(i2);
 
@@ -1688,10 +1730,18 @@ int ORBmatcher::SearchByProjection(Frame &CurrentFrame, KeyFrame *pKF, const set
 
                 const float xc = x3Dc.at<float>(0);
                 const float yc = x3Dc.at<float>(1);
-                const float invzc = 1.0/x3Dc.at<float>(2);
+//                const float invzc = 1.0/x3Dc.at<float>(2);
+                const float zc = x3Dc.at<float>(2);
 
-                const float u = CurrentFrame.fx*xc*invzc+CurrentFrame.cx;
-                const float v = CurrentFrame.fy*yc*invzc+CurrentFrame.cy;
+
+                cv::Point2f imagePoint = Converter::toPanoramicPoint2f(cv::Point3f(xc,yc,zc));
+                const float u =  imagePoint.x;
+                const float v =  imagePoint.y;
+
+
+
+//                const float u = CurrentFrame.fx*xc*invzc+CurrentFrame.cx;
+//                const float v = CurrentFrame.fy*yc*invzc+CurrentFrame.cy;
 
                 if(u<CurrentFrame.mnMinX || u>CurrentFrame.mnMaxX)
                     continue;

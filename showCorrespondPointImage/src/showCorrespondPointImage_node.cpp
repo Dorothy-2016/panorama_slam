@@ -398,8 +398,8 @@ int main(int argc ,char ** argv)
     ReadRT(string("pose.txt"));
 
 
-//    GlobalBundleAdjustment();
-    Optimizer();
+    GlobalBundleAdjustment();
+//    Optimizer();
     cout<<R<<endl;
     cout<<t<<endl;
     char filename[100];

@@ -319,14 +319,19 @@ bool Frame::isInFrustum(MapPoint *pMP, float viewingCosLimit)
     const float &PcZ = Pc.at<float>(2);
 
     // Check positive depth
-    if(PcZ<0.0f)
-        return false;
+//    if(PcZ<0.0f)
+//        return false;
 
     // Project in image and check it is not outside
     // V-D 1) 将MapPoint投影到当前帧, 并判断是否在图像内
-    const float invz = 1.0f/PcZ;
-    const float u=fx*PcX*invz+cx;
-    const float v=fy*PcY*invz+cy;
+//    const float invz = 1.0f/PcZ;
+
+    cv::Point2f imagePoint = Converter::toPanoramicPoint2f(cv::Point3f(PcX,PcY,PcZ));
+
+//    const float u=fx*PcX*invz+cx;
+//    const float v=fy*PcY*invz+cy;
+    const float u = imagePoint.x;
+    const float v = imagePoint.y;
 
     if(u<mnMinX || u>mnMaxX)
         return false;
@@ -361,7 +366,8 @@ bool Frame::isInFrustum(MapPoint *pMP, float viewingCosLimit)
     // 标记该点将来要被投影
     pMP->mbTrackInView = true;
     pMP->mTrackProjX = u;
-    pMP->mTrackProjXR = u - mbf*invz; //该3D点投影到双目右侧相机上的横坐标
+//    pMP->mTrackProjXR = u - mbf*invz; //该3D点投影到双目右侧相机上的横坐标
+    pMP->mTrackProjXR = 0; //该3D点投影到双目右侧相机上的横坐标
     pMP->mTrackProjY = v;
     pMP->mnTrackScaleLevel = nPredictedLevel;
     pMP->mTrackViewCos = viewCos;

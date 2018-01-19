@@ -163,7 +163,11 @@ cv::Point2f Converter::toCameraPoint2f(const cv::Point2f pt)
     ppt.y = -tan(fai)/sin(theta);
     return ppt;
 }
-
+/**
+ * @brief Converter::toCameraKeyPoint
+ * @param  panoramic image corrdinate
+ * @return  camera point
+ */
 cv::KeyPoint Converter::toCameraKeyPoint(const cv::KeyPoint kp)
 {
     float coef  = PI/960.0;
@@ -178,6 +182,12 @@ cv::KeyPoint Converter::toCameraKeyPoint(const cv::KeyPoint kp)
 
 }
 
+
+/**
+ * @brief Converter::toPanoramicPoint2f
+ * @param 3D point
+ * @return  projection in panoramic image
+ */
 cv::Point2f Converter::toPanoramicPoint2f(cv::Point3f point)
 {
     cv::Point2f projection;

@@ -47,7 +47,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=
+CMAKE_BUILD_TYPE:STRING=Release
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -264,8 +264,6 @@ BLAS_atlas_LIBRARY-ADVANCED:INTERNAL=1
 BLAS_cblas_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: BLAS_f77blas_LIBRARY
 BLAS_f77blas_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: BLAS_sgemm__cblas_f77blas_atlas_f2c_WORKS
-BLAS_sgemm__cblas_f77blas_atlas_f2c_WORKS-ADVANCED:INTERNAL=1
 //Have function sgemm_
 BLAS_sgemm__cblas_f77blas_atlas_f2c_WORKS:INTERNAL=1
 //ADVANCED property for variable: CMAKE_AR
@@ -405,8 +403,6 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenMP:INTERNAL=[-fopenmp][-fopenmp][v()]
 LAPACK_Accelerate_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: LAPACK_acml_LIBRARY
 LAPACK_acml_LIBRARY-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: LAPACK_cheev__lapack_f2c_WORKS
-LAPACK_cheev__lapack_f2c_WORKS-ADVANCED:INTERNAL=1
 //Have function cheev_
 LAPACK_cheev__lapack_f2c_WORKS:INTERNAL=1
 //ADVANCED property for variable: LAPACK_lapack_LIBRARY

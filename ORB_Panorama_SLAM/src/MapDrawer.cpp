@@ -92,9 +92,11 @@ void MapDrawer::DrawMapPoints()
 void MapDrawer::DrawKeyFrames(const bool bDrawKF, const bool bDrawGraph)
 {
     //历史关键帧图标：宽度占总宽度比例为0.05
-    const float &w = mKeyFrameSize;
+    const float &w = mKeyFrameSize*0.2;
     const float h = w*0.75;
     const float z = w*0.6;
+
+
 
     //步骤1：取出所有的关键帧
     const vector<KeyFrame*> vpKFs = mpMap->GetAllKeyFrames();
@@ -208,7 +210,7 @@ void MapDrawer::DrawKeyFrames(const bool bDrawKF, const bool bDrawGraph)
 void MapDrawer::DrawCurrentCamera(pangolin::OpenGlMatrix &Twc)
 {
     //相机模型大小：宽度占总宽度比例为0.08
-    const float &w = mCameraSize;
+    const float &w = mCameraSize*0.2;
     const float h = w*0.75;
     const float z = w*0.6;
 

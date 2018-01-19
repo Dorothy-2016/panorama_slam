@@ -377,12 +377,11 @@ float CheckEssential(std::vector<cv::KeyPoint>  vPKeys1,std::vector<cv::KeyPoint
         mkp2.at<float>(1,0) = (float)kp2.pt.y;
         mkp2.at<float>(2,0) = 1.0f;
 
-        Mat res = mkp1*E*mkp2 ;
-
+        Mat res = mkp2.t()*E*mkp1.t();
 
 
 //        Mat res = mkp2.t()*E*mkp1.t();
-        if(fabs(res.at<float>(0,0))>0.10)   //the error is too big  remove
+        if(fabs(res.at<float>(0,0))>0.010)   //the error is too big  remove
         {
              matches[i] = matches.back();
              matches.pop_back();
@@ -391,6 +390,8 @@ float CheckEssential(std::vector<cv::KeyPoint>  vPKeys1,std::vector<cv::KeyPoint
         counter++;
         sum += fabs(res.at<float>(0,0));
     }
+
+    cout<<"ratio "<< counter<<" "<<matches.size()<<endl;
     cout<<sum/counter<<endl;
     return sum/counter;
 

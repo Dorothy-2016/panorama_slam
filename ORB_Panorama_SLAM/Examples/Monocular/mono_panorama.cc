@@ -127,12 +127,12 @@ int main(int argc, char **argv)
 void LoadImages(int start_index, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
 {
     cout<<"test"<<endl;
-    for (int i = 0;i<2000-start_index;i++)
+    for (int i = 0;i<2800-start_index;i++)
     {
         char filename [100];
         sprintf(filename,"/rgb%d.png",i+1+start_index);
         string imageName = string(filename);
         vstrImageFilenames.push_back(imageName);
-        vTimestamps.push_back(0.5*i);
+        vTimestamps.push_back(0.25*i);
     }
 }

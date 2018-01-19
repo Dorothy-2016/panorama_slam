@@ -34,6 +34,7 @@
 #include"PnPsolver.h"
 
 #include<iostream>
+#include<fstream>
 #include<cmath>
 #include<mutex>
 
@@ -126,7 +127,7 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     mpORBextractorLeft = new ORBextractor(nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST,false);
     // 在单目初始化的时候，会用mpIniORBextractor来作为特征点提取器
     if(sensor==System::MONOCULAR)
-        mpIniORBextractor = new ORBextractor(2*nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST,true);
+        mpIniORBextractor = new ORBextractor(int(1.5*nFeatures),fScaleFactor,nLevels,fIniThFAST,fMinThFAST,true);
 
     cout << endl  << "ORB Extractor Parameters: " << endl;
     cout << "- Number of Features: " << nFeatures << endl;
@@ -849,6 +850,19 @@ void Tracking::CreateInitialMapMonocular()
     cout << "New Map created with " << mpMap->MapPointsInMap() << " points" << endl;
     // 步骤5：BA优化
     Optimizer::GlobalBundleAdjustemnt(mpMap,20);
+
+     //Save Initial Sparse Map points
+
+        //    std::vector<MapPoint*> vallpoints  =  mpMap->GetAllMapPoints();
+        //    ofstream fout("points.txt");
+        //    for (int i = 0 ;i<vallpoints.size();i++)
+        //    {
+        //            MapPoint* mp = vallpoints[i];
+        //            cv::Mat pos = mp->GetWorldPos();
+        //            fout<<pos.at<float>(0,0) <<" "<<pos.at<float>(1,0) <<" "<<pos.at<float>(2,0) <<endl;
+
+        //    }
+        //    fout.close();
 
     // Set median depth to 1
     // 步骤6：!!!将MapPoints的中值深度归一化到1，并归一化两帧之间变换

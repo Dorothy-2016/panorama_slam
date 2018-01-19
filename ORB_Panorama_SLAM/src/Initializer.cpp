@@ -287,7 +287,7 @@ void Initializer::FindFundamental(vector<bool> &vbMatchesInliers, float &score, 
 
         // 利用重投影误差为当次RANSAC的结果评分
 //        currentScore = CheckFundamental(F21i, vbCurrentInliers, mSigma);
-        currentScore = CheckFundamental_Panoramic(F21i,vbMatchesInliers,0.1);
+        currentScore = CheckFundamental_Panoramic(F21i,vbMatchesInliers,0.05);
 
         if(currentScore>score)
         {
@@ -622,8 +622,8 @@ float Initializer::CheckFundamental_Panoramic(const cv::Mat &F21, vector<bool> &
         const cv::KeyPoint &kp2 = mvKeysCamera2[mvMatches12[i].second];
 
 
-        cv::Mat mkp1(1,3 ,CV_32F);
         cv::Mat mkp2(3,1 ,CV_32F);
+        cv::Mat mkp1(1,3 ,CV_32F);
         mkp1.at<float>(0,0) = (float)kp1.pt.x;
         mkp1.at<float>(0,1) = (float)kp1.pt.y;
         mkp1.at<float>(0,2) = 1.0f;
@@ -647,6 +647,7 @@ float Initializer::CheckFundamental_Panoramic(const cv::Mat &F21, vector<bool> &
             vbMatchesInliers[i]=false;
     }
 
+//    cout<<"ratio "<<counter<<" "<<N<<endl;
     return score/counter;
 }
 
