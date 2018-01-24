@@ -103,4 +103,5 @@ $\longrightarrow$修改在各处判断深度值必须为正数的地方
 		1.ORBmatcher::Fuse 			if(p3Dc.at<float>(2)<0.0f)
 		2.ORBmatcher::SearchByProjection(Frame ,Frame,..)  
 		3.Frame::isInFrustum()
-修改了Tracking中 initORBextrator features的数量 
+修改了Tracking中 initORBextrator features的数量  
+*  修改了NewKeyframe中的系数 ，主要是thRefRatio 对于前视的不需要改，但是对于看四周的来说需要把这个改大一点。
