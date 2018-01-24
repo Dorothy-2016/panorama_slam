@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM
+CMAKE_SOURCE_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build
+CMAKE_BINARY_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mono_panorama.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/mono_panorama.dir/flags.make
 
 CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o: CMakeFiles/mono_panorama.dir/flags.make
 CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o: ../Examples/Monocular/mono_panorama.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc
 
 CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc > CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc > CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.i
 
 CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc -o CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc -o CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.s
 
 CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o.requires:
 
@@ -91,49 +91,52 @@ mono_panorama_EXTERNAL_OBJECTS =
 mono_panorama: CMakeFiles/mono_panorama.dir/Examples/Monocular/mono_panorama.cc.o
 mono_panorama: CMakeFiles/mono_panorama.dir/build.make
 mono_panorama: ../lib/libORB_Panorama_SLAM.so
-mono_panorama: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_superres3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_face3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_plot3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_reg3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_viz3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_text3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_shape3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_video3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_flann3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_ml3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_photo3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
-mono_panorama: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
-mono_panorama: /home/ustc/nullmax/Pangolin/build/src/libpangolin.so
+mono_panorama: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_superres3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_photo3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_face3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_img_hash3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_reg3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_viz3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_tracking3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_plot3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_text3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_dnn3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_ml3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_shape3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_video3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_flann3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
+mono_panorama: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
+mono_panorama: /home/mj/Downloads/dependence/Pangolin/build/src/libpangolin.so
 mono_panorama: /usr/lib/x86_64-linux-gnu/libGLU.so
 mono_panorama: /usr/lib/x86_64-linux-gnu/libGL.so
 mono_panorama: /usr/lib/x86_64-linux-gnu/libGLEW.so
@@ -154,7 +157,7 @@ mono_panorama: /usr/lib/x86_64-linux-gnu/libtiff.so
 mono_panorama: ../Thirdparty/DBoW2/lib/libDBoW2.so
 mono_panorama: ../Thirdparty/g2o/lib/libg2o.so
 mono_panorama: CMakeFiles/mono_panorama.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mono_panorama"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable mono_panorama"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mono_panorama.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -171,6 +174,6 @@ CMakeFiles/mono_panorama.dir/clean:
 .PHONY : CMakeFiles/mono_panorama.dir/clean
 
 CMakeFiles/mono_panorama.dir/depend:
-	cd /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_panorama.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mj/panorama_slam/ORB_Panorama_SLAM/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mj/panorama_slam/ORB_Panorama_SLAM /home/mj/panorama_slam/ORB_Panorama_SLAM /home/mj/panorama_slam/ORB_Panorama_SLAM/build /home/mj/panorama_slam/ORB_Panorama_SLAM/build /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_panorama.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mono_panorama.dir/depend
 

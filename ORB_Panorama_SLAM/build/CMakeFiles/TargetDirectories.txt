@@ -1,7 +1,7 @@
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/bin_vocabulary.dir
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/ORB_Panorama_SLAM.dir
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/rebuild_cache.dir
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_ricoh.dir
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_kitti.dir
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/edit_cache.dir
-/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_panorama.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/bin_vocabulary.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/ORB_Panorama_SLAM.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/rebuild_cache.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_ricoh.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_kitti.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/edit_cache.dir
+/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/mono_panorama.dir

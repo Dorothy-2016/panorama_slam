@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM
+CMAKE_SOURCE_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build
+CMAKE_BINARY_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/ORB_Panorama_SLAM.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o: ../src/System.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/System.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/System.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/System.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/System.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/System.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/System.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/System.cpp.o.provides.build: CMakeFiles/ORB
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o: ../src/Tracking.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Tracking.cpp.o.provides.build: CMakeFiles/O
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o: ../src/LocalMapping.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/LocalMapping.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o: ../src/LoopClosing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/LoopClosing.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o: ../src/ORBextractor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBextractor.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o: ../src/ORBmatcher.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/ORBmatcher.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o: ../src/FrameDrawer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/FrameDrawer.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o: ../src/Converter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o.requires:
 
@@ -251,16 +251,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Converter.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o: ../src/MapPoint.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o.requires:
 
@@ -275,16 +275,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/MapPoint.cpp.o.provides.build: CMakeFiles/O
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o: ../src/KeyFrame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o.requires:
 
@@ -299,16 +299,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrame.cpp.o.provides.build: CMakeFiles/O
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o: ../src/Map.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o.requires:
 
@@ -323,16 +323,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Map.cpp.o.provides.build: CMakeFiles/ORB_Pa
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o: ../src/MapDrawer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o.requires:
 
@@ -347,16 +347,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/MapDrawer.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o: ../src/Optimizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o.requires:
 
@@ -371,16 +371,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Optimizer.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o: ../src/PnPsolver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o.requires:
 
@@ -395,16 +395,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/PnPsolver.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o: ../src/Frame.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o.requires:
 
@@ -419,16 +419,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Frame.cpp.o.provides.build: CMakeFiles/ORB_
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o: ../src/KeyFrameDatabase.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o.requires:
 
@@ -443,16 +443,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/KeyFrameDatabase.cpp.o.provides.build: CMak
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o: ../src/Sim3Solver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o.requires:
 
@@ -467,16 +467,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Sim3Solver.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o: ../src/Initializer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o.requires:
 
@@ -491,16 +491,16 @@ CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o: CMakeFiles/ORB_Panorama_SLAM.dir/flags.make
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o: ../src/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o -c /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o -c /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp > CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.i
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mj/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp -o CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.s
 
 CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o.requires:
 
@@ -558,51 +558,54 @@ ORB_Panorama_SLAM_EXTERNAL_OBJECTS =
 ../lib/libORB_Panorama_SLAM.so: CMakeFiles/ORB_Panorama_SLAM.dir/src/Initializer.cpp.o
 ../lib/libORB_Panorama_SLAM.so: CMakeFiles/ORB_Panorama_SLAM.dir/src/Viewer.cpp.o
 ../lib/libORB_Panorama_SLAM.so: CMakeFiles/ORB_Panorama_SLAM.dir/build.make
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_superres3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_face3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_plot3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_reg3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_text3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /home/ustc/nullmax/Pangolin/build/src/libpangolin.so
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_stitching3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_superres3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_videostab3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_aruco3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_bgsegm3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_bioinspired3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_ccalib3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_cvv3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_dpm3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_face3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_fuzzy3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_hdf3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_img_hash3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_line_descriptor3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_optflow3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_reg3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_saliency3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_stereo3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_structured_light3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_surface_matching3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_tracking3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_xfeatures2d3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_ximgproc3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_xobjdetect3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_xphoto3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /home/mj/Downloads/dependence/Pangolin/build/src/libpangolin.so
 ../lib/libORB_Panorama_SLAM.so: ../Thirdparty/DBoW2/lib/libDBoW2.so
 ../lib/libORB_Panorama_SLAM.so: ../Thirdparty/g2o/lib/libg2o.so
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_shape3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_video3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_viz3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_rgbd3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_flann3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_ml3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_photo3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.2.0
-../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_core3.so.3.2.0
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_shape3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_photo3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_calib3d3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_viz3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_phase_unwrapping3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_video3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_datasets3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_plot3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_text3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_dnn3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_features2d3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_flann3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_highgui3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_ml3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_videoio3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_imgcodecs3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_objdetect3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_imgproc3.so.3.3.1
+../lib/libORB_Panorama_SLAM.so: /opt/ros/kinetic/lib/libopencv_core3.so.3.3.1
 ../lib/libORB_Panorama_SLAM.so: /usr/lib/x86_64-linux-gnu/libGLU.so
 ../lib/libORB_Panorama_SLAM.so: /usr/lib/x86_64-linux-gnu/libGL.so
 ../lib/libORB_Panorama_SLAM.so: /usr/lib/x86_64-linux-gnu/libGLEW.so
@@ -621,7 +624,7 @@ ORB_Panorama_SLAM_EXTERNAL_OBJECTS =
 ../lib/libORB_Panorama_SLAM.so: /usr/lib/x86_64-linux-gnu/libjpeg.so
 ../lib/libORB_Panorama_SLAM.so: /usr/lib/x86_64-linux-gnu/libtiff.so
 ../lib/libORB_Panorama_SLAM.so: CMakeFiles/ORB_Panorama_SLAM.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX shared library ../lib/libORB_Panorama_SLAM.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX shared library ../lib/libORB_Panorama_SLAM.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ORB_Panorama_SLAM.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -656,6 +659,6 @@ CMakeFiles/ORB_Panorama_SLAM.dir/clean:
 .PHONY : CMakeFiles/ORB_Panorama_SLAM.dir/clean
 
 CMakeFiles/ORB_Panorama_SLAM.dir/depend:
-	cd /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/ORB_Panorama_SLAM.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mj/panorama_slam/ORB_Panorama_SLAM/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mj/panorama_slam/ORB_Panorama_SLAM /home/mj/panorama_slam/ORB_Panorama_SLAM /home/mj/panorama_slam/ORB_Panorama_SLAM/build /home/mj/panorama_slam/ORB_Panorama_SLAM/build /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/ORB_Panorama_SLAM.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ORB_Panorama_SLAM.dir/depend
 

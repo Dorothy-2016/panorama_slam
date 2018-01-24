@@ -30,7 +30,7 @@
 
 using namespace std;
 
-void LoadImages(int start_index, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
+void LoadImages(int end_index, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
 ;
 
 int main(int argc, char **argv)
@@ -124,15 +124,15 @@ int main(int argc, char **argv)
     return 0;
 }
 
-void LoadImages(int start_index, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
+void LoadImages(int end_index, vector<string> &vstrImageFilenames, vector<double> &vTimestamps)
 {
     cout<<"test"<<endl;
-    for (int i = 0;i<2800-start_index;i++)
+    for (int i = 0;i<end_index;i++)
     {
         char filename [100];
-        sprintf(filename,"/rgb%d.png",i+1+start_index);
+        sprintf(filename,"/rgb%d.png",i+1);
         string imageName = string(filename);
         vstrImageFilenames.push_back(imageName);
-        vTimestamps.push_back(0.25*i);
+        vTimestamps.push_back(0.05*i);
     }
 }

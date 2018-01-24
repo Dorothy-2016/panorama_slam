@@ -109,34 +109,47 @@ void EdgeSE3ProjectXYZ_Panoramic::linearizeOplus() {
   double x = xyz_trans[0];
   double y = xyz_trans[1];
   double z = xyz_trans[2];
-  const double Pi = 3.141592657;
-  const double coefu = 1920.0/2.0/Pi;
-  const double coefv = 960.0/Pi;
 
   double r2 = x*x + y*y + z*z ;
 
-  Matrix<double,2,3> tmp;
-  tmp(0,0) = coefu*z/(x*x+z*z);
-  tmp(0,1) = 0;
-  tmp(0,2) = -coefu*x/(x*x+z*z);
+  Vector2d proj  =  thetaphi_project(xyz_trans);
+  double phi = proj[1];
 
-  tmp(1,0) = -coefv*x*y/(sqrt(x*x+z*z)*r2);
-  tmp(1,1) = coefv*sqrt(x*x+z*z)/r2;
-  tmp(1,2) = -coefv*y*z/(sqrt(x*x+z*z)*r2);
+  Matrix<double,2,2> J1;
+  J1(0,0) = cos(phi);
+  J1(0,1) = 0 ;
+  J1(1,0) = 0 ;
+  J1(1,1) = 1 ;
+
+//  Matrix<double,2,3> tmp;
+//  tmp(0,0) = coefu*z/(x*x+z*z);
+//  tmp(0,1) = 0;
+//  tmp(0,2) = -coefu*x/(x*x+z*z);
+
+//  tmp(1,0) = -coefv*x*y/(sqrt(x*x+z*z)*r2);
+//  tmp(1,1) = coefv*sqrt(x*x+z*z)/r2;
+//  tmp(1,2) = -coefv*y*z/(sqrt(x*x+z*z)*r2);
+  Matrix<double,2,3> tmp;
+  tmp(0,0) = z/(x*x+z*z);
+  tmp(0,1) = 0;
+  tmp(0,2) = -x/(x*x+z*z);
+
+  tmp(1,0) = -x*y/(sqrt(x*x+z*z)*r2);
+  tmp(1,1) = sqrt(x*x+z*z)/r2;
+  tmp(1,2) = -y*z/(sqrt(x*x+z*z)*r2);
+
 
   // 2*3
-  _jacobianOplusXi = -1.0*tmp * T.rotation().toRotationMatrix();
+  _jacobianOplusXi = J1*tmp * T.rotation().toRotationMatrix();
   Matrix<double,3,6> J3;
-//  J3(0,0) =  1 ; J3(0,1) =  0 ; J3(0,2) =  0 ; J3(0,3) =  0 ;  J3(0,4) = -z  ;  J3(0,5) = y;
-//  J3(1,0) =  0 ; J3(1,1) =  1 ; J3(1,2) =  0 ; J3(1,3) =  z ;  J3(1,4) =  0  ;  J3(1,5) = -x;
-//  J3(2,0) =  0 ; J3(2,1) =  0 ; J3(2,2) =  1 ; J3(2,3) =  -y;  J3(2,4) =  x  ;  J3(2,5) =  0;
+
 
     J3(0,0) = 0 ; J3(0,1)  = z ; J3(0,2) =  -y ; J3(0,3) =  1 ;  J3(0,4) =  0  ;  J3(0,5) =  0;
     J3(1,0) = -z ; J3(1,1) = 0 ; J3(1,2) = x ; J3(1,3) =  0 ;  J3(1,4) =  1  ;  J3(1,5) =  0;
     J3(2,0) = y ; J3(2,1)  = -x ; J3(2,2) =  0 ; J3(2,3) =  0 ;  J3(2,4) =  0  ;  J3(2,5) =  1;
 
 
-   _jacobianOplusXj = -1.0*tmp*J3;
+   _jacobianOplusXj =J1*tmp*J3;
 
 //  _jacobianOplusXj(0,0) =  x*y/z_2 *fx;
 //  _jacobianOplusXj(0,1) = -(1+(x*x/z_2)) *fx;
@@ -167,6 +180,21 @@ Vector2d EdgeSE3ProjectXYZ_Panoramic::panoramic_project(const Vector3d & trans_x
     Vector2d res;
     res[0]  =  coefx*(-theta + 3.0*Pi/2.0);
     res[1]  =  coefy*(-phi + Pi/2.0);
+    return res;
+
+}
+
+Vector2d EdgeSE3ProjectXYZ_Panoramic::thetaphi_project(const Vector3d &trans_xyz) const{
+    const float Pi = 3.141592657;
+    float  theta,phi;
+    theta = atan2(trans_xyz(2),trans_xyz(0));
+    if(theta<-Pi/2) theta = 2*Pi+theta;
+
+    //    -pi/2 < theta <  pi3/2
+    phi = atan(-cos(theta)*trans_xyz(1)/trans_xyz(0));
+    Vector2d res;
+    res[0]  = theta ;
+    res[1]  = phi;
     return res;
 
 }
