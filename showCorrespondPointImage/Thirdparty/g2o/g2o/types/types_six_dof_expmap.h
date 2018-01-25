@@ -43,6 +43,7 @@
 #include <Eigen/Geometry>
 #include "../core/g2o_core_api.h"
 #include <iostream>
+#define  Pi 3.141592657
 
 namespace g2o {
 namespace types_six_dof_expmap {
@@ -105,48 +106,24 @@ public:
     const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
     //measurement u v
     Vector2d obs(_measurement);
-    const float coef =  3.141592657/960.0;
-    const float Pi = 3.141592657;
-    double theta_measurement =  -obs[0]*coef+3.0/2.0*Pi;
-    double phi_measurement =  -obs[1]*coef+Pi/2.0;
-
-
-    Vector2d proj  =  thetaphi_project(v1->estimate().map(v2->estimate()));
-    double  theta  = proj[0] ;
-    double  phi = proj[1];
-    _error[0] = cos(phi)*(theta_measurement- theta);
-    _error[1] = phi_measurement- phi;
-
-
-
-//    Vector2d obs(_measurement);
-//    _error = obs-panoramic_project(v1->estimate().map(v2->estimate()));
+    const float coef =  Pi/960.0;
+    Vector2d proj =  panoramic_project(v1->estimate().map(v2->estimate()));
+    _error[0] = sin(obs[1]*coef)*(obs[0]- proj[0]);
+    _error[1] = obs[1] - proj[1];
   }
 
   float getEdgeError()
   {
-//      const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
-//      const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
-//      Vector2d obs(_measurement);
-//      Vector2d error = obs-panoramic_project(v1->estimate().map(v2->estimate()));
-//      return sqrt(error[0]*error[0]+error[1]*error[1]);
 
       const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[1]); // T
       const VertexSBAPointXYZ* v2 = static_cast<const VertexSBAPointXYZ*>(_vertices[0]); // Xw
       //measurement u v
       Vector2d obs(_measurement);
       const float coef =  3.141592657/960.0;
-      const float Pi = 3.141592657;
-      double theta_measurement =  -obs[0]*coef+3.0/2.0*Pi;
-      double phi_measurement =  -obs[1]*coef+Pi/2.0;
-
-
-      Vector2d proj  =  thetaphi_project(v1->estimate().map(v2->estimate()));
-      double  theta  = proj[0] ;
-      double  phi = proj[1];
-      Vector2d error;
-      error[0] = cos(phi)*(theta_measurement- theta);
-      error[1] = phi_measurement- phi;
+      Vector2d proj =  panoramic_project(v1->estimate().map(v2->estimate()));
+      Vector2d error ;
+      error[0] = sin(obs[1]*coef)*(obs[0]- proj[0]);
+      error[1] = obs[1] - proj[1];
       return sqrt(error[0]*error[0]+error[1]*error[1]);
   }
 
@@ -158,7 +135,6 @@ public:
 
   virtual void linearizeOplus();
   Vector2d panoramic_project(const Vector3d & trans_xyz) const;
-
   Vector2d thetaphi_project(const Vector3d & trans_xyz) const;
   double fx, fy, cx, cy;
 
@@ -421,16 +397,24 @@ public:
   void computeError()  {
     const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[0]);
     Vector2d obs(_measurement);
-    _error = obs-panoramic_project(v1->estimate().map(Xw));
+    const float coef = Pi/960.0;
+    Vector2d proj  =  panoramic_project(v1->estimate().map(Xw));
+    _error[0] = sin(obs[1]*coef)*(obs[0]- proj[0]);
+    _error[1] = obs[1] - proj[1];
+
   }
 
-  float getEdgeError()
+  float   getEdgeError()
   {
+
       const VertexSE3Expmap* v1 = static_cast<const VertexSE3Expmap*>(_vertices[0]);
       Vector2d obs(_measurement);
-      Vector2d  error = obs-panoramic_project(v1->estimate().map(Xw));
-      return sqrt(error[0]*error[0]+error[1]*error[1]);
-
+      const float coef = Pi/960.0;
+      Vector2d proj  =  panoramic_project(v1->estimate().map(Xw));
+      Vector2d error ;
+      error[0] = sin(obs[1]*coef)*(obs[0]- proj[0]);
+      error[1] = obs[1] - proj[1];
+      return  sqrt(error[0]*error[0]+error[1]*error[1]);
   }
 
   /**
@@ -446,6 +430,7 @@ public:
   virtual void linearizeOplus();
 
   Vector2d panoramic_project(const Vector3d & trans_xyz) const;
+  Vector2d thetaphi_project(const Vector3d & trans_xyz) const;
 
   Vector3d Xw; ///< MapPoint在世界坐标系的位置
   double fx, fy, cx, cy; ///< 内参数

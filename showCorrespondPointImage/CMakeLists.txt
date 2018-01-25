@@ -20,7 +20,8 @@ ${OpenCV_INC}  ${PROJECT_SOURCE_DIR}
 add_executable(${PROJECT_NAME}_node src/showCorrespondPointImage_node.cpp)
  target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
- ${OpenCV_LIBS} ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+ ${OpenCV_LIBS}
+  ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
  )
 
 

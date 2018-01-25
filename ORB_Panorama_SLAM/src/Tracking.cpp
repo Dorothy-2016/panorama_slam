@@ -127,7 +127,7 @@ Tracking::Tracking(System *pSys, ORBVocabulary* pVoc, FrameDrawer *pFrameDrawer,
     mpORBextractorLeft = new ORBextractor(nFeatures,fScaleFactor,nLevels,fIniThFAST,fMinThFAST,false);
     // 在单目初始化的时候，会用mpIniORBextractor来作为特征点提取器
     if(sensor==System::MONOCULAR)
-        mpIniORBextractor = new ORBextractor(int(1.5*nFeatures),fScaleFactor,nLevels,fIniThFAST,fMinThFAST,true);
+        mpIniORBextractor = new ORBextractor(int(2.0*nFeatures),fScaleFactor,nLevels,fIniThFAST,fMinThFAST,true);
 
     cout << endl  << "ORB Extractor Parameters: " << endl;
     cout << "- Number of Features: " << nFeatures << endl;

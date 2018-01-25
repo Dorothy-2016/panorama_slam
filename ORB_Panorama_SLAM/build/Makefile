@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM
+CMAKE_SOURCE_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mj/panorama_slam/ORB_Panorama_SLAM/build
+CMAKE_BINARY_DIR = /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mj/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -109,19 +109,6 @@ preinstall/fast:
 depend:
 	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
-
-#=============================================================================
-# Target rules for targets named bin_vocabulary
-
-# Build rule for target.
-bin_vocabulary: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 bin_vocabulary
-.PHONY : bin_vocabulary
-
-# fast build rule for target.
-bin_vocabulary/fast:
-	$(MAKE) -f CMakeFiles/bin_vocabulary.dir/build.make CMakeFiles/bin_vocabulary.dir/build
-.PHONY : bin_vocabulary/fast
 
 #=============================================================================
 # Target rules for targets named ORB_Panorama_SLAM
@@ -255,33 +242,6 @@ Examples/Monocular/mono_ricoh.s: Examples/Monocular/mono_ricoh.cc.s
 Examples/Monocular/mono_ricoh.cc.s:
 	$(MAKE) -f CMakeFiles/mono_ricoh.dir/build.make CMakeFiles/mono_ricoh.dir/Examples/Monocular/mono_ricoh.cc.s
 .PHONY : Examples/Monocular/mono_ricoh.cc.s
-
-Vocabulary/bin_vocabulary.o: Vocabulary/bin_vocabulary.cpp.o
-
-.PHONY : Vocabulary/bin_vocabulary.o
-
-# target to build an object file
-Vocabulary/bin_vocabulary.cpp.o:
-	$(MAKE) -f CMakeFiles/bin_vocabulary.dir/build.make CMakeFiles/bin_vocabulary.dir/Vocabulary/bin_vocabulary.cpp.o
-.PHONY : Vocabulary/bin_vocabulary.cpp.o
-
-Vocabulary/bin_vocabulary.i: Vocabulary/bin_vocabulary.cpp.i
-
-.PHONY : Vocabulary/bin_vocabulary.i
-
-# target to preprocess a source file
-Vocabulary/bin_vocabulary.cpp.i:
-	$(MAKE) -f CMakeFiles/bin_vocabulary.dir/build.make CMakeFiles/bin_vocabulary.dir/Vocabulary/bin_vocabulary.cpp.i
-.PHONY : Vocabulary/bin_vocabulary.cpp.i
-
-Vocabulary/bin_vocabulary.s: Vocabulary/bin_vocabulary.cpp.s
-
-.PHONY : Vocabulary/bin_vocabulary.s
-
-# target to generate assembly for a file
-Vocabulary/bin_vocabulary.cpp.s:
-	$(MAKE) -f CMakeFiles/bin_vocabulary.dir/build.make CMakeFiles/bin_vocabulary.dir/Vocabulary/bin_vocabulary.cpp.s
-.PHONY : Vocabulary/bin_vocabulary.cpp.s
 
 src/Converter.o: src/Converter.cpp.o
 
@@ -802,7 +762,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... bin_vocabulary"
 	@echo "... ORB_Panorama_SLAM"
 	@echo "... rebuild_cache"
 	@echo "... mono_ricoh"
@@ -818,9 +777,6 @@ help:
 	@echo "... Examples/Monocular/mono_ricoh.o"
 	@echo "... Examples/Monocular/mono_ricoh.i"
 	@echo "... Examples/Monocular/mono_ricoh.s"
-	@echo "... Vocabulary/bin_vocabulary.o"
-	@echo "... Vocabulary/bin_vocabulary.i"
-	@echo "... Vocabulary/bin_vocabulary.s"
 	@echo "... src/Converter.o"
 	@echo "... src/Converter.i"
 	@echo "... src/Converter.s"

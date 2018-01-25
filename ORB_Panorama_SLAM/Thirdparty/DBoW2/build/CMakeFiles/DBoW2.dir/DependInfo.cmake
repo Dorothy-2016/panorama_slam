@@ -4,19 +4,19 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/BowVector.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/BowVector.cpp.o"
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/FORB.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/FORB.cpp.o"
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/FeatureVector.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/FeatureVector.cpp.o"
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/ScoringObject.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/ScoringObject.cpp.o"
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DUtils/Random.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DUtils/Random.cpp.o"
-  "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DUtils/Timestamp.cpp" "/home/mj/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DUtils/Timestamp.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/BowVector.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/BowVector.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/FORB.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/FORB.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/FeatureVector.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/FeatureVector.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DBoW2/ScoringObject.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DBoW2/ScoringObject.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DUtils/Random.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DUtils/Random.cpp.o"
+  "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/DUtils/Timestamp.cpp" "/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Thirdparty/DBoW2/build/CMakeFiles/DBoW2.dir/DUtils/Timestamp.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/opt/ros/kinetic/include/opencv-3.3.1"
-  "/opt/ros/kinetic/include/opencv-3.3.1/opencv"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev"
+  "/opt/ros/kinetic/include/opencv-3.2.0-dev/opencv"
   )
 
 # Targets to which this target links.

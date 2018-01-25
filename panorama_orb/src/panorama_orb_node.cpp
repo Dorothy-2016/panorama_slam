@@ -89,26 +89,29 @@ Mat CreateMask(int Height,int Width)
    {
      for (int j = 0;j<Width;j++)
      {
-           if(j<500||j>1420) continue;
-           int pixcor = j%(Width/4) -Width/8;
-           float fai = PI/4-fabs( float(pixcor)/Width*2*PI);
-           float theta =  float(-i+Height/2)/Height*PI;
+          if(j<500||j>1420||i<300||i>660)     tempMask.at<uchar>(i, j)= 0;
+          else     tempMask.at<uchar>(i, j)= 255;
 
-           float x = -cos(theta)*sin(fai);
-           float y = -sin(theta);
-           float z =  cos(theta)*cos(fai);
-           float u = (x/z*fx+cx) ;
-           float v = (y/z*fy+cy) ;
+//           if(j<500||j>1420) continue;
+//           int pixcor = j%(Width/4) -Width/8;
+//           float fai = PI/4-fabs( float(pixcor)/Width*2*PI);
+//           float theta =  float(-i+Height/2)/Height*PI;
 
-         // tempMask.at<uchar>(i, j)= 255;
-          if(u<0.0||u>600.0||v<0.0||v>600.0)
-          {
-              tempMask.at<uchar>(i, j)= 0;
-          }
-          else
-          {
-              tempMask.at<uchar>(i, j)= 255;
-          }
+//           float x = -cos(theta)*sin(fai);
+//           float y = -sin(theta);
+//           float z =  cos(theta)*cos(fai);
+//           float u = (x/z*fx+cx) ;
+//           float v = (y/z*fy+cy) ;
+
+//         // tempMask.at<uchar>(i, j)= 255;
+//          if(u<0.0||u>600.0||v<0.0||v>600.0)
+//          {
+//              tempMask.at<uchar>(i, j)= 0;
+//          }
+//          else
+//          {
+//              tempMask.at<uchar>(i, j)= 255;
+//          }
 
     }
  }

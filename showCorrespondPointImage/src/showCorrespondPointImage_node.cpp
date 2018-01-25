@@ -194,12 +194,25 @@ void Optimizer()
 
     g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg(solver_ptr);
     optimizer.setAlgorithm(solver);
+    optimizer.setVerbose(true);
+    const float thHuber2D = sqrt(5.99);
 
+    for (int i = 0;i<2;i++)
+    {
     g2o::VertexSE3Expmap * vSE3 = new g2o::VertexSE3Expmap();
-    vSE3->setEstimate(toSE3Quat(R,t));
-    vSE3->setId(0);
-    vSE3->setFixed(false);
+
+    vSE3->setId(i);
+    if(i==0)
+      {
+         vSE3->setFixed(true);
+         vSE3->setEstimate(g2o::SE3Quat());
+      }
+    else
+      {
+        vSE3->setEstimate(toSE3Quat(R,t));
+      }
     optimizer.addVertex(vSE3);
+    }
 
     std::vector<g2o::EdgeSE3ProjectXYZOnlyPose_Panoramic*> edges;
 
@@ -207,7 +220,7 @@ void Optimizer()
     {
 
         Eigen::Matrix<double,2,1> obs;
-        cv::Point2f pt = Cp[i].pt2;
+        cv::Point2f pt = Cp[i].pt1;
         obs <<pt.x*2,pt.y*2;
 
 
@@ -229,11 +242,49 @@ void Optimizer()
         e->Xw[0] = p.x;
         e->Xw[1] = p.y;
         e->Xw[2] = p.z;
+
+        g2o::RobustKernelHuber* rk = new g2o::RobustKernelHuber;
+        e->setRobustKernel(rk);
+        rk->setDelta(thHuber2D);
         optimizer.addEdge(e);
         edges.push_back(e);
+
     }
 
-    float  errorSum = 0;
+    for (int i = 0 ;i<SparsePoint.size();i++)
+    {
+
+        Eigen::Matrix<double,2,1> obs;
+        cv::Point2f pt = Cp[i].pt2;
+        obs <<pt.x*2,pt.y*2;
+
+
+        g2o::EdgeSE3ProjectXYZOnlyPose_Panoramic* e = new g2o::EdgeSE3ProjectXYZOnlyPose_Panoramic();
+
+        e->setVertex(0, dynamic_cast<g2o::OptimizableGraph::Vertex*>(optimizer.vertex(1)));
+        e->setMeasurement(obs);
+
+        e->setInformation(Eigen::Matrix2d::Identity());
+
+        e->fx = 300.0;
+        e->fy = 300.0;
+        e->cx = 300.0;
+        e->cy = 300.0;
+        PointT p = SparsePoint[i];
+        e->Xw[0] = p.x;
+        e->Xw[1] = p.y;
+        e->Xw[2] = p.z;
+
+        g2o::RobustKernelHuber* rk = new g2o::RobustKernelHuber;
+        e->setRobustKernel(rk);
+        rk->setDelta(thHuber2D);
+        optimizer.addEdge(e);
+        edges.push_back(e);
+
+    }
+
+
+    float errorSum = 0;
     for (int i = 0;i<edges.size();i++)
     {
         errorSum+= edges[i]->getEdgeError();
@@ -246,7 +297,7 @@ void Optimizer()
     optimizer.optimize(100);
 
 
-    float errorSum2 = 0;
+    float errorSum2 = 0 ;
     for (int i = 0;i<edges.size();i++)
     {
         errorSum2+= edges[i]->getEdgeError();
@@ -293,7 +344,7 @@ void GlobalBundleAdjustment()
     const float thHuber2D = sqrt(5.99);
 
 
-    for(int i=0; i<SparsePoint.size(); i++)
+    for(int i=0; i<(int)SparsePoint.size(); i++)
     {
         g2o::VertexSBAPointXYZ* vPoint = new g2o::VertexSBAPointXYZ();
         vPoint->setEstimate(toVector3d(SparsePoint[i]));
@@ -304,7 +355,7 @@ void GlobalBundleAdjustment()
 
      vector<g2o::EdgeSE3ProjectXYZ_Panoramic*> edges;
 
-     for (int i = 0;i<SparsePoint.size();i++)
+     for (int i = 0;i<(int)SparsePoint.size();i++)
      {
         for(int k = 0;k<2;k++)
         {
@@ -347,9 +398,7 @@ void GlobalBundleAdjustment()
         cout<<"before optimization "<<endl;
         cout<<"total error "<<endl<<errorSum<<endl;
 
-
-        optimizer.optimize(100);
-
+        optimizer.optimize(30);
 
         float errorSum2 = 0;
         for (int i = 0;i<edges.size();i++)
@@ -399,7 +448,7 @@ int main(int argc ,char ** argv)
 
 
     GlobalBundleAdjustment();
-//    Optimizer();
+    Optimizer();
     cout<<R<<endl;
     cout<<t<<endl;
     char filename[100];

@@ -31,7 +31,7 @@ cout<<"读取视频失败"<<endl;
 return -1;
 }
 imshow("Extracted frame",frame);
-sprintf(filename,"./frames/rgb%d.png",count++);
+sprintf(filename,"./rgb%d.png",count++);
 imwrite(filename,frame);
 waitKey(10);
 }

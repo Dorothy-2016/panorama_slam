@@ -105,3 +105,4 @@ $\longrightarrow$修改在各处判断深度值必须为正数的地方
 		3.Frame::isInFrustum()
 修改了Tracking中 initORBextrator features的数量  
 *  修改了NewKeyframe中的系数 ，主要是thRefRatio 对于前视的不需要改，但是对于看四周的来说需要把这个改大一点。
+*   对于初始化，minX,maxX应该选择的范围更小一点，因为初始化过程中需要判断Z为正值，边界点在另一个视角中可能z不为正。

@@ -309,6 +309,7 @@ int Optimizer::PoseOptimization(Frame *pFrame)
 //    vnIndexEdgeStereo.reserve(N);
 
     const float deltaMono = sqrt(5.991);
+//      const float deltaMono = sqrt(10.0);
 //    const float deltaStereo = sqrt(7.815);
 
     // 步骤3：添加一元边：相机投影模型
@@ -409,6 +410,7 @@ int Optimizer::PoseOptimization(Frame *pFrame)
     // 由于每次优化后是对所有的观测进行outlier和inlier判别，因此之前被判别为outlier有可能变成inlier，反之亦然
     // 基于卡方检验计算出的阈值（假设测量有一个像素的偏差）
     const float chi2Mono[4]={5.991,5.991,5.991,5.991};
+//    const float chi2Mono[4]={10.0,10.0,10.0,10.0};
 //    const float chi2Stereo[4]={7.815,7.815,7.815, 7.815};
     const int its[4]={10,10,10,10};// 四次迭代，每次迭代的次数
 
@@ -433,7 +435,6 @@ int Optimizer::PoseOptimization(Frame *pFrame)
             }
 
             const float chi2 = e->chi2();
-
             if(chi2>chi2Mono[it])
             {                
                 pFrame->mvbOutlier[idx]=true;

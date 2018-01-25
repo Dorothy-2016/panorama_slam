@@ -17,7 +17,7 @@ endif( CMAKE_BUILD_TYPE MATCHES "Debug" )
 
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake_modules)
 
-find_package(OpenCV 3 REQUIRED)
+find_package(OpenCV 3.3.1 REQUIRED)
 find_package(Eigen3 REQUIRED)
 find_package(Pangolin REQUIRED)
 
@@ -58,6 +58,7 @@ ${EIGEN3_LIBS}
 ${Pangolin_LIBRARIES}
 ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
 ${PROJECT_SOURCE_DIR}/Thirdparty/g2o/lib/libg2o.so
+#/home/ustc/ricoh_ws/src/panorama_slam/showCorrespondPointImage/Thirdparty/g2o/lib/libg2o.so
 )
 
 add_executable(mono_ricoh Examples/Monocular/mono_ricoh.cc)
@@ -80,6 +81,6 @@ target_link_libraries(mono_panorama ${PROJECT_NAME})
 #target_link_libraries(rgbd_tum ${PROJECT_NAME})
 
 # Build tools
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Vocabulary)
-add_executable(bin_vocabulary Vocabulary/bin_vocabulary.cpp)
-target_link_libraries(bin_vocabulary ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so ${OpenCV_LIBS})
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/Vocabulary)
+#add_executable(bin_vocabulary Vocabulary/bin_vocabulary.cpp)
+#target_link_libraries(bin_vocabulary ${PROJECT_SOURCE_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so ${OpenCV_LIBS})

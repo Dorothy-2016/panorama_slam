@@ -93,6 +93,8 @@ int main(int argc, char **argv)
 
         vTimesTrack[ni]=ttrack;
 
+//        cout<<"ttrack time "<<ttrack<<endl;
+
         // Wait to load the next frame
         double T=0;
         if(ni<nImages-1)

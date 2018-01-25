@@ -154,6 +154,7 @@ void Viewer::Run()
         pangolin::FinishFrame();
 
         cv::Mat im = mpFrameDrawer->DrawFrame();
+//        cv::resize(im,im,cv::Size(960,480));
         cv::imshow("ORB-SLAM2: Current Frame",im);
         cv::waitKey(mT);
 
