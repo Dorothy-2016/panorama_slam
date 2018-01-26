@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="ORB_Panorama_SLAM" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\;CMake Files\..\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\..\usr\local\;CMake Files\..\..\..\..\..\..\usr\local\share\;CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\;CMake Files\..\..\..\..\nullmax\;CMake Files\..\..\..\..\nullmax\Pangolin\;CMake Files\..\..\..\..\nullmax\Pangolin\build\;CMake Files\..\..\..\..\nullmax\Pangolin\build\src\;CMake Files\cmake_modules\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ORB_Panorama_SLAM">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/lib/libORB_Panorama_SLAM.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 ORB_Panorama_SLAM" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="ORB_Panorama_SLAM/fast">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/lib/libORB_Panorama_SLAM.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 ORB_Panorama_SLAM/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_ricoh">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/mono_ricoh" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_ricoh" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_ricoh/fast">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/mono_ricoh" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_ricoh/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_kitti">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/mono_kitti" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_kitti" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_kitti/fast">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/mono_kitti" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_kitti/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_panorama">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/mono_panorama" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_panorama" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="mono_panorama/fast">
+         <Option output="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/mono_panorama" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add option="-DCOMPILEDWITHC11" />
+            <Add option="-DOPENCV_TRAITS_ENABLE_DEPRECATED" />
+            <Add directory="/home/ustc/nullmax/Pangolin/build/src/include" />
+            <Add directory="/home/ustc/nullmax/Pangolin/include" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM" />
+            <Add directory="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/include" />
+            <Add directory="/usr/include/eigen3" />
+            <Add directory="/usr/local/include" />
+            <Add directory="/usr/local/include/opencv" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 mono_panorama/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_kitti.cc">
+         <Option target="mono_kitti"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_panorama.cc">
+         <Option target="mono_panorama"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/Examples/Monocular/mono_ricoh.cc">
+         <Option target="mono_ricoh"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Converter.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Frame.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/FrameDrawer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Initializer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrame.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/KeyFrameDatabase.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LocalMapping.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/LoopClosing.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Map.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapDrawer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/MapPoint.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBextractor.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/ORBmatcher.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Optimizer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/PnPsolver.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Sim3Solver.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/System.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Tracking.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/src/Viewer.cpp">
+         <Option target="ORB_Panorama_SLAM"/>
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../../../usr/local/share/OpenCV/OpenCVConfig-version.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../../../usr/local/share/OpenCV/OpenCVConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../../../usr/local/share/OpenCV/OpenCVModules.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../../../usr/local/share/OpenCV/OpenCVModules-release.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\..\..\usr\local\share\OpenCV\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../nullmax/Pangolin/build/src/PangolinConfigVersion.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\nullmax\Pangolin\build\src\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../nullmax/Pangolin/build/src/PangolinConfig.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\nullmax\Pangolin\build\src\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/../../../../nullmax/Pangolin/build/src/PangolinTargets.cmake">
+          <Option virtualFolder="CMake Files\..\..\..\..\nullmax\Pangolin\build\src\" />
+      </Unit>
+      <Unit filename="/home/ustc/ricoh_ws/src/panorama_slam/ORB_Panorama_SLAM/cmake_modules/FindEigen3.cmake">
+          <Option virtualFolder="CMake Files\cmake_modules\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>

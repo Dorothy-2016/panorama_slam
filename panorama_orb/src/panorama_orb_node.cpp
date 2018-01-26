@@ -9,10 +9,12 @@
 #include <thread>
 #include "ORBextractor.h"
 #include "Thirdparty/DBoW2/DUtils/Random.h"
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Dense>
 
 
 #define PI 3.1415926
-
+using namespace Eigen;
 using namespace cv;
 using namespace std;
 float fx = 300.0;
@@ -89,7 +91,7 @@ Mat CreateMask(int Height,int Width)
    {
      for (int j = 0;j<Width;j++)
      {
-          if(j<500||j>1420||i<300||i>660)     tempMask.at<uchar>(i, j)= 0;
+          if(j<600||j>1320||i<300||i>660)     tempMask.at<uchar>(i, j)= 0;
           else     tempMask.at<uchar>(i, j)= 255;
 
 //           if(j<500||j>1420) continue;
@@ -726,6 +728,153 @@ void SaveRT(cv::Mat R,cv::Mat t)
 
 }
 
+cv::Mat ComputeH21(const vector<cv::Point2f> &vP1, const vector<cv::Point2f> &vP2)
+{
+    const int N = vP1.size();
+
+    cv::Mat A(2*N,9,CV_32F); // 2N*9
+
+    for(int i=0; i<N; i++)
+    {
+        const float u1 = vP1[i].x;
+        const float v1 = vP1[i].y;
+        const float u2 = vP2[i].x;
+        const float v2 = vP2[i].y;
+
+        A.at<float>(2*i,0) = 0.0;
+        A.at<float>(2*i,1) = 0.0;
+        A.at<float>(2*i,2) = 0.0;
+        A.at<float>(2*i,3) = -u1;
+        A.at<float>(2*i,4) = -v1;
+        A.at<float>(2*i,5) = -1;
+        A.at<float>(2*i,6) = v2*u1;
+        A.at<float>(2*i,7) = v2*v1;
+        A.at<float>(2*i,8) = v2;
+
+        A.at<float>(2*i+1,0) = u1;
+        A.at<float>(2*i+1,1) = v1;
+        A.at<float>(2*i+1,2) = 1;
+        A.at<float>(2*i+1,3) = 0.0;
+        A.at<float>(2*i+1,4) = 0.0;
+        A.at<float>(2*i+1,5) = 0.0;
+        A.at<float>(2*i+1,6) = -u2*u1;
+        A.at<float>(2*i+1,7) = -u2*v1;
+        A.at<float>(2*i+1,8) = -u2;
+
+    }
+
+    cv::Mat u,w,vt;
+
+    cv::SVDecomp(A,w,u,vt,cv::SVD::MODIFY_A | cv::SVD::FULL_UV);
+
+    return vt.row(8).reshape(0, 3); // v的最后一列
+}
+
+
+float CheckHomography(const cv::Mat &H21, const cv::Mat &H12,std::vector<cv::KeyPoint> kp1 ,std::vector<cv::KeyPoint> kp2)
+{
+    float res = 0;
+
+    for (int i = 0 ;i<8;i++)
+    {
+       cv::Mat p1(3,1,CV_32F);
+       p1.at<float>(0,0) = kp1[i].pt.x;
+       p1.at<float>(1,0) = kp1[i].pt.y;
+       p1.at<float>(2,0) = 1.0;
+
+       cv::Mat p2_  = H21*p1;
+       float x = p2_.at<float>(0,0);
+       float y = p2_.at<float>(1,0);
+       float z = p2_.at<float>(2,0);
+       cv::Point2f imagepoint2 =  toPanoramic_Point2f(cv::Point3f(x,y,z));
+       cv::Point2f imagepoint1 = toPanoramic_Point2f(cv::Point3f(kp1[i].pt.x,kp1[i].pt.y,1.0));
+
+       res += sqrt((imagepoint1.x - imagepoint2.x )*(imagepoint1.x - imagepoint2.x )+(imagepoint1.y - imagepoint2.y )*(imagepoint1.y - imagepoint2.y) );
+    }
+
+    for (int i = 0 ;i<8;i++)
+    {
+       cv::Mat p2(3,1,CV_32F);
+       p2.at<float>(0,0) = kp2[i].pt.x;
+       p2.at<float>(1,0) = kp2[i].pt.y;
+       p2.at<float>(2,0) = 1.0;
+
+       cv::Mat p1_  = H21*p2;
+       float x = p1_.at<float>(0,0);
+       float y = p1_.at<float>(1,0);
+       float z = p1_.at<float>(2,0);
+       cv::Point2f imagepoint2 =  toPanoramic_Point2f(cv::Point3f(x,y,z));
+       cv::Point2f imagepoint1 = toPanoramic_Point2f(cv::Point3f(kp2[i].pt.x,kp2[i].pt.y,1.0));
+
+       res += sqrt((imagepoint1.x - imagepoint2.x )*(imagepoint1.x - imagepoint2.x )+(imagepoint1.y - imagepoint2.y )*(imagepoint1.y - imagepoint2.y ));
+    }
+
+
+    return res;
+}
+
+cv::Mat FindHomography(std::vector<cv::KeyPoint> vPKeys1,std::vector<cv::KeyPoint>vPKeys2,std::vector<cv::DMatch> matches,float &res)
+{
+    int nmatches  = matches.size();
+    if(nmatches <= 8) return cv::Mat() ;
+    vector<int> vEightpoint;
+    for (int i = 0 ;i<8;i++)
+    {
+     DUtils::Random::SeedRandOnce(0);
+     int randi = DUtils::Random::RandomInt(0,nmatches-1);
+     vEightpoint.push_back(randi);
+    }
+
+    vector<cv::KeyPoint> mvKeys1,mvKeys2;
+    cv::KeyPoint newkp ;
+    float coefx = 2*PI/1920.0;
+    float coefy = PI/960.0;
+
+    for(int i = 0;i<8;i++)
+    {   int index = vEightpoint[i];
+        int queryid  = matches[index].queryIdx;
+        cv::KeyPoint  kp1 = vPKeys1[queryid];
+        float x = kp1.pt.x ;
+        float y = kp1.pt.y ;
+        float theta = -x*coefx+3.0/2.0*PI;
+        float fai = -y*coefy+PI/2.0;
+        newkp.pt.x = 1.0/tan(theta);
+        newkp.pt.y = -tan(fai)/sin(theta);
+        mvKeys1.push_back(newkp);
+
+    }
+
+    for (int i = 0;i<8;i++)
+    {
+        int index = vEightpoint[i];
+        int trainid  = matches[index].trainIdx;
+        cv::KeyPoint  kp2 = vPKeys2[trainid];
+        float x = kp2.pt.x ;
+        float y = kp2.pt.y ;
+        float theta = -x*coefx+3.0/2.0*PI;
+        float fai = -y*coefy+PI/2.0;
+        newkp.pt.x = 1.0/tan(theta);
+        newkp.pt.y = -tan(fai)/sin(theta);
+        mvKeys2.push_back(newkp);
+    }
+
+
+
+    vector<cv::Point2f> vPn1, vPn2;
+    cv::Mat T1, T2;
+    Normalize(mvKeys1,vPn1, T1);
+    Normalize(mvKeys2,vPn2, T2);
+    cv::Mat T2inv = T2.inv();
+    cv::Mat H21i, H12i;
+
+    cv::Mat Hn = ComputeH21(vPn1,vPn2);
+    H21i = T2inv*Hn*T1;
+    H12i = H21i.inv();
+
+    res = CheckHomography(H21i, H12i, mvKeys1,mvKeys2);
+}
+
+
 /**
  * @brief main  Code entrance
  * @param argc
@@ -748,10 +897,10 @@ int main(int argc,char ** argv)
 
   int frameIdx = atoi(argv[1]);
   char filename[100];
-  sprintf(filename,"frames/rgb%d.png",frameIdx);
+  sprintf(filename,"./data_homo/rgb%d.png",frameIdx);
   frameIdx = frameIdx+5;
   Mat image = imread(filename);
-  sprintf(filename,"frames/rgb%d.png",frameIdx);
+  sprintf(filename,"./data_homo/rgb%d.png",frameIdx);
   Mat image2 = imread(filename);
   if(image.empty()||image2.empty()){
       cerr<<"image empty"<<endl;
