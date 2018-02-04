@@ -282,7 +282,7 @@ void System::Reset()
 void System::Shutdown()
 {
     mpLocalMapper->RequestFinish();
-//    mpLoopCloser->RequestFinish();
+    mpLoopCloser->RequestFinish();
     if(mpViewer)
     {
         mpViewer->RequestFinish();
@@ -402,11 +402,11 @@ void System::SaveKeyFrameTrajectoryTUM(const string &filename)
 void System::SaveTrajectoryKITTI(const string &filename)
 {
     cout << endl << "Saving camera trajectory to " << filename << " ..." << endl;
-    if(mSensor==MONOCULAR)
-    {
-        cerr << "ERROR: SaveTrajectoryKITTI cannot be used for monocular." << endl;
-        return;
-    }
+//    if(mSensor==MONOCULAR)
+//    {
+//        cerr << "ERROR: SaveTrajectoryKITTI cannot be used for monocular." << endl;
+//        return;
+//    }
 
     vector<KeyFrame*> vpKFs = mpMap->GetAllKeyFrames();
     sort(vpKFs.begin(),vpKFs.end(),KeyFrame::lId);
@@ -446,12 +446,48 @@ void System::SaveTrajectoryKITTI(const string &filename)
         cv::Mat Rwc = Tcw.rowRange(0,3).colRange(0,3).t();
         cv::Mat twc = -Rwc*Tcw.rowRange(0,3).col(3);
 
-        f << setprecision(9) << Rwc.at<float>(0,0) << " " << Rwc.at<float>(0,1)  << " " << Rwc.at<float>(0,2) << " "  << twc.at<float>(0) << " " <<
-             Rwc.at<float>(1,0) << " " << Rwc.at<float>(1,1)  << " " << Rwc.at<float>(1,2) << " "  << twc.at<float>(1) << " " <<
-             Rwc.at<float>(2,0) << " " << Rwc.at<float>(2,1)  << " " << Rwc.at<float>(2,2) << " "  << twc.at<float>(2) << endl;
+     //   f << setprecision(9) << Rwc.at<float>(0,0) << " " << Rwc.at<float>(0,1)  << " " << Rwc.at<float>(0,2) << " "  << twc.at<float>(0) << " " <<
+     //        Rwc.at<float>(1,0) << " " << Rwc.at<float>(1,1)  << " " << Rwc.at<float>(1,2) << " "  << twc.at<float>(1) << " " <<
+     //        Rwc.at<float>(2,0) << " " << Rwc.at<float>(2,1)  << " " << Rwc.at<float>(2,2) << " "  << twc.at<float>(2) << endl;
+        f <<setprecision(9)<< twc.at<float>(0) <<" "<<twc.at<float>(1)<<" "<<twc.at<float>(2)<<endl;
+
     }
     f.close();
     cout << endl << "trajectory saved!" << endl;
+}
+
+
+
+void System::SaveMapPoint(const string &filename)
+{
+    cout << endl << "Saving map points trajectory to " << filename << " ..." << endl;
+
+    vector<MapPoint*> vpMps = mpMap->GetAllMapPoints();
+
+    ofstream f;
+    f.open(filename.c_str());
+    f << fixed;
+
+    for(size_t i=0; i<vpMps.size(); i++)
+    {
+        MapPoint* pMP = vpMps[i];
+
+
+        if(pMP->isBad())
+            continue;
+
+
+        cv::Mat pos = pMP->GetWorldPos();
+              //            fout<<
+
+
+
+        f << setprecision(6) << pos.at<float>(0,0) <<" "<<pos.at<float>(1,0) <<" "<<pos.at<float>(2,0) <<endl;
+    }
+
+    f.close();
+    cout << endl << "Map points saved!" << endl;
+
 }
 
 } //namespace ORB_SLAM

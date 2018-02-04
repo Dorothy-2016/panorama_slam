@@ -141,7 +141,10 @@ int main(int argc ,char** argv)
      int key =0;
 
      while(key!=10)
-
+     {
+        
+        
+     }
      cv::waitKey(0);
         return 0;
 

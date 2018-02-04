@@ -809,7 +809,8 @@ void Optimizer::LocalBundleAdjustment(KeyFrame *pKF, bool* pbStopFlag, Map* pMap
             continue;
 
         // 基于卡方检验计算出的阈值（假设测量有一个像素的偏差）
-        if(e->chi2()>5.991 || !e->isDepthPositive())
+//        if(e->chi2()>5.991 || !e->isDepthPositive())
+         if(e->chi2()>5.991)
         {
             KeyFrame* pKFi = vpEdgeKFMono[i];
             vToErase.push_back(make_pair(pKFi,pMP));

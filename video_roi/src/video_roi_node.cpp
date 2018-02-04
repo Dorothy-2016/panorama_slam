@@ -31,10 +31,11 @@ cout<<"读取视频失败"<<endl;
 return -1;
 }
 imshow("Extracted frame",frame);
+cvtColor(frame,frame,CV_RGB2GRAY);
 resize(frame,frame,cv::Size(1920,960));
 sprintf(filename,"./rgb%d.png",count++);
 imwrite(filename,frame);
-waitKey(10);
+waitKey(5);
 }
 return 0;
 }

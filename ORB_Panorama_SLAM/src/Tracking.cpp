@@ -531,7 +531,8 @@ void Tracking::Track()
 
             // Check if we need to insert a new keyframe
             // 步骤2.6：检测并插入关键帧，对于双目会产生新的MapPoints
-            if(NeedNewKeyFrame())
+//            if(NeedNewKeyFrame())
+             if(NeedNewKeyFrame())
                 CreateNewKeyFrame();
 
             // We allow points with high innovation (considererd outliers by the Huber Function)
@@ -1241,6 +1242,17 @@ bool Tracking::TrackLocalMap()
         return true;
 }
 
+bool Tracking::NeedNewKeyFrameFPS()
+{
+
+    if(mpLocalMapper->isStopped() || mpLocalMapper->stopRequested())
+        return false;
+
+
+    if( mCurrentFrame.mnId>=mnLastKeyFrameId+20) return true;
+    else return false;
+}
+
 /**
  * @brief 断当前帧是否为关键帧
  * @return true if needed
@@ -1317,7 +1329,7 @@ bool Tracking::NeedNewKeyFrame()
     if(nKFs<2)
         thRefRatio = 0.4f;// 关键帧只有一帧，那么插入关键帧的阈值设置很低
     if(mSensor==System::MONOCULAR)
-        thRefRatio = 0.9f;
+        thRefRatio = 0.95f;
 
     // MapPoints中和地图关联的比例阈值
     float thMapRatio = 0.35f;
@@ -1327,6 +1339,7 @@ bool Tracking::NeedNewKeyFrame()
     // Condition 1a: More than "MaxFrames" have passed from last keyframe insertion
     // 很长时间没有插入关键帧
     const bool c1a = mCurrentFrame.mnId>=mnLastKeyFrameId+mMaxFrames;
+
     // Condition 1b: More than "MinFrames" have passed and Local Mapping is idle
     // localMapper处于空闲状态
     const bool c1b = (mCurrentFrame.mnId>=mnLastKeyFrameId+mMinFrames && bLocalMappingIdle);

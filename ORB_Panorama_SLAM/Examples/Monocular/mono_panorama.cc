@@ -67,6 +67,9 @@ int main(int argc, char **argv)
         im = cv::imread(string(argv[3])+"/"+vstrImageFilenames[ni],CV_LOAD_IMAGE_UNCHANGED);
         double tframe = vTimestamps[ni];
 
+
+        cout<<"frame "<< ni<<endl;
+
         if(im.empty())
         {
             cerr << endl << "Failed to load image at: "
@@ -105,7 +108,7 @@ int main(int argc, char **argv)
         if(ttrack<T)
             usleep((T-ttrack)*1e6);
     }
-
+    cout<<"System shutting down "<<endl;
     // Stop all threads
     SLAM.Shutdown();
 
@@ -121,7 +124,9 @@ int main(int argc, char **argv)
     cout << "mean tracking time: " << totaltime/nImages << endl;
 
     // Save camera trajectory
-    SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
+//    SLAM.SaveKeyFrameTrajectoryTUM("KeyFrameTrajectory.txt");
+    SLAM.SaveTrajectoryKITTI("Trajectory.txt");
+    SLAM.SaveMapPoint("MapPoints.txt");
 
     return 0;
 }
@@ -132,7 +137,7 @@ void LoadImages(int end_index, vector<string> &vstrImageFilenames, vector<double
     for (int i = 0;i<end_index;i++)
     {
         char filename [100];
-        sprintf(filename,"/rgb%d.png",i+1);
+        sprintf(filename,"/rgb%d.png",i);
         string imageName = string(filename);
         vstrImageFilenames.push_back(imageName);
         vTimestamps.push_back(0.05*i);
